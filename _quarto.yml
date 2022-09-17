@@ -2,8 +2,9 @@ project:
   type: book
 
 book:
-  title: "STAT303-1"
-  author: "Arvind Krishna and Arend Kuyper"
+  title: "Introduction to programming for data science"
+  subtitle: "STAT 201"
+  author: "Arvind Krishna"
   date: "9/20/2022"
   chapters:
     - index.qmd
