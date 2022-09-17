@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -215,19 +220,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pandas-data-stuctures---series-and-dataframe" id="toc-pandas-data-stuctures---series-and-dataframe" class="nav-link active" data-scroll-target="#pandas-data-stuctures---series-and-dataframe"> <span class="header-section-number">5.1</span> Pandas data stuctures - Series and DataFrame</a></li>
-  <li><a href="#data-manipulations-with-pandas" id="toc-data-manipulations-with-pandas" class="nav-link" data-scroll-target="#data-manipulations-with-pandas"> <span class="header-section-number">5.2</span> Data manipulations with Pandas</a>
+  <li><a href="#pandas-data-stuctures---series-and-dataframe" id="toc-pandas-data-stuctures---series-and-dataframe" class="nav-link active" data-scroll-target="#pandas-data-stuctures---series-and-dataframe"><span class="toc-section-number">5.1</span>  Pandas data stuctures - Series and DataFrame</a></li>
+  <li><a href="#data-manipulations-with-pandas" id="toc-data-manipulations-with-pandas" class="nav-link" data-scroll-target="#data-manipulations-with-pandas"><span class="toc-section-number">5.2</span>  Data manipulations with Pandas</a>
   <ul class="collapse">
-  <li><a href="#sub-setting-data" id="toc-sub-setting-data" class="nav-link" data-scroll-target="#sub-setting-data"> <span class="header-section-number">5.2.1</span> Sub-setting data</a></li>
-  <li><a href="#sorting-data" id="toc-sorting-data" class="nav-link" data-scroll-target="#sorting-data"> <span class="header-section-number">5.2.2</span> Sorting data</a></li>
-  <li><a href="#unique-values-value-counts-and-membership" id="toc-unique-values-value-counts-and-membership" class="nav-link" data-scroll-target="#unique-values-value-counts-and-membership"> <span class="header-section-number">5.2.3</span> Unique values, value counts and membership</a></li>
+  <li><a href="#sub-setting-data" id="toc-sub-setting-data" class="nav-link" data-scroll-target="#sub-setting-data"><span class="toc-section-number">5.2.1</span>  Sub-setting data</a></li>
+  <li><a href="#sorting-data" id="toc-sorting-data" class="nav-link" data-scroll-target="#sorting-data"><span class="toc-section-number">5.2.2</span>  Sorting data</a></li>
+  <li><a href="#unique-values-value-counts-and-membership" id="toc-unique-values-value-counts-and-membership" class="nav-link" data-scroll-target="#unique-values-value-counts-and-membership"><span class="toc-section-number">5.2.3</span>  Unique values, value counts and membership</a></li>
   </ul></li>
-  <li><a href="#operations-between-dataframe-and-series" id="toc-operations-between-dataframe-and-series" class="nav-link" data-scroll-target="#operations-between-dataframe-and-series"> <span class="header-section-number">5.3</span> Operations between DataFrame and Series</a></li>
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"> <span class="header-section-number">5.4</span> Correlation</a></li>
+  <li><a href="#operations-between-dataframe-and-series" id="toc-operations-between-dataframe-and-series" class="nav-link" data-scroll-target="#operations-between-dataframe-and-series"><span class="toc-section-number">5.3</span>  Operations between DataFrame and Series</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="toc-section-number">5.4</span>  Correlation</a></li>
   </ul>
 </nav>
     </div>
@@ -3261,7 +3266,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
