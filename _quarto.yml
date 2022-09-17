@@ -7,7 +7,7 @@ book:
   date: "9/20/2022"
   chapters:
     - index.qmd
-    - Introduction to Python and Jupyter Notebooks.ipynb
+    - Introduction Jupyter Notebooks and programming in python.ipynb
     - data_structures.ipynb
     - Chap 2 Reading data.ipynb
     - NumPy.ipynb
