@@ -10,13 +10,6 @@ book:
     - index.qmd
     - Introduction to Jupyter Notebooks and programming in python.ipynb
     - data_structures.ipynb
-    - Chap 2 Reading data.ipynb
-    - NumPy.ipynb
-    - Pandas.ipynb
-    - Data visualization.ipynb
-    - Data cleaning and preparation.ipynb
-    - Data wrangling.ipynb
-    - Data aggregation.ipynb
     - references.qmd
 
 bibliography: references.bib
