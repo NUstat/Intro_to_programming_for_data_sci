@@ -56,67 +56,60 @@
     "text": "Some of the commonly used objects in python are numbers - integer and float, strings and bool (true/false). The data type of the object can be identified using the in-built python function type(). For example, see the following objects and their types:\n\ntype(4)\n\nint\n\n\n\ntype(4.4)\n\nfloat\n\n\n\ntype('4')\n\nstr\n\n\n\ntype(True)\n\nbool\n\n\n\n\nWhat is the datatype of the following objects?\n\n‘This is False’\n“This is a number”\n1000\n65.65\nFalse"
   },
   {
-    "objectID": "Variable_expressions_statements.html#variable-names",
-    "href": "Variable_expressions_statements.html#variable-names",
+    "objectID": "Variable_expressions_statements.html#constants-and-variables",
+    "href": "Variable_expressions_statements.html#constants-and-variables",
     "title": "2  Variables, expressions and statements",
-    "section": "4.1 Variable names",
-    "text": "4.1 Variable names\nThere are a some rules for naming variables: 1. A variable name must start with a letter or underscore _ 2. A variable name may consist of letters, numbers, and underscores only\nFor example, some of the valid variable names are *salary, text10, _varname. Some of the invalid variable names are salary% 10text, varname)*\n\nVariable names are case-sensitive. For example, the variable Varname will be different from varname.\nThere are certain reserved words in python that have some meaning, and cannot be used as variable names. These reserved words are:\n\n\n\n\n\n\nBest coding practice: Variables should be named such that they are informative of the value they are storing. For example, suppose we wish to compute the income tax a person has to pay based on their income and tax rate. Below are two ways of naming variables to do this computation:\n\nincome = 80000\ntax_rate = 0.15\nprint(\"Income tax = \",income*tax_rate)\n\nIncome tax =  12000.0\n\n\n\na = 80000\nb = 0.15\nprint(\"Income tax = \",a*b)\n\nIncome tax =  12000.0\n\n\nThe former code chuck is better than the latter one as it makes the code easy to read and understand."
+    "section": "2.2 Constants and Variables",
+    "text": "2.2 Constants and Variables\nA constant is a value that cannot be changed. It may be a number, string or any other datatype. Below are some examples of printing a constant:\n\nprint(4)\n\n4\n\n\n\nprint(\"This is a string and also a constant\")\n\nThis is a string and also a constant\n\n\n\nprint(False)\n\nFalse\n\n\nA variable is an object whose value can be changed. For example, consider the object below:\n\nx = 2\n\nIn the above code the variable x has been assigned a value of 2. However, the value of x can be changed:\n\nx = 3\nprint(\"x =\", x)\n\nx = 3\n\n\nThus, the object x in the above code is a variable that refers to a memory location storing the constant value of 3.\n\n2.2.1 Variable names\nThere are a some rules for naming variables: 1. A variable name must start with a letter or underscore _ 2. A variable name may consist of letters, numbers, and underscores only\nFor example, some of the valid variable names are *salary, text10, _varname. Some of the invalid variable names are salary% 10text, varname)*\n\nVariable names are case-sensitive. For example, the variable Varname will be different from varname.\nThere are certain reserved words in python that have some meaning, and cannot be used as variable names. These reserved words are:\n\n\n\n\n\n\nBest coding practice: Variables should be named such that they are informative of the value they are storing. For example, suppose we wish to compute the income tax a person has to pay based on their income and tax rate. Below are two ways of naming variables to do this computation:\n\nincome = 80000\ntax_rate = 0.15\nprint(\"Income tax = \",income*tax_rate)\n\nIncome tax =  12000.0\n\n\n\na = 80000\nb = 0.15\nprint(\"Income tax = \",a*b)\n\nIncome tax =  12000.0\n\n\nThe former code chuck is better than the latter one as it makes the code easy to read and understand.\n\n\n2.2.2 In-class exercise\n\nIn the statements below, classify the objects as variables or constants:\n\nvalue = “name”\nconstant = 7\nanother_const = “variable”\nTrue_False = True\n\nWhich of the following variable names are valid:\n\nvar.name\nvar9name\n_varname\nvarname*"
   },
   {
-    "objectID": "Variable_expressions_statements.html#in-class-exercise-1",
-    "href": "Variable_expressions_statements.html#in-class-exercise-1",
+    "objectID": "Variable_expressions_statements.html#assignment-statements",
+    "href": "Variable_expressions_statements.html#assignment-statements",
     "title": "2  Variables, expressions and statements",
-    "section": "4.2 In-class exercise",
-    "text": "4.2 In-class exercise\n\nIn the statements below, classify the objects as variables or constants:\n\nvalue = “name”\nconstant = 7\nanother_const = “variable”\nTrue_False = True\n\nWhich of the following variable names are valid:\n\nvar.name\nvar9name\n_varname\nvarname*"
+    "section": "2.3 Assignment statements",
+    "text": "2.3 Assignment statements\nValues are assigned to variables with the assignment statement (=). An assignment statement may have a constant or an expression on the right hand side of the (=) sign, and a variable name on the left hand side.\nFor example, the code lines below are assignment statements\n\nvar = 2\nvar = var + 3"
   },
   {
-    "objectID": "Variable_expressions_statements.html#in-class-exercise-2",
-    "href": "Variable_expressions_statements.html#in-class-exercise-2",
+    "objectID": "Variable_expressions_statements.html#expressions",
+    "href": "Variable_expressions_statements.html#expressions",
     "title": "2  Variables, expressions and statements",
-    "section": "6.1 In-class exercise",
-    "text": "6.1 In-class exercise\nWhich of the following statements is an assignment statement: 1. x = 5 2. print(x) 3. type(x) 4. x + 4\nWhat will be the result of the following expression:\n\n1%2**3*2+1"
+    "section": "2.4 Expressions",
+    "text": "2.4 Expressions\nThe mathematical operations and their corresponding operators are as follows: 1. Exponent: ** 2. Remainder: % 3. Multiplication: * 4. Division: / 5. Addition: + 6. Subtraction: -\nThe operators above are in decreasing order of precedence, i.e., an exponent will be evaluated before a remainder, a remainder will be evaluated before a multiplication, and so on.\nFor example, check the precedence of operators in the computation of the following expression:\n\n2+3%4*2\n\n8\n\n\nIn case an expression becomes too complicated, use of parenthesis may help clarify the precendence of operators. Parenthesis takes precendence over all the operators listed above. For example, in the expression below, the terms within parenthesis are evaluated first:\n\n2+3%(4*2)\n\n5\n\n\n\n2.4.1 In-class exercise\nWhich of the following statements is an assignment statement: 1. x = 5 2. print(x) 3. type(x) 4. x + 4\nWhat will be the result of the following expression:\n\n1%2**3*2+1"
   },
   {
-    "objectID": "Variable_expressions_statements.html#in-class-exercise-3",
-    "href": "Variable_expressions_statements.html#in-class-exercise-3",
+    "objectID": "Variable_expressions_statements.html#converting-datatypes",
+    "href": "Variable_expressions_statements.html#converting-datatypes",
     "title": "2  Variables, expressions and statements",
-    "section": "8.1 In-class exercise",
-    "text": "8.1 In-class exercise\nAsk the user to input their year of birth, and print their age."
+    "section": "2.5 Converting datatypes",
+    "text": "2.5 Converting datatypes\nSometimes a value may have a datatype that is not suitable for using it. For example, consider the variable called annual_income in the code below:\n\nannual_income = \"80000\"\n\nSuppose we wish to divide annual_income by 12 to get the monthly income. We cannot use the variable monthly_income directly as its datatype is a string and not a number. Thus, numerical operations cannnot be performed on the variable annual_income.\nWe’ll need to convert annual_income to an integer. For that we will use the python’s in-built int() function:\n\nannual_income = int(annual_income)\nmonthly_income = annual_income/12\nprint(\"monthly income = \", monthly_income)\n\nmonthly income =  6666.666666666667\n\n\nSimilarly, datatypes can be converted from one type to another using in-built python functions as shown below:\n\n#Converting integer to string\nstr(9)\n\n'9'\n\n\n\n#Converting string to float\nfloat(\"4.5\")\n\n4.5\n\n\n\n#Converting bool to integer\nint(True)\n\n1\n\n\nSometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable greeting defined below to a number:\n\ngreeting = \"hello\"\n\nHowever, in some cases, mathematical operators such as + and * can be applied on strings. The operator + concatenates multiple strings, while the operator * can be used to concatenate a string to itself multiple times:\n\n\"Hi\" + \" there!\"\n\n'Hi there!'\n\n\n\n\"5\" + '3'\n\n'53'\n\n\n\n\"5\"*8\n\n'55555555'"
   },
   {
-    "objectID": "Variable_expressions_statements.html#in-class-exercise-4",
-    "href": "Variable_expressions_statements.html#in-class-exercise-4",
+    "objectID": "Variable_expressions_statements.html#user-input",
+    "href": "Variable_expressions_statements.html#user-input",
     "title": "2  Variables, expressions and statements",
-    "section": "9.1 In-class exercise",
-    "text": "9.1 In-class exercise\nWhich of the following lines is a comment: 1. #this is a comment 2. ##this may be a comment 3. A comment#"
+    "section": "2.6 User input",
+    "text": "2.6 User input\nPython’s in-built input() function can be used to accept an input from the user. For example, suppose we wish the user to onput their age:\n\nage = input(\"Enter your age:\")\n\nEnter your age:34\n\n\nThe entered value is stored in the variable age and can be used for computation.\n\n2.6.1 In-class exercise\nAsk the user to input their year of birth, and print their age."
   },
   {
-    "objectID": "Variable_expressions_statements.html#syntax-errors",
-    "href": "Variable_expressions_statements.html#syntax-errors",
+    "objectID": "Variable_expressions_statements.html#commenting-code",
+    "href": "Variable_expressions_statements.html#commenting-code",
     "title": "2  Variables, expressions and statements",
-    "section": "10.1 Syntax errors",
-    "text": "10.1 Syntax errors\nSyntax errors occur if the code is written in a way that it does not comply with the rules / standards / laws of the language (python in this case). For example, suppose a values is assigned to a variable as follows:\n\n9value = 2\n\nThe above code when executed will indicate a syntax error as it violates the rule that a varible name must not start with a number."
+    "section": "2.7 Commenting code",
+    "text": "2.7 Commenting code\nThe # symbol can be used to comment the code. Anything after the # sign is ignored by python. Commenting a code may have several purposes, such as: - Describe what is going to happen in a sequence of code - Document who wrote the code or other ancillary information - Turn off a line of code - perhaps temporarily\nFor example, below is code with a comment to describe the purpose of the code:\n\n#Computing number of hours of lecture in this course\nprint(\"Total lecture hours of STAT201=\",10*3*(5/6))\n\nTotal lecture hours of STAT201= 25.0\n\n\n\n2.7.1 In-class exercise\nWhich of the following lines is a comment: 1. #this is a comment 2. ##this may be a comment 3. A comment#"
   },
   {
-    "objectID": "Variable_expressions_statements.html#run-time-errors",
-    "href": "Variable_expressions_statements.html#run-time-errors",
+    "objectID": "Variable_expressions_statements.html#programming-errors",
+    "href": "Variable_expressions_statements.html#programming-errors",
     "title": "2  Variables, expressions and statements",
-    "section": "10.2 Run-time errors",
-    "text": "10.2 Run-time errors\nRun-time errors occur when a code is syntactically correct, but there are other issues with the code such as:\n\nMisspelled or incorrectly capitalized variable and function names\nAttempts to perform operations (such as math operations) on data of the wrong type (ex. attempting to subtract two variables that hold string values)\nDividing by zero\nAttempts to use a type conversion function such as int on a value that can’t be converted to an int\n\nFor example, suppose a number is multipled as follws:\n\nmultiplication_result = x * 4\n\nThe above code is syntactically correct. However, it will generate an error as the variable x has not been defined as a number."
+    "section": "2.8 Programming errors",
+    "text": "2.8 Programming errors\nThere are 3 types of errors that can occur in a program - syntax errors, run-time errors, and semantic errors.\n\n2.8.1 Syntax errors\nSyntax errors occur if the code is written in a way that it does not comply with the rules / standards / laws of the language (python in this case). For example, suppose a values is assigned to a variable as follows:\n\n9value = 2\n\nThe above code when executed will indicate a syntax error as it violates the rule that a varible name must not start with a number.\n\n\n2.8.2 Run-time errors\nRun-time errors occur when a code is syntactically correct, but there are other issues with the code such as:\n\nMisspelled or incorrectly capitalized variable and function names\nAttempts to perform operations (such as math operations) on data of the wrong type (ex. attempting to subtract two variables that hold string values)\nDividing by zero\nAttempts to use a type conversion function such as int on a value that can’t be converted to an int\n\nFor example, suppose a number is multipled as follws:\n\nmultiplication_result = x * 4\n\nThe above code is syntactically correct. However, it will generate an error as the variable x has not been defined as a number.\n\n\n2.8.3 Semantic errors\nSemantic errors occur when the code executes without an error being indicated by the compiler. However, it does not work as inteded by the user. For example, consider the following code of mutiplying the number 6 by 3:\n\nx = '6'\nx * 3\n\n'666'\n\n\nIf it was intended to multiply the number 6, then the variable x should have been defined as x=6 so that x has a value of type integer. However, in the above code 6 is a string type value. When a string is multiplied by an integer, say n, it concatenates with itself n times.\n\n\n2.8.4 In-class exercises:\nIdentify the type of error from amongst syntax error, semantic error and run-time error\n\nincome = 2000\ntax = .08 * Income\nprint(\"tax on\", income, \"is:\", tax)\n\n\nincome = 2000\ntax = .08 x income\nprint(\"tax on\", income, \"is:\", tax)\n\n\nincome = 2000\ntax = .08 ** income\nprint(\"tax on\", income, \"is:\", tax)"
   },
   {
-    "objectID": "Variable_expressions_statements.html#semantic-errors",
-    "href": "Variable_expressions_statements.html#semantic-errors",
+    "objectID": "Variable_expressions_statements.html#in-class-exercises-1",
+    "href": "Variable_expressions_statements.html#in-class-exercises-1",
     "title": "2  Variables, expressions and statements",
-    "section": "10.3 Semantic errors",
-    "text": "10.3 Semantic errors\nSemantic errors occur when the code executes without an error being indicated by the compiler. However, it does not work as inteded by the user. For example, consider the following code of mutiplying the number 6 by 3:\n\nx = '6'\nx * 3\n\n'666'\n\n\nIf it was intended to multiply the number 6, then the variable x should have been defined as x=6 so that x has a value of type integer. However, in the above code 6 is a string type value. When a string is multiplied by an integer, say n, it concatenates with itself n times."
-  },
-  {
-    "objectID": "Variable_expressions_statements.html#in-class-exercises",
-    "href": "Variable_expressions_statements.html#in-class-exercises",
-    "title": "2  Variables, expressions and statements",
-    "section": "10.4 In-class exercises:",
-    "text": "10.4 In-class exercises:\nIdentify the type of error from amongst syntax error, semantic error and run-time error\n\nincome = 2000\ntax = .08 * Income\nprint(\"tax on\", income, \"is:\", tax)\n\n\nincome = 2000\ntax = .08 x income\nprint(\"tax on\", income, \"is:\", tax)\n\n\nincome = 2000\ntax = .08 ** income\nprint(\"tax on\", income, \"is:\", tax)"
+    "section": "2.9 In-class exercises",
+    "text": "2.9 In-class exercises\nQuestions from exercises at http://openbookproject.net/thinkcs/python/english3e/variables_expressions_statements.html\nQuestions from chapter 1 of https://www.brianheinold.net/python/A_Practical_Introduction_to_Python_Programming_Heinold.pdf"
   },
   {
     "objectID": "data_structures.html",
