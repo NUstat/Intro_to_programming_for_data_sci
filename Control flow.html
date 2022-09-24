@@ -2,19 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to programming for data science - 3&nbsp; Conditionals and loops</title>
+<title>Introduction to programming for data science - 3&nbsp; Control flow statements</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -128,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -168,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Conditional execution and loops.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></a>
+  <a href="./Control flow.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,20 +191,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#conditonal-execution" id="toc-conditonal-execution" class="nav-link active" data-scroll-target="#conditonal-execution"> <span class="header-section-number">3.1</span> Conditonal execution</a>
+  <li><a href="#conditonal-execution" id="toc-conditonal-execution" class="nav-link active" data-scroll-target="#conditonal-execution"><span class="toc-section-number">3.1</span>  Conditonal execution</a>
   <ul class="collapse">
-  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators"> <span class="header-section-number">3.1.1</span> Comparison operators</a></li>
-  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"> <span class="header-section-number">3.1.2</span> Logical operators</a></li>
-  <li><a href="#if-elif-else-statement" id="toc-if-elif-else-statement" class="nav-link" data-scroll-target="#if-elif-else-statement"> <span class="header-section-number">3.1.3</span> if-elif-else statement</a></li>
-  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise"> <span class="header-section-number">3.1.4</span> In-class exercise</a></li>
-  <li><a href="#try-except" id="toc-try-except" class="nav-link" data-scroll-target="#try-except"> <span class="header-section-number">3.1.5</span> Try-except</a></li>
-  <li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1" class="nav-link" data-scroll-target="#in-class-exercise-1"> <span class="header-section-number">3.1.6</span> In-class exercise</a></li>
+  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators"><span class="toc-section-number">3.1.1</span>  Comparison operators</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="toc-section-number">3.1.2</span>  Logical operators</a></li>
+  <li><a href="#if-elif-else-statement" id="toc-if-elif-else-statement" class="nav-link" data-scroll-target="#if-elif-else-statement"><span class="toc-section-number">3.1.3</span>  if-elif-else statement</a></li>
+  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise"><span class="toc-section-number">3.1.4</span>  In-class exercise</a></li>
+  <li><a href="#try-except" id="toc-try-except" class="nav-link" data-scroll-target="#try-except"><span class="toc-section-number">3.1.5</span>  Try-except</a></li>
+  <li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1" class="nav-link" data-scroll-target="#in-class-exercise-1"><span class="toc-section-number">3.1.6</span>  In-class exercise</a></li>
   </ul></li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"> <span class="header-section-number">3.2</span> Loops</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="toc-section-number">3.2</span>  Loops</a>
+  <ul class="collapse">
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><span class="toc-section-number">3.2.1</span>  for loop</a></li>
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="toc-section-number">3.2.2</span>  while loop</a></li>
+  <li><a href="#in-class-exercise-2" id="toc-in-class-exercise-2" class="nav-link" data-scroll-target="#in-class-exercise-2"><span class="toc-section-number">3.2.3</span>  In-class exercise</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -208,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></h1>
 </div>
 
 
@@ -222,12 +232,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<p>A <a href="https://docs.python.org/3/tutorial/controlflow.html">control flow statement</a> in a computer program determines the individual lines of code to be executed and/or the order in which they will be executed. In this chapter, we’ll learn about 3 types of control flow statements:</p>
+<ol type="1">
+<li>if-elif-else</li>
+<li>for loop</li>
+<li>while loop</li>
+</ol>
 <section id="conditonal-execution" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="conditonal-execution"><span class="header-section-number">3.1</span> Conditonal execution</h2>
-<p>Sometimes, we may need to execute a piece of code based on condition(s), i.e., instead of executing each line of code, we wish to execute certain lines of code based on condition(s).</p>
+<p>The first type of control flow satement is <code>if-elif-else</code>. This statement helps with conditional execution of code, i.e., the piece of code to be executed is selected based on certain condition(s).</p>
 <section id="comparison-operators" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="comparison-operators"><span class="header-section-number">3.1.1</span> Comparison operators</h3>
-<p>For testing if conditions are true or false, first we need to learn the opeartors that can be used for comparison. For example, suppose we want to check if values of two variables are equal, we use the <code>==</code> operator:</p>
+<p>For testing if conditions are true or false, first we need to learn the opeartors that can be used for comparison. For example, suppose we want to check if two objects are equal, we use the <code>==</code> operator:</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">==</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -280,16 +296,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="logical-operators" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">3.1.2</span> Logical operators</h3>
-<p>Sometimes we may need to check multiple conditions simultaneously. The logical operator <code>and</code> is used to check if multiple conditions are true, while the logical operator <code>or</code> is used to check if either of the conditons is true.</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">==</span><span class="dv">5</span> <span class="kw">and</span> <span class="dv">67</span><span class="op">==</span><span class="dv">68</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<p>Sometimes we may need to check multiple conditions simultaneously. The logical operator <code>and</code> is used to check if all the conditions are true, while the logical operator <code>or</code> is used to check if either of the conditons is true.</p>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking if both the conditions are true using 'and'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">==</span><span class="dv">5</span> <span class="kw">and</span> <span class="dv">67</span><span class="op">==</span><span class="dv">68</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>False</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">6</span><span class="op">;</span> y <span class="op">=</span> <span class="dv">90</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">&lt;</span><span class="dv">0</span> <span class="kw">or</span> y<span class="op">&gt;</span><span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking if either condition is true using 'or'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">6</span><span class="op">;</span> y <span class="op">=</span> <span class="dv">90</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">&lt;</span><span class="dv">0</span> <span class="kw">or</span> y<span class="op">&gt;</span><span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>True</code></pre>
 </div>
@@ -298,7 +316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="if-elif-else-statement" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="if-elif-else-statement"><span class="header-section-number">3.1.3</span> if-elif-else statement</h3>
 <p>The <code>if-elif-else</code> statements can check several conditions, and execute the code corresponding to the condition that is true. Note that there can be as many <code>elif</code> statements as required.</p>
-<p><strong>Syntax:</strong> Python uses indentation to identify the code to be executed if a condition is true. All the code indented within a condition is executed only if the condition is true.</p>
+<p><strong>Syntax:</strong> Python uses indentation to identify the code to be executed if a condition is true. All the code indented within a condition is executed if the condition is true.</p>
 <p><strong>Example:</strong> Input a number. Print whether it is positive or negative.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number:"</span>)</span>
@@ -314,19 +332,20 @@ Number is negative</code></pre>
 </div>
 <p>In the above code, note that anything entered by the user is taken as a string datatype by python. However, a string cannot be positive or negative. So, we converted the number input by the user to integer to check if it was positive or negative.</p>
 <p>There may be multiple statements to be executed if a condition is true. See the example below.</p>
-<p><strong>Example:</strong> Input a number. Print whether it is positive or negative. If it is negative, print its absolute value.</p>
-<div class="cell" data-execution_count="5">
+<p><strong>Example:</strong> Input a number. Print whether it is positive, negative or zero. If it is negative, print its absolute value.</p>
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number:"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>number_integer <span class="op">=</span> <span class="bu">int</span>(number)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> number_integer<span class="op">&gt;</span><span class="dv">0</span>:</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is positive"</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is negative"</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Absolute value of number = "</span>, <span class="bu">abs</span>(number_integer))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> number_integer<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is zero"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is negative"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Absolute value of number = "</span>, <span class="bu">abs</span>(number_integer))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Enter a number:-9
-Number is negative
-Absolute value of number =  9</code></pre>
+<pre><code>Enter a number:0
+Number is zero</code></pre>
 </div>
 </div>
 </section>
@@ -356,7 +375,9 @@ Input must be an integer</code></pre>
 </section>
 <section id="in-class-exercise-1" class="level3" data-number="3.1.6">
 <h3 data-number="3.1.6" class="anchored" data-anchor-id="in-class-exercise-1"><span class="header-section-number">3.1.6</span> In-class exercise</h3>
-<p>Ask the user to enter their exam score. Print the grade based on their score as follows:</p>
+<ol type="1">
+<li>Ask the user to enter their exam score. Print the grade based on their score as follows:</li>
+</ol>
 <table class="table">
 <thead>
 <tr class="header">
@@ -366,26 +387,142 @@ Input must be an integer</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td>[90,100]</td>
+<td>(90,100]</td>
 <td>A</td>
 </tr>
 <tr class="even">
-<td>[80,90)</td>
+<td>(80,90]</td>
 <td>B</td>
 </tr>
 <tr class="odd">
-<td>[0,80)</td>
+<td>[0,80]</td>
 <td>C</td>
 </tr>
 </tbody>
 </table>
 <p>If the user inputs a score which is not a number in [0,100], print invalid entry.</p>
+<ol start="2" type="1">
+<li><strong>Nested if-elif-else statements:</strong> This question will lead you to create nested <code>if</code> statements, i.e., an <code>if</code> statement within another <code>if</code> statement.</li>
+</ol>
+<p>Think of a number in [1,5]. Ask the user to guess the number.</p>
+<ul>
+<li>If the user guesses the number correctly, print “Correct in the first attempt!”, and stop the program. Otherwise, print “Incorrect! Try again” and give them another chance to guess the number.</li>
+<li>If the user guesses the number correctly in the second attempt, print “Correct in the second attempt”, otherwise print “Incorrect in both the attempts, the correct number is:”, and print the correct number.</li>
+</ul>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>rand_no <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Guess the number:"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">int</span>(guess)<span class="op">==</span>rand_no:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Correct in the first attempt!"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:    </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Incorrect! Try again:"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">int</span>(guess)<span class="op">==</span>rand_no:</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Corrent in the second attempt"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Incorrect in the both the attempts, the correct number was:"</span>, rand_no)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Guess the number:2
+Incorrect! Try again:3
+Corrent in the second attempt</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="loops" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="loops"><span class="header-section-number">3.2</span> Loops</h2>
+<p>With loops, a piece of code can be executed repeatedly for a fixed number of times or until a condition is satistified.</p>
+<section id="for-loop" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">3.2.1</span> for loop</h3>
+<p>With a <code>for</code> loop, a piece of code is executed a fixed number of times.</p>
+<p>We typically use <code>for</code> loops with an in-built python function called <code>range()</code> that supports <code>for</code> loops. Below is its description.</p>
+<p><strong>range():</strong> The <a href="https://docs.python.org/3/library/functions.html#func-range">range()</a> function returns a sequence of evenly-spaced integer values. It is commonly used in <code>for</code> loops to define the sequence of elements over which the iterations are performed.</p>
+<p>Below is an example where the <code>range()</code> function is used to create a sequence of whole numbers upto 10. Ignore the <code>list()</code> function in the code below, as it will be introduced later.</p>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+</div>
+<p>Note that the last element is one less than the integer specified in the <code>range()</code> function.</p>
+<p>Using the <code>range()</code> function, the <code>for</code> loop can iterate over a sequence of numbers. See the example below.</p>
+<p><strong>Example:</strong> Print the first <em>n</em> elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>, where n is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
+<p>0,1,1,2,3,5,8,13,….</p>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter number of elements:"</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n2)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">-</span><span class="dv">2</span>):</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n3)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> n3  </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"These are the first"</span>, n, <span class="st">"elements of the fibonacci series"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter number of elements:6
+0
+1
+1
+2
+3
+5
+These are the first 6 elements of the fibonacci series</code></pre>
+</div>
+</div>
+<p>As in the <code>if-elif-else</code> statement, the <code>for</code> loop uses identation to indicate the piece of code to be run repeatedly.</p>
+<p>Note that we have used an in-built python function</p>
+</section>
+<section id="while-loop" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">3.2.2</span> while loop</h3>
+<p>With a <code>while</code> loops, a piece of code is executed repeatedly until certain condition(s) hold.</p>
+<p><strong>Example:</strong> Print all the elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> less than <em>n</em>, where n is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
+<p>0,1,1,2,3,5,8,13,….</p>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter the value of n:"</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n2<span class="op">&lt;</span>n:</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n2)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> n3  </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"These are all the elements of the fibonacci series less than"</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter the value of n:50
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+These are all the elements of the fibonacci series less than 50</code></pre>
+</div>
+</div>
+</section>
+<section id="in-class-exercise-2" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="in-class-exercise-2"><span class="header-section-number">3.2.3</span> In-class exercise</h3>
+<p>Print the prime numbers starting from 2, and less than <em>n</em> where <em>n</em> is a positive integer input by the user.</p>
+<p>::: {.cell 0=‘e’ 1=‘v’ 2=‘a’ 3=‘l’ 4=‘:’ 5=‘f’ 6=‘a’ 7=‘l’ 8=‘s’ 9=‘e’ 10=’ ’ 11=‘e’ 12=‘c’ 13=‘h’ 14=‘o’ 15=‘:’ 16=‘f’ 17=‘a’ 18=‘l’ 19=‘s’ 20=‘e’}</p>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a positive integer:"</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(p<span class="op">&lt;</span>n):</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span>p<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    num_divisors<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,p):</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> p<span class="op">%</span>i<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            num_divisors<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_divisors<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(p)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -458,7 +595,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
