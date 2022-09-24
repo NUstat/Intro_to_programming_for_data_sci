@@ -122,6 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -218,6 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#semantic-errors" id="toc-semantic-errors" class="nav-link" data-scroll-target="#semantic-errors"> <span class="header-section-number">2.8.3</span> Semantic errors</a></li>
   <li><a href="#in-class-exercises" id="toc-in-class-exercises" class="nav-link" data-scroll-target="#in-class-exercises"> <span class="header-section-number">2.8.4</span> In-class exercises:</a></li>
   </ul></li>
+  <li><a href="#in-class-exercise-5" id="toc-in-class-exercise-5" class="nav-link" data-scroll-target="#in-class-exercise-5"> <span class="header-section-number">2.9</span> In-class exercise</a></li>
   </ul>
 </nav>
     </div>
@@ -581,9 +583,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">**</span> income</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-
 </section>
+</section>
+<section id="in-class-exercise-5" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="in-class-exercise-5"><span class="header-section-number">2.9</span> In-class exercise</h2>
+<p>The formula for computing final amount if one is earning compund interest is given by:</p>
+<p><span class="math display">\[A = P\bigg(1+\frac{r}{n}\bigg)^{nt},\]</span></p>
+<p>where:<br>
+P = Principal amount (initial investment),<br>
+r = annual nominal interest rate,<br>
+n = number of times the interest is computed per year,<br>
+t = number of years</p>
+<p>Write a Python program that assigns the principal amount of $10000 to variable <em>P</em>, assign to <em>n</em> the value 12, and assign to <em>r</em> the interest rate of 8%. Then have the program prompt the user for the number of years <em>t</em> that the money will be compounded for. Calculate and print the final amount after <em>t</em> years.</p>
+<p>What is the amount if the user enters t as 4 years?</p>
+
+
 </section>
 
 </main> <!-- /main -->
