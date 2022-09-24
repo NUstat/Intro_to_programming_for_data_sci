@@ -248,9 +248,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="data-types" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">2.1</span> Data types</h2>
 <p>Some of the commonly used objects in python are numbers - integer and float, strings and bool (true/false). The data type of the object can be identified using the in-built python function type(). For example, see the following objects and their types:</p>
-<div class="cell" data-execution_count="35">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>int</code></pre>
 </div>
 </div>
@@ -320,7 +320,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thus, the object <code>x</code> in the above code is a variable that refers to a memory location storing the constant value of 3.</p>
 <section id="variable-names" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="variable-names"><span class="header-section-number">2.2.1</span> Variable names</h3>
-<p>There are a some rules for naming variables: 1. A variable name must start with a letter or underscore _ 2. A variable name may consist of letters, numbers, and underscores only</p>
+<p>There are a some rules for naming variables:</p>
+<ol type="1">
+<li><p>A variable name must start with a letter or underscore _</p></li>
+<li><p>A variable name may consist of letters, numbers, and underscores only</p></li>
+</ol>
 <p>For example, some of the valid variable names are *salary, text10, _varname<em>. Some of the invalid variable names are </em>salary% 10text, varname)*</p>
 <ol start="3" type="1">
 <li><p>Variable names are case-sensitive. For example, the variable <code>Varname</code> will be different from <code>varname</code>.</p></li>
@@ -381,7 +385,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="expressions" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="expressions"><span class="header-section-number">2.4</span> Expressions</h2>
-<p>The mathematical operations and their corresponding operators are as follows: 1. Exponent: ** 2. Remainder: % 3. Multiplication: * 4. Division: / 5. Addition: + 6. Subtraction: -</p>
+<p>The mathematical operations and their corresponding operators are as follows:</p>
+<ol type="1">
+<li><p>Exponent: **</p></li>
+<li><p>Remainder: %</p></li>
+<li><p>Multiplication: *</p></li>
+<li><p>Division: /</p></li>
+<li><p>Addition: +</p></li>
+<li><p>Subtraction: -</p></li>
+</ol>
 <p>The operators above are in decreasing order of precedence, i.e., an exponent will be evaluated before a remainder, a remainder will be evaluated before a multiplication, and so on.</p>
 <p>For example, check the precedence of operators in the computation of the following expression:</p>
 <div class="cell" data-execution_count="80">
@@ -399,10 +411,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <section id="in-class-exercise-2" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="in-class-exercise-2"><span class="header-section-number">2.4.1</span> In-class exercise</h3>
-<p>Which of the following statements is an assignment statement: 1. x = 5 2. print(x) 3. type(x) 4. x + 4</p>
+<p>Which of the following statements is an assignment statement:</p>
+<ol type="1">
+<li><p>x = 5</p></li>
+<li><p>print(x)</p></li>
+<li><p>type(x)</p></li>
+<li><p>x + 4</p></li>
+</ol>
 <p>What will be the result of the following expression:</p>
-<div class="cell">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">%</span><span class="dv">2</span><span class="op">**</span><span class="dv">3</span><span class="op">*</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>3</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -410,59 +431,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.5" class="anchored" data-anchor-id="converting-datatypes"><span class="header-section-number">2.5</span> Converting datatypes</h2>
 <p>Sometimes a value may have a datatype that is not suitable for using it. For example, consider the variable called <em>annual_income</em> in the code below:</p>
 <div class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="st">"80000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="st">"80000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Suppose we wish to divide <em>annual_income</em> by 12 to get the monthly income. We cannot use the variable <em>monthly_income</em> directly as its datatype is a string and not a number. Thus, numerical operations cannnot be performed on the variable <em>annual_income</em>.</p>
 <p>We’ll need to convert <em>annual_income</em> to an integer. For that we will use the python’s in-built <code>int()</code> function:</p>
 <div class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="bu">int</span>(annual_income)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>monthly_income <span class="op">=</span> annual_income<span class="op">/</span><span class="dv">12</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"monthly income = "</span>, monthly_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="bu">int</span>(annual_income)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>monthly_income <span class="op">=</span> annual_income<span class="op">/</span><span class="dv">12</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"monthly income = "</span>, monthly_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>monthly income =  6666.666666666667</code></pre>
 </div>
 </div>
 <p>Similarly, datatypes can be converted from one type to another using in-built python functions as shown below:</p>
 <div class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting integer to string</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting integer to string</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="88">
 <pre><code>'9'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="89">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting string to float</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="st">"4.5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting string to float</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="st">"4.5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="89">
 <pre><code>4.5</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="91">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting bool to integer</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting bool to integer</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>1</code></pre>
 </div>
 </div>
 <p>Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable <em>greeting</em> defined below to a number:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">"hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">"hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, in some cases, mathematical operators such as <code>+</code> and <code>*</code> can be applied on strings. The operator <code>+</code> concatenates multiple strings, while the operator <code>*</code> can be used to concatenate a string to itself multiple times:</p>
 <div class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">"Hi"</span> <span class="op">+</span> <span class="st">" there!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">"Hi"</span> <span class="op">+</span> <span class="st">" there!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="97">
 <pre><code>'Hi there!'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span> <span class="op">+</span> <span class="st">'3'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span> <span class="op">+</span> <span class="st">'3'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="98">
 <pre><code>'53'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span><span class="op">*</span><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span><span class="op">*</span><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="99">
 <pre><code>'55555555'</code></pre>
 </div>
@@ -472,7 +493,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.6" class="anchored" data-anchor-id="user-input"><span class="header-section-number">2.6</span> User input</h2>
 <p>Python’s in-built input() function can be used to accept an input from the user. For example, suppose we wish the user to onput their age:</p>
 <div class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your age:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your age:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter your age:34</code></pre>
 </div>
@@ -485,18 +506,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="commenting-code" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="commenting-code"><span class="header-section-number">2.7</span> Commenting code</h2>
-<p>The <code>#</code> symbol can be used to comment the code. Anything after the <code>#</code> sign is ignored by python. Commenting a code may have several purposes, such as: - Describe what is going to happen in a sequence of code - Document who wrote the code or other ancillary information - Turn off a line of code - perhaps temporarily</p>
+<p>The <code>#</code> symbol can be used to comment the code. Anything after the <code>#</code> sign is ignored by python. Commenting a code may have several purposes, such as:</p>
+<ul>
+<li><p>Describe what is going to happen in a sequence of code</p></li>
+<li><p>Document who wrote the code or other ancillary information</p></li>
+<li><p>Turn off a line of code - perhaps temporarily</p></li>
+</ul>
 <p>For example, below is code with a comment to describe the purpose of the code:</p>
 <div class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Computing number of hours of lecture in this course</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total lecture hours of STAT201="</span>,<span class="dv">10</span><span class="op">*</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Computing number of hours of lecture in this course</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total lecture hours of STAT201="</span>,<span class="dv">10</span><span class="op">*</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total lecture hours of STAT201= 25.0</code></pre>
 </div>
 </div>
 <section id="in-class-exercise-4" class="level3" data-number="2.7.1">
 <h3 data-number="2.7.1" class="anchored" data-anchor-id="in-class-exercise-4"><span class="header-section-number">2.7.1</span> In-class exercise</h3>
-<p>Which of the following lines is a comment: 1. #this is a comment 2. ##this may be a comment 3. A comment#</p>
+<p>Which of the following lines is a comment:</p>
+<ol type="1">
+<li><p>#this is a comment</p></li>
+<li><p>##this may be a comment</p></li>
+<li><p>A comment#</p></li>
+</ol>
 </section>
 </section>
 <section id="programming-errors" class="level2" data-number="2.8">
@@ -506,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="2.8.1" class="anchored" data-anchor-id="syntax-errors"><span class="header-section-number">2.8.1</span> Syntax errors</h3>
 <p>Syntax errors occur if the code is written in a way that it does not comply with the rules / standards / laws of the language (python in this case). For example, suppose a values is assigned to a variable as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span><span class="er">value</span> <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span><span class="er">value</span> <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The above code when executed will indicate a syntax error as it violates the rule that a varible name must not start with a number.</p>
 </section>
@@ -520,8 +551,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Attempts to use a type conversion function such as int on a value that can’t be converted to an int</li>
 </ul>
 <p>For example, suppose a number is multipled as follws:</p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>multiplication_result <span class="op">=</span> x <span class="op">*</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>multiplication_result <span class="op">=</span> x <span class="op">*</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The above code is syntactically correct. However, it will generate an error as the variable <code>x</code> has not been defined as a number.</p>
 </section>
@@ -529,8 +560,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="2.8.3" class="anchored" data-anchor-id="semantic-errors"><span class="header-section-number">2.8.3</span> Semantic errors</h3>
 <p>Semantic errors occur when the code executes without an error being indicated by the compiler. However, it does not work as inteded by the user. For example, consider the following code of mutiplying the number 6 by 3:</p>
 <div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'6'</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'6'</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>'666'</code></pre>
 </div>
@@ -541,19 +572,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="2.8.4" class="anchored" data-anchor-id="in-class-exercises"><span class="header-section-number">2.8.4</span> In-class exercises:</h3>
 <p>Identify the type of error from amongst syntax error, semantic error and run-time error</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">*</span> Income</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> x income</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">*</span> Income</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">**</span> income</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> x income</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">**</span> income</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
