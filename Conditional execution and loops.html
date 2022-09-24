@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to programming for data science - 1&nbsp; Introduction to Jupyter Notebooks and programming in python</title>
+<title>Introduction to programming for data science - 3&nbsp; Conditionals and loops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Variable_expressions_statements.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./data_structures.html" rel="next">
+<link href="./Variable_expressions_statements.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -123,9 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -136,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -166,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Introduction to Jupyter Notebooks and programming in python.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></a>
+  <a href="./Introduction to Jupyter Notebooks and programming in python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Conditional execution and loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></a>
+  <a href="./Conditional execution and loops.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -198,17 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation"><span class="toc-section-number">1.1</span>  Installation</a></li>
-  <li><a href="#jupyter-notebook" id="toc-jupyter-notebook" class="nav-link" data-scroll-target="#jupyter-notebook"><span class="toc-section-number">1.2</span>  Jupyter notebook</a>
+  <li><a href="#conditonal-execution" id="toc-conditonal-execution" class="nav-link active" data-scroll-target="#conditonal-execution"><span class="toc-section-number">3.1</span>  Conditonal execution</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="toc-section-number">1.2.1</span>  Introduction</a></li>
-  <li><a href="#writing-and-executing-code" id="toc-writing-and-executing-code" class="nav-link" data-scroll-target="#writing-and-executing-code"><span class="toc-section-number">1.2.2</span>  Writing and executing code</a></li>
-  <li><a href="#saving-and-loading-notebooks" id="toc-saving-and-loading-notebooks" class="nav-link" data-scroll-target="#saving-and-loading-notebooks"><span class="toc-section-number">1.2.3</span>  Saving and loading notebooks</a></li>
-  <li><a href="#rendering-notebook-as-html" id="toc-rendering-notebook-as-html" class="nav-link" data-scroll-target="#rendering-notebook-as-html"><span class="toc-section-number">1.2.4</span>  Rendering notebook as HTML</a></li>
+  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators"><span class="toc-section-number">3.1.1</span>  Comparison operators</a></li>
+  <li><a href="#if-elif-else-statement" id="toc-if-elif-else-statement" class="nav-link" data-scroll-target="#if-elif-else-statement"><span class="toc-section-number">3.1.2</span>  if-elif-else statement</a></li>
+  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise"><span class="toc-section-number">3.1.3</span>  In-class exercise</a></li>
   </ul></li>
-  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise"><span class="toc-section-number">1.3</span>  In-class exercise</a></li>
-  <li><a href="#debugging-and-errors" id="toc-debugging-and-errors" class="nav-link" data-scroll-target="#debugging-and-errors"><span class="toc-section-number">1.4</span>  Debugging and errors</a></li>
-  <li><a href="#terms-used-in-programming" id="toc-terms-used-in-programming" class="nav-link" data-scroll-target="#terms-used-in-programming"><span class="toc-section-number">1.5</span>  Terms used in programming</a></li>
   </ul>
 </nav>
     </div>
@@ -217,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals and loops</span></h1>
 </div>
 
 
@@ -231,79 +223,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>This chapter is a very brief introduction to python and Jupyter notebooks. We only discuss the content relevant for applying python to analyze data.</p>
-<section id="installation" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="installation"><span class="header-section-number">1.1</span> Installation</h2>
-<p><strong>Anaconda:</strong> If you are new to python, we recommend downloading the <a href="https://docs.anaconda.com/anaconda/install/">Anaconda installer</a> and following the instructions for installation. Once installed, we’ll use the Jupyter Notebook interface to write code.</p>
-<p><strong>Quarto:</strong> We’ll use Quarto to publish the **.ipynb* file containing text, python code, and the output. Download and install Quarto from <a href="https://quarto.org/docs/get-started/">here</a>.</p>
-</section>
-<section id="jupyter-notebook" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="jupyter-notebook"><span class="header-section-number">1.2</span> Jupyter notebook</h2>
-<section id="introduction" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.2.1</span> Introduction</h3>
-<p>Jupyter notebook is an interactive platform, where you can write code and text, and make visualizations. You can access Jupyter notebook from the Anaconda Navigator, or directly open the Jupyter Notebook application itself. It should automatically open up in your default browser. The figure below shows a Jupyter Notebook opened with Google Chrome. This page is called the <em>landing page</em> of the notebook.</p>
-<div class="cell" data-execution_count="16">
-<div class="cell-output cell-output-display" data-execution_count="16">
-<img src="./Datasets/jupyter.jpg" width="700" height="400">
+<section id="conditonal-execution" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="conditonal-execution"><span class="header-section-number">3.1</span> Conditonal execution</h2>
+<p>Sometimes, we may need to execute a piece of code based on condition(s), i.e., instead of executing each line of code, we wish to execute certain lines of code based on condition(s).</p>
+<section id="comparison-operators" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="comparison-operators"><span class="header-section-number">3.1.1</span> Comparison operators</h3>
+<p>For testing if conditions are true or false, first we need to learn the opeartors that can be used for comparison. For example, suppose we want to check if values of two variables are equal, we use the <code>==</code> operator:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">==</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>False</code></pre>
 </div>
 </div>
-<p>To create a new notebook, click on the <code>New</code> button and select the <code>Python 3</code> option. You should see a blank notebook as in the figure below.</p>
-<div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<img src="./Datasets/jupyter_newbook.jpg" width="600" height="150">
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"hi"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="st">"hi"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">==</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>True</code></pre>
 </div>
 </div>
+<p>Below are the python comparison operators and their meanings.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Python code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x==y</td>
+<td>Produce True if … x is equal to y</td>
+</tr>
+<tr class="even">
+<td>x != y</td>
+<td>… x is not equal to y</td>
+</tr>
+<tr class="odd">
+<td>x &gt; y</td>
+<td>… x is greater than y</td>
+</tr>
+<tr class="even">
+<td>x &lt; y</td>
+<td>… x is less than y</td>
+</tr>
+<tr class="odd">
+<td>x &gt;= y</td>
+<td>… x is greater than or equal to y</td>
+</tr>
+<tr class="even">
+<td>x &lt;= y</td>
+<td>… x is less than or equal to y</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="writing-and-executing-code" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="writing-and-executing-code"><span class="header-section-number">1.2.2</span> Writing and executing code</h3>
-<p><strong>Code cell:</strong> By default, a cell is of type <em>Code</em>, i.e., for typing code, as seen as the default choice in the dropdown menu below the <em>Widgets</em> tab. Try typing a line of python code (say, <code>2+3</code>) in an empty code cell and execute it by pressing <em>Shift+Enter</em>. This should execute the code, and create an new code cell. Pressing <em>Ctlr+Enter for Windows (or Cmd+Enter for Mac)</em> will execute the code without creating a new cell.</p>
-<p><strong>Commenting code in a code cell:</strong> Comments should be made while writing the code to explain the purpose of the code or a brief explanation of the tasks being performed by the code. A comment can be added in a code cell by preceding it with a # sign. For example, see the comment in the code below.</p>
-<p>Writing comments will help other users understand your code. It is also useful for the coder to keep track of the tasks being performed by their code.</p>
-<div class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This code adds 3 and 5</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="op">+</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
-<pre><code>8</code></pre>
+<section id="if-elif-else-statement" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="if-elif-else-statement"><span class="header-section-number">3.1.2</span> if-elif-else statement</h3>
+<p>The <code>if-elif-else</code> statements can check several conditions, and execute the code corresponding to the condition that is true. Note that there can be as many <code>elif</code> statements as required.</p>
+<p><strong>Syntax:</strong> Python uses indentation to identify the code to be executed if a condition is true. All the code indented within a condition is executed only if the condition is true.</p>
+<p><strong>Example:</strong> Input a number. Print whether it is positive or negative.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number:"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>number_integer <span class="op">=</span> <span class="bu">int</span>(number)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> number_integer<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is positive"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is negative"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter a number:-9
+Number is negative</code></pre>
 </div>
 </div>
-<p><strong>Markdown cell:</strong> Although a comment can be written in a code cell, a code cell cannot be used for writing headings/sub-headings, and is not appropriate for writing lengthy chunks of text. In such cases, change the cell type to <em>Markdown</em> from the dropdown menu below the <em>Widgets</em> tab. Use any markdown cheat sheet found online, for example, <a href="https://www.markdownguide.org/cheat-sheet/">this one</a> to format text in the markdown cells.</p>
-<p>Give a name to the notebook by clicking on the text, which says ‘Untitled’.</p>
-</section>
-<section id="saving-and-loading-notebooks" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="saving-and-loading-notebooks"><span class="header-section-number">1.2.3</span> Saving and loading notebooks</h3>
-<p>Save the notebook by clicking on <code>File</code>, and selecting <code>Save as</code>, or clicking on the <code>Save and Checkpoint</code> icon (below the <code>File</code> tab). Your notebook will be saved as a file with an exptension <em>ipynb</em>. This file will contain all the code as well as the outputs, and can be loaded and edited by a Jupyter user. To load an existing Jupyter notebook, navigate to the folder of the notebook on the <em>landing page</em>, and then click on the file to open it.</p>
-</section>
-<section id="rendering-notebook-as-html" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="rendering-notebook-as-html"><span class="header-section-number">1.2.4</span> Rendering notebook as HTML</h3>
-<p>We’ll use Quarto to print the **.ipynb* file as HTML. Check the procedure for rendering a notebook as HTML <a href="https://quarto.org/docs/output-formats/html-basics.html">here</a>. You have several options to format the file.</p>
-<p>You will need to open the command prompt, navigate to the directory containing the file, and use the command: <code>quarto render filename.ipynb --to html</code>.</p>
-</section>
-</section>
-<section id="in-class-exercise" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="in-class-exercise"><span class="header-section-number">1.3</span> In-class exercise</h2>
-<ol type="1">
-<li>Create a new notebook.</li>
-<li>Save the file as <code>In_class_exercise_1</code>.</li>
-<li>Give a heading to the file - <code>First HTML file</code>.</li>
-<li>Print <code>Today is day 1 of my programming course</code>.</li>
-<li>Compute and print the number of seconds in a day.</li>
-</ol>
-<p>The HTML file should look like the picture below.</p>
+<p>In the above code, note that anything entered by the user is taken as a string datatype by python. However, a string cannot be positive or negative. So, we converted the number input by the user to integer to check if it was positive or negative.</p>
+<p>There may be multiple statements to be executed if a condition is true. See the example below.</p>
+<p><strong>Example:</strong> Input a number. Print whether it is positive or negative. If it is negative, print its absolute value.</p>
 <div class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<img src="./Datasets/snapshot.jpg" width="700" height="400">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number:"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>number_integer <span class="op">=</span> <span class="bu">int</span>(number)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> number_integer<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is positive"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is negative"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Absolute value of number = "</span>, <span class="bu">abs</span>(number_integer))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter a number:-9
+Number is negative
+Absolute value of number =  9</code></pre>
 </div>
 </div>
 </section>
-<section id="debugging-and-errors" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="debugging-and-errors"><span class="header-section-number">1.4</span> Debugging and errors</h2>
-<p>Read sections 1.3 - 1.6 from http://openbookproject.net/thinkcs/python/english3e/way_of_the_program.html</p>
+<section id="in-class-exercise" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="in-class-exercise"><span class="header-section-number">3.1.3</span> In-class exercise</h3>
+<p>Input a number. Print whether its odd or even.</p>
+
+
 </section>
-<section id="terms-used-in-programming" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="terms-used-in-programming"><span class="header-section-number">1.5</span> Terms used in programming</h2>
-<p>Read section 1.11 from http://openbookproject.net/thinkcs/python/english3e/way_of_the_program.html</p>
-
-
 </section>
 
 </main> <!-- /main -->
@@ -407,13 +423,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./Variable_expressions_statements.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Variable_expressions_statements.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data_structures.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data structures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
