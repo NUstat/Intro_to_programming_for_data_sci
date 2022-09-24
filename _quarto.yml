@@ -10,7 +10,7 @@ book:
     - index.qmd
     - Introduction to Jupyter Notebooks and programming in python.ipynb
     - Variable_expressions_statements.ipynb
-    - Conditional execution and loops.ipynb
+    - Control flow.ipynb
     - data_structures.ipynb
     - references.qmd
 
