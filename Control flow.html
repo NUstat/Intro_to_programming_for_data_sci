@@ -320,11 +320,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="if-elif-else-statement"><span class="header-section-number">3.1.3</span> if-elif-else statement</h3>
 <p>The <code>if-elif-else</code> statements can check several conditions, and execute the code corresponding to the condition that is true. Note that there can be as many <code>elif</code> statements as required.</p>
 <p><strong>Syntax:</strong> Python uses indentation to identify the code to be executed if a condition is true. All the code indented within a condition is executed if the condition is true.</p>
-<p><strong>Example:</strong> Input a number. Print whether it is positive or negative.</p>
+<p><strong>Example:</strong> Input an integer. Print whether it is positive or negative.</p>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number:"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>number_integer <span class="op">=</span> <span class="bu">int</span>(number)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> number_integer<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number:"</span>)  <span class="co">#Input an integer</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>number_integer <span class="op">=</span> <span class="bu">int</span>(number)       <span class="co">#Convert the integer to 'int' datatype</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> number_integer<span class="op">&gt;</span><span class="dv">0</span>:               <span class="co">#Check if the integer is positive</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is positive"</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is negative"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -360,16 +360,20 @@ Number is zero</code></pre>
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="try-except"><span class="header-section-number">3.1.5</span> Try-except</h3>
 <p>If we suspect that some lines of code may produce an error, we can put them in a <code>try</code> block, and if an error does occur, we can use the <code>except</code> block to instead execute an alternative piece of code. This way the program will not stop if an error occurs within the <code>try</code> block, and instead will be directed to execute the code within the <code>except</code> block.</p>
 <p><strong>Example:</strong> Input an integer from the user. If the user inputs a valid integer, print whether it is a multiple of 3. However, if the user does not input a valid integer, print a message saying that the input is invalid.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter an integer:"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    num_int <span class="op">=</span> <span class="bu">int</span>(num)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_int<span class="op">%</span><span class="dv">3</span><span class="op">==</span><span class="dv">0</span>:</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is a multiple of 3"</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is not a multiple of 3"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Input must be an integer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#The code lines within 'try' will execute as long as they run without error  </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    num_int <span class="op">=</span> <span class="bu">int</span>(num)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_int<span class="op">%</span><span class="dv">3</span><span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is a multiple of 3"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is not a multiple of 3"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#The code lines within 'except' will only run if the code lines within 'try' throw an error        </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Input must be an integer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter an integer:hi
 Input must be an integer</code></pre>
@@ -440,7 +444,7 @@ Input must be an integer</code></pre>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n2)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">-</span><span class="dv">2</span>):</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">-</span><span class="dv">2</span>):  <span class="co">#Since two numbers of the sequence are already printed, n-2 numbers are required</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n3)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
