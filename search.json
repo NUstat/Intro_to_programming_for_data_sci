@@ -116,7 +116,7 @@
     "href": "Variable_expressions_statements.html#in-class-exercise-5",
     "title": "2  Variables, expressions and statements",
     "section": "2.9 In-class exercise",
-    "text": "2.9 In-class exercise\nThe formula for computing final amount if one is earning compund interest is given by: \\[A = P\\bigg(1+\\frac{r}{n}\\bigg)^{nt},\\]\nwhere:\nP = Principal amount (initial investment),\nr = annual nominal interest rate,\nn = number of times the interest is computed per year,\nt = number of years\nWrite a Python program that assigns the principal amount of $10000 to variable P, assign to n the value 12, and assign to r the interest rate of 8%. Then have the program prompt the user for the number of years t that the money will be compounded for. Calculate and print the final amount after t years.\nWhat is the amount if the user enters t as 4 years?"
+    "text": "2.9 In-class exercise\nThe formula for computing final amount if one is earning compund interest is given by: \\[A = P\\bigg(1+\\frac{r}{n}\\bigg)^{nt},\\]\nwhere:\nP = Principal amount (initial investment),\nr = annual nominal interest rate,\nn = number of times the interest is computed per year,\nt = number of years\nWrite a Python program that assigns the principal amount of $10000 to variable P, assign to n the value 12, and assign to r the interest rate of 8%. Then have the program prompt the user for the number of years t that the money will be compounded for. Calculate and print the final amount after t years.\nWhat is the amount if the user enters t as 4 years?\n\n\nNumber of years:4\n\n\n25870.703854994306"
   },
   {
     "objectID": "Control flow.html",
