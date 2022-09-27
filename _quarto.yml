@@ -13,6 +13,7 @@ book:
     - Variable_expressions_statements.ipynb
     - Control flow.ipynb
     - data_structures.ipynb
+    - functions.ipynb
     - references.qmd
 
 bibliography: references.bib
