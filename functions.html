@@ -210,8 +210,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#function-with-an-argument" id="toc-function-with-an-argument" class="nav-link" data-scroll-target="#function-with-an-argument"><span class="toc-section-number">5.3.1</span>  Function with an argument</a></li>
   <li><a href="#function-with-an-argument-having-a-default-value" id="toc-function-with-an-argument-having-a-default-value" class="nav-link" data-scroll-target="#function-with-an-argument-having-a-default-value"><span class="toc-section-number">5.3.2</span>  Function with an argument having a default value</a></li>
   <li><a href="#function-with-multiple-arguments" id="toc-function-with-multiple-arguments" class="nav-link" data-scroll-target="#function-with-multiple-arguments"><span class="toc-section-number">5.3.3</span>  Function with multiple arguments</a></li>
+  <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="toc-section-number">5.3.4</span>  Practice exercise 1</a></li>
   </ul></li>
   <li><a href="#functions-that-return-objects" id="toc-functions-that-return-objects" class="nav-link" data-scroll-target="#functions-that-return-objects"><span class="toc-section-number">5.4</span>  Functions that return objects</a></li>
+  <li><a href="#built-in-python-functions" id="toc-built-in-python-functions" class="nav-link" data-scroll-target="#built-in-python-functions"><span class="toc-section-number">5.5</span>  Built-in python functions</a></li>
+  <li><a href="#python-libraries" id="toc-python-libraries" class="nav-link" data-scroll-target="#python-libraries"><span class="toc-section-number">5.6</span>  Python libraries</a></li>
   </ul>
 </nav>
     </div>
@@ -309,7 +312,7 @@ Even</code></pre>
 <section id="function-with-an-argument-having-a-default-value" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="function-with-an-argument-having-a-default-value"><span class="header-section-number">5.3.2</span> Function with an argument having a default value</h3>
 <p>To avoid errors as above, sometimes is a good idea to assign a default value to the argument in the function definition:</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition that has an argument with a default value</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> odd_even(num<span class="op">=</span><span class="dv">0</span>):           </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</span>
@@ -339,10 +342,81 @@ Even</code></pre>
 </div>
 </div>
 </section>
+<section id="practice-exercise-1" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">5.3.4</span> Practice exercise 1</h3>
+<p>Write a function that prints prime numbers between two real numbers - <code>a</code> and <code>b</code>, where <code>a</code> and <code>b</code> are the arguments of the function. Call the function and check the output with a = 60, b = 80.</p>
+</section>
 </section>
 <section id="functions-that-return-objects" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="functions-that-return-objects"><span class="header-section-number">5.4</span> Functions that return objects</h2>
-<p>Until now, we saw functions</p>
+<p>Until now, we saw functions that print text. However, the functions did not <code>return</code> any object. For example, the function <code>odd_even</code> prints whether the number is odd or even. However, we did not save this information. In future, we may need to use the information that whether the number was odd or even. Thus, typically, we return an object from the function definition, which consists of the information we may need in the future.</p>
+<p>The example <code>odd_even</code> can be updated to return the text “odd” or “even” as shown below:</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition that has an argument with a default value, and returns an object</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> odd_even(num<span class="op">=</span><span class="dv">0</span>):           </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="st">"Even"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="st">"Odd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function above returns a string “Odd” pr “Even”, depending on whether the number is odd or even. This result can be stored in a variable, which can be used later.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>response<span class="op">=</span>odd_even(<span class="dv">3</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>'Odd'</code></pre>
+</div>
+</div>
+<p>The variable <code>response</code> now refers to the object where the string “Odd” or “Even” is stored. Thus, the result of the computation is stored, and the variable can be used later on in the program. Note that the control flow exits the function as soon as the first <code>return</code> statement is executed.</p>
+</section>
+<section id="built-in-python-functions" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="built-in-python-functions"><span class="header-section-number">5.5</span> Built-in python functions</h2>
+<p>So far we have seen user-defined functions in this chapter. These functions were defined by us, and are not stored permanently in the python compiler. However, there are some functions that come built-in with python and we can use them directly without defining them. These built-in functions can be see <a href="https://docs.python.org/3/library/functions.html">here</a>. For example the built-in function <code>max()</code> computes the max of numeric values:</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">max</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>3</code></pre>
+</div>
+</div>
+<p>Another example is the <code>round()</code> function that rounds up floating point numbers:</p>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(<span class="fl">3.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>4</code></pre>
+</div>
+</div>
+</section>
+<section id="python-libraries" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="python-libraries"><span class="header-section-number">5.6</span> Python libraries</h2>
+<p>Other than the built-in functions, python has hundreds of thousands of libraries that contain several useful functions. These libraries are contributed by people around the world as python is an open-source platform. Some of the libraries popular in data science, and their purposes are the following:</p>
+<ol type="1">
+<li>NumPy: Performing numerical operations and efficiently storing numerical data.</li>
+<li>Pandas: Reading, cleaning and manipulating data.</li>
+<li>Matplotlib, Seaborn: Visualizing data.</li>
+<li>SciPy: Performing scientific computing such as solving differential equations, optimization, statistical tests, etc.</li>
+<li>Scikit-learn: Data pre-processing and machine learning, with a focus on prediction.</li>
+<li>Statsmodels: Developing statistical models with a focus on inference</li>
+</ol>
+<p>A library can be imported using the <code>import</code> keyword. For example, a NumPy library can be imported as:</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the <code>as</code> keyboard, the NumPy library has been given the name <code>np</code>. All the functions and attributes of the library can be called using the <em>‘np.’</em> prefix. For example, let us generate a sequence of whole numbers upto <code>10</code> using the NumPy function <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">arange()</a>:</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7])</code></pre>
+</div>
+</div>
+<p>Generating random numbers is very useful in python for performing simulations (we’ll see in later chapters). The library <a href="https://docs.python.org/3/library/random.html">random</a> is used to generate random numbers such as integers, real numbers based on different probability distributions, etc.</p>
+<p>Below is an example of using the <code>randint()</code> function of the library for generating random numbers in [a, b], where <code>a</code> and <code>b</code> are integers.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random <span class="im">as</span> rm</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>rm.randint(<span class="dv">5</span>,<span class="dv">10</span>) <span class="co">#This will generate a random number in [5,10]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>7</code></pre>
+</div>
+</div>
 
 
 </section>
