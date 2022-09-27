@@ -186,6 +186,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
@@ -209,8 +214,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="toc-section-number">3.2</span>  Loops</a>
   <ul class="collapse">
-  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><span class="toc-section-number">3.2.1</span>  for loop</a></li>
-  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="toc-section-number">3.2.2</span>  while loop</a></li>
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><span class="toc-section-number">3.2.1</span>  <code>for</code> loop</a></li>
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="toc-section-number">3.2.2</span>  <code>while</code> loop</a></li>
   <li><a href="#practice-exercise-3" id="toc-practice-exercise-3" class="nav-link" data-scroll-target="#practice-exercise-3"><span class="toc-section-number">3.2.3</span>  Practice exercise 3</a></li>
   </ul></li>
   </ul>
@@ -355,25 +360,37 @@ Number is zero</code></pre>
 <section id="practice-exercise-1" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">3.1.4</span> Practice exercise 1</h3>
 <p>Input a number. Print whether its odd or even.</p>
+<p><strong>Solution:</strong></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> num<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:           <span class="co">#Checking if the number is divisible by 2</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is even"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Number is odd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter a number: 5
+Number is odd</code></pre>
+</div>
+</div>
 </section>
 <section id="try-except" class="level3" data-number="3.1.5">
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="try-except"><span class="header-section-number">3.1.5</span> Try-except</h3>
 <p>If we suspect that some lines of code may produce an error, we can put them in a <code>try</code> block, and if an error does occur, we can use the <code>except</code> block to instead execute an alternative piece of code. This way the program will not stop if an error occurs within the <code>try</code> block, and instead will be directed to execute the code within the <code>except</code> block.</p>
 <p><strong>Example:</strong> Input an integer from the user. If the user inputs a valid integer, print whether it is a multiple of 3. However, if the user does not input a valid integer, print a message saying that the input is invalid.</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter an integer:"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#The code lines within 'try' will execute as long as they run without error  </span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    num_int <span class="op">=</span> <span class="bu">int</span>(num)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_int<span class="op">%</span><span class="dv">3</span><span class="op">==</span><span class="dv">0</span>:</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is a multiple of 3"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is not a multiple of 3"</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#The code lines within 'except' will only run if the code lines within 'try' throw an error        </span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Input must be an integer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter an integer:"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#The code lines within the 'try' block will execute as long as they run without error  </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    num_int <span class="op">=</span> <span class="bu">int</span>(num)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_int<span class="op">%</span><span class="dv">3</span><span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is a multiple of 3"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Number is not a multiple of 3"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#The code lines within the 'except' block will execute only if the code lines within the 'try' block throw an error        </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Input must be an integer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter an integer:hi
 Input must be an integer</code></pre>
@@ -408,6 +425,26 @@ Input must be an integer</code></pre>
 </tbody>
 </table>
 <p>If the user inputs a score which is not a number in [0,100], print invalid entry.</p>
+<p><strong>Solution:</strong></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter exam score:"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    score_num <span class="op">=</span> <span class="bu">float</span>(score)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> score_num<span class="op">&gt;</span><span class="dv">90</span> <span class="kw">and</span> score_num<span class="op">&lt;=</span><span class="dv">100</span>:</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Grade: A"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> score_num<span class="op">&gt;</span><span class="dv">80</span> <span class="kw">and</span> score_num<span class="op">&lt;=</span><span class="dv">90</span>:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Grade: B"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> score_num<span class="op">&gt;=</span><span class="dv">0</span> <span class="kw">and</span> score_num<span class="op">&lt;=</span><span class="dv">80</span>:</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Grade: C"</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Invalid score"</span>)     <span class="co">#If a number is less than 0 or more than 100</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Invalid input"</span>)         <span class="co">#If the input is not a number</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter exam score:90
+Grade: B</code></pre>
+</div>
+</div>
 </section>
 <section id="section-1" class="level4" data-number="3.1.6.2">
 <h4 data-number="3.1.6.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">3.1.6.2</span> </h4>
@@ -424,32 +461,32 @@ Input must be an integer</code></pre>
 <h2 data-number="3.2" class="anchored" data-anchor-id="loops"><span class="header-section-number">3.2</span> Loops</h2>
 <p>With loops, a piece of code can be executed repeatedly for a fixed number of times or until a condition is satistified.</p>
 <section id="for-loop" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">3.2.1</span> for loop</h3>
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">3.2.1</span> <code>for</code> loop</h3>
 <p>With a <code>for</code> loop, a piece of code is executed a fixed number of times.</p>
 <p>We typically use <code>for</code> loops with an in-built python function called <code>range()</code> that supports <code>for</code> loops. Below is its description.</p>
 <p><strong>range():</strong> The <a href="https://docs.python.org/3/library/functions.html#func-range">range()</a> function returns a sequence of evenly-spaced integer values. It is commonly used in <code>for</code> loops to define the sequence of elements over which the iterations are performed.</p>
 <p>Below is an example where the <code>range()</code> function is used to create a sequence of whole numbers upto 10. Ignore the <code>list()</code> function in the code below, as it will be introduced later.</p>
 <div class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
 </div>
 </div>
 <p>Note that the last element is one less than the integer specified in the <code>range()</code> function.</p>
 <p>Using the <code>range()</code> function, the <code>for</code> loop can iterate over a sequence of numbers. See the example below.</p>
-<p><strong>Example:</strong> Print the first <em>n</em> elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>, where n is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
+<p><strong>Example:</strong> Print the first <em>n</em> elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>, where <em>n</em> is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
 <p>0,1,1,2,3,5,8,13,….</p>
 <div class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter number of elements:"</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n2)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">-</span><span class="dv">2</span>):  <span class="co">#Since two numbers of the sequence are already printed, n-2 numbers are required</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n3)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> n3  </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"These are the first"</span>, n, <span class="st">"elements of the fibonacci series"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter number of elements:"</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n2)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">-</span><span class="dv">2</span>):  <span class="co">#Since two numbers of the sequence are already printed, n-2 numbers are required</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n3)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> n3  </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"These are the first"</span>, n, <span class="st">"elements of the fibonacci series"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter number of elements:6
 0
@@ -465,20 +502,20 @@ These are the first 6 elements of the fibonacci series</code></pre>
 <p>Note that we have used an in-built python function</p>
 </section>
 <section id="while-loop" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">3.2.2</span> while loop</h3>
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">3.2.2</span> <code>while</code> loop</h3>
 <p>With a <code>while</code> loops, a piece of code is executed repeatedly until certain condition(s) hold.</p>
-<p><strong>Example:</strong> Print all the elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> less than <em>n</em>, where n is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
+<p><strong>Example:</strong> Print all the elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> less than <em>n</em>, where <em>n</em> is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
 <p>0,1,1,2,3,5,8,13,….</p>
 <div class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter the value of n:"</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n2<span class="op">&lt;</span>n:</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n2)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> n3  </span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"These are all the elements of the fibonacci series less than"</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter the value of n:"</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n2<span class="op">&lt;</span>n:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n2)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> n3  </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"These are all the elements of the fibonacci series less than"</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter the value of n:50
 0
