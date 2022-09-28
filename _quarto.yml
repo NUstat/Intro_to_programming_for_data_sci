@@ -12,8 +12,8 @@ book:
     - Introduction to Jupyter Notebooks and programming in python.ipynb
     - Variable_expressions_statements.ipynb
     - Control flow.ipynb
-    - data_structures.ipynb
     - functions.ipynb
+    - data_structures.ipynb
     - references.qmd
 
 bibliography: references.bib
