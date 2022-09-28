@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to programming for data science - 5&nbsp; Functions</title>
+<title>Introduction to programming for data science - 4&nbsp; Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./data_structures.html" rel="prev">
+<link href="./data_structures.html" rel="next">
+<link href="./Control flow.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -181,12 +181,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data structures</span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="./data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -203,20 +203,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">5.1</span>  Introduction</a></li>
-  <li><a href="#defining-a-function" id="toc-defining-a-function" class="nav-link" data-scroll-target="#defining-a-function"><span class="toc-section-number">5.2</span>  Defining a function</a></li>
-  <li><a href="#arguments-of-a-function" id="toc-arguments-of-a-function" class="nav-link" data-scroll-target="#arguments-of-a-function"><span class="toc-section-number">5.3</span>  Arguments of a function</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">4.1</span>  Introduction</a></li>
+  <li><a href="#defining-a-function" id="toc-defining-a-function" class="nav-link" data-scroll-target="#defining-a-function"><span class="toc-section-number">4.2</span>  Defining a function</a></li>
+  <li><a href="#arguments-of-a-function" id="toc-arguments-of-a-function" class="nav-link" data-scroll-target="#arguments-of-a-function"><span class="toc-section-number">4.3</span>  Arguments of a function</a>
   <ul class="collapse">
-  <li><a href="#function-with-an-argument" id="toc-function-with-an-argument" class="nav-link" data-scroll-target="#function-with-an-argument"><span class="toc-section-number">5.3.1</span>  Function with an argument</a></li>
-  <li><a href="#function-with-an-argument-having-a-default-value" id="toc-function-with-an-argument-having-a-default-value" class="nav-link" data-scroll-target="#function-with-an-argument-having-a-default-value"><span class="toc-section-number">5.3.2</span>  Function with an argument having a default value</a></li>
-  <li><a href="#function-with-multiple-arguments" id="toc-function-with-multiple-arguments" class="nav-link" data-scroll-target="#function-with-multiple-arguments"><span class="toc-section-number">5.3.3</span>  Function with multiple arguments</a></li>
-  <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="toc-section-number">5.3.4</span>  Practice exercise 1</a></li>
+  <li><a href="#function-with-an-argument" id="toc-function-with-an-argument" class="nav-link" data-scroll-target="#function-with-an-argument"><span class="toc-section-number">4.3.1</span>  Function with an argument</a></li>
+  <li><a href="#function-with-an-argument-having-a-default-value" id="toc-function-with-an-argument-having-a-default-value" class="nav-link" data-scroll-target="#function-with-an-argument-having-a-default-value"><span class="toc-section-number">4.3.2</span>  Function with an argument having a default value</a></li>
+  <li><a href="#function-with-multiple-arguments" id="toc-function-with-multiple-arguments" class="nav-link" data-scroll-target="#function-with-multiple-arguments"><span class="toc-section-number">4.3.3</span>  Function with multiple arguments</a></li>
+  <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="toc-section-number">4.3.4</span>  Practice exercise 1</a></li>
   </ul></li>
-  <li><a href="#functions-that-return-objects" id="toc-functions-that-return-objects" class="nav-link" data-scroll-target="#functions-that-return-objects"><span class="toc-section-number">5.4</span>  Functions that return objects</a></li>
-  <li><a href="#built-in-python-functions" id="toc-built-in-python-functions" class="nav-link" data-scroll-target="#built-in-python-functions"><span class="toc-section-number">5.5</span>  Built-in python functions</a></li>
-  <li><a href="#python-libraries" id="toc-python-libraries" class="nav-link" data-scroll-target="#python-libraries"><span class="toc-section-number">5.6</span>  Python libraries</a>
+  <li><a href="#functions-that-return-objects" id="toc-functions-that-return-objects" class="nav-link" data-scroll-target="#functions-that-return-objects"><span class="toc-section-number">4.4</span>  Functions that return objects</a></li>
+  <li><a href="#built-in-python-functions" id="toc-built-in-python-functions" class="nav-link" data-scroll-target="#built-in-python-functions"><span class="toc-section-number">4.5</span>  Built-in python functions</a></li>
+  <li><a href="#python-libraries" id="toc-python-libraries" class="nav-link" data-scroll-target="#python-libraries"><span class="toc-section-number">4.6</span>  Python libraries</a>
   <ul class="collapse">
-  <li><a href="#practice-exercise-2" id="toc-practice-exercise-2" class="nav-link" data-scroll-target="#practice-exercise-2"><span class="toc-section-number">5.6.1</span>  Practice exercise 2</a></li>
+  <li><a href="#practice-exercise-2" id="toc-practice-exercise-2" class="nav-link" data-scroll-target="#practice-exercise-2"><span class="toc-section-number">4.6.1</span>  Practice exercise 2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -226,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions</span></h1>
 </div>
 
 
@@ -240,8 +240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="introduction" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
 <p>As the words suggests, <em>functions</em> are a piece of code that have a specific function or purpose. As an analogy, if a human is a computer program, then the mind can be considered to be a function, which has purpose of thinking, eyes can be another function, which have a purpose of seeing. These functions are called upon by the human when needed.</p>
 <p>Similarly, in case of a computer program, functions are a piece of code, that perform a specific task, when called upon by the program. Instead of being defined as a function, the piece of code can also be used directly whenever it is needed in a program. However, defining a frequently-used piece of code as a function has the following benefits:</p>
 <ol type="1">
@@ -251,8 +251,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>To put it more formally, a function is a piece of code that takes arguments (if any) as input, performs computations or tasks, and then returns a result or results.</p>
 </section>
-<section id="defining-a-function" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="defining-a-function"><span class="header-section-number">5.2</span> Defining a function</h2>
+<section id="defining-a-function" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="defining-a-function"><span class="header-section-number">4.2</span> Defining a function</h2>
 <p>Look at the function defined below. It asks the user to input a number, and prints whether the number is odd or even.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition</span></span>
@@ -281,11 +281,11 @@ Odd</code></pre>
 </div>
 </div>
 </section>
-<section id="arguments-of-a-function" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="arguments-of-a-function"><span class="header-section-number">5.3</span> Arguments of a function</h2>
+<section id="arguments-of-a-function" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="arguments-of-a-function"><span class="header-section-number">4.3</span> Arguments of a function</h2>
 <p>Note that the function defined above needs no input when called. However, sometimes we may wish to define a function that takes input(s), and performs computations on the inputs to produce an output. These input(s) are called argument(s) of a function.</p>
-<section id="function-with-an-argument" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="function-with-an-argument"><span class="header-section-number">5.3.1</span> Function with an argument</h3>
+<section id="function-with-an-argument" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="function-with-an-argument"><span class="header-section-number">4.3.1</span> Function with an argument</h3>
 <p>Let us change the previous example to write a function that takes an integer as an input argument, and prints whether it is odd or even:</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition that has an argument</span></span>
@@ -312,8 +312,8 @@ Even</code></pre>
 </div>
 </div>
 </section>
-<section id="function-with-an-argument-having-a-default-value" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="function-with-an-argument-having-a-default-value"><span class="header-section-number">5.3.2</span> Function with an argument having a default value</h3>
+<section id="function-with-an-argument-having-a-default-value" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="function-with-an-argument-having-a-default-value"><span class="header-section-number">4.3.2</span> Function with an argument having a default value</h3>
 <p>To avoid errors as above, sometimes is a good idea to assign a default value to the argument in the function definition:</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition that has an argument with a default value</span></span>
@@ -331,8 +331,8 @@ Even</code></pre>
 </div>
 </div>
 </section>
-<section id="function-with-multiple-arguments" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="function-with-multiple-arguments"><span class="header-section-number">5.3.3</span> Function with multiple arguments</h3>
+<section id="function-with-multiple-arguments" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="function-with-multiple-arguments"><span class="header-section-number">4.3.3</span> Function with multiple arguments</h3>
 <p>A function can have as many arguments as needed. Multiple arguments are separated by commas. For example, below is a function that inputs two strings, concatenates them with a space in between, and prints the output:</p>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> concat_string(string1, string2):</span>
@@ -345,13 +345,13 @@ Even</code></pre>
 </div>
 </div>
 </section>
-<section id="practice-exercise-1" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">5.3.4</span> Practice exercise 1</h3>
+<section id="practice-exercise-1" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">4.3.4</span> Practice exercise 1</h3>
 <p>Write a function that prints prime numbers between two real numbers - <code>a</code> and <code>b</code>, where <code>a</code> and <code>b</code> are the arguments of the function. Call the function and check the output with a = 60, b = 80.</p>
 </section>
 </section>
-<section id="functions-that-return-objects" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="functions-that-return-objects"><span class="header-section-number">5.4</span> Functions that return objects</h2>
+<section id="functions-that-return-objects" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="functions-that-return-objects"><span class="header-section-number">4.4</span> Functions that return objects</h2>
 <p>Until now, we saw functions that print text. However, the functions did not <code>return</code> any object. For example, the function <code>odd_even</code> prints whether the number is odd or even. However, we did not save this information. In future, we may need to use the information that whether the number was odd or even. Thus, typically, we return an object from the function definition, which consists of the information we may need in the future.</p>
 <p>The example <code>odd_even</code> can be updated to return the text “odd” or “even” as shown below:</p>
 <div class="cell" data-execution_count="27">
@@ -372,8 +372,8 @@ Even</code></pre>
 </div>
 <p>The variable <code>response</code> now refers to the object where the string “Odd” or “Even” is stored. Thus, the result of the computation is stored, and the variable can be used later on in the program. Note that the control flow exits the function as soon as the first <code>return</code> statement is executed.</p>
 </section>
-<section id="built-in-python-functions" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="built-in-python-functions"><span class="header-section-number">5.5</span> Built-in python functions</h2>
+<section id="built-in-python-functions" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="built-in-python-functions"><span class="header-section-number">4.5</span> Built-in python functions</h2>
 <p>So far we have seen user-defined functions in this chapter. These functions were defined by us, and are not stored permanently in the python compiler. However, there are some functions that come built-in with python and we can use them directly without defining them. These built-in functions can be see <a href="https://docs.python.org/3/library/functions.html">here</a>. For example the built-in function <code>max()</code> computes the max of numeric values:</p>
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">max</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -389,8 +389,8 @@ Even</code></pre>
 </div>
 </div>
 </section>
-<section id="python-libraries" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="python-libraries"><span class="header-section-number">5.6</span> Python libraries</h2>
+<section id="python-libraries" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="python-libraries"><span class="header-section-number">4.6</span> Python libraries</h2>
 <p>Other than the built-in functions, python has hundreds of thousands of libraries that contain several useful functions. These libraries are contributed by people around the world as python is an open-source platform. Some of the libraries popular in data science, and their purposes are the following:</p>
 <ol type="1">
 <li>NumPy: Performing numerical operations and efficiently storing numerical data.</li>
@@ -420,8 +420,8 @@ Even</code></pre>
 <pre><code>7</code></pre>
 </div>
 </div>
-<section id="practice-exercise-2" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="practice-exercise-2"><span class="header-section-number">5.6.1</span> Practice exercise 2</h3>
+<section id="practice-exercise-2" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="practice-exercise-2"><span class="header-section-number">4.6.1</span> Practice exercise 2</h3>
 <p>Generate a random number between [-5,5]. Do this 10,000 times. Find the mean of all the 10,000 random numbers generated.</p>
 
 
@@ -529,13 +529,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data_structures.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data structures</span></span>
+      <a href="./Control flow.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data_structures.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
