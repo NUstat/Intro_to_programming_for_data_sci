@@ -124,6 +124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -224,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#loops-with-strings" id="toc-loops-with-strings" class="nav-link" data-scroll-target="#loops-with-strings"><span class="toc-section-number">3.4</span>  Loops with strings</a>
   <ul class="collapse">
-  <li><a href="#pracrice-exercise-5" id="toc-pracrice-exercise-5" class="nav-link" data-scroll-target="#pracrice-exercise-5"><span class="toc-section-number">3.4.1</span>  Pracrice exercise 5</a></li>
+  <li><a href="#practice-exercise-5" id="toc-practice-exercise-5" class="nav-link" data-scroll-target="#practice-exercise-5"><span class="toc-section-number">3.4.1</span>  Practice exercise 5</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -722,7 +723,7 @@ Enter year of birth:1900</code></pre>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">"She sells sea shells on the sea shore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The ith character of the string can be retrieved by its index. For example, the first character of the string is:</p>
+<p>The <span class="math inline">\(i^{th}\)</span> character of the string can be retrieved by its index. For example, the first character of the string <code>sentence</code> is:</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sentence[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -730,7 +731,7 @@ Enter year of birth:1900</code></pre>
 </div>
 </div>
 <p><strong>Slicing a string:</strong></p>
-<p>A part of the string can be sliced by passing the starting index (say <code>start</code>) and the stopping index (say <code>stop</code>) as <code>start</code>:<code>stop</code> to the index operator []. This is called slicing a string. For a string <code>S</code>, the characters starting from the index <code>start</code> upto the index <code>stop</code>, but not including <code>stop</code> can be sliced as <code>S[start:stop]</code>.</p>
+<p>A part of the string can be sliced by passing the starting index (say <code>start</code>) and the stopping index (say <code>stop</code>) as <code>start</code>:<code>stop</code> to the index operator []. This is called slicing a string. For a string <code>S</code>, the characters starting from the index <code>start</code> upto the index <code>stop</code>, but not including <code>stop</code>, can be sliced as <code>S[start:stop]</code>.</p>
 <p>For example, the slice of the string <code>sentence</code> from index <code>4</code> to index <code>9</code>, but not including <code>9</code> is:</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sentence[<span class="dv">4</span>:<span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -739,7 +740,7 @@ Enter year of birth:1900</code></pre>
 </div>
 </div>
 <p><strong>Example:</strong></p>
-<p>Input a string, and count and print the number of ’t’s.</p>
+<p>Input a string, and count and print the number of “<em>t</em>”s.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a sentence:"</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -760,9 +761,9 @@ Enter year of birth:1900</code></pre>
 Number of 't's in the string =  6</code></pre>
 </div>
 </div>
-<section id="pracrice-exercise-5" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="pracrice-exercise-5"><span class="header-section-number">3.4.1</span> Pracrice exercise 5</h3>
-<p>Write a program that asks the user to input a string, and print the number of ’the’s in the string.</p>
+<section id="practice-exercise-5" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="practice-exercise-5"><span class="header-section-number">3.4.1</span> Practice exercise 5</h3>
+<p>Write a program that asks the user to input a string, and print the number of “<em>the</em>”s in the string.</p>
 
 
 </section>
