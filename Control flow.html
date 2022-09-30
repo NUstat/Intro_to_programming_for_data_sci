@@ -717,7 +717,7 @@ Enter year of birth:1900</code></pre>
 </section>
 <section id="loops-with-strings" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="loops-with-strings"><span class="header-section-number">3.4</span> Loops with strings</h2>
-<p>Loops can be used to iterate over a string, just like we used them to iterate over a sequence of numbers.</p>
+<p>Loops can be used to iterate over a string, just like we used them to iterate over a sequence of integers.</p>
 <p>Consider the following string:</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">"She sells sea shells on the sea shore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -730,8 +730,8 @@ Enter year of birth:1900</code></pre>
 </div>
 </div>
 <p><strong>Slicing a string:</strong></p>
-<p>Note that a part of the string can be sliced by using the desired start index and stop index in the format <code>[start:stop]</code>. For a string <code>S</code>, the characters starting from the index <code>start</code> upto the index <code>stop</code> can be retrieved as <code>S[start:stop]</code>.</p>
-<p>For example, the characters of the string <code>sentence</code> from index <code>4</code> to index <code>8</code> are:</p>
+<p>A part of the string can be sliced by passing the starting index (say <code>start</code>) and the stopping index (say <code>stop</code>) as <code>start</code>:<code>stop</code> to the index operator []. This is called slicing a string. For a string <code>S</code>, the characters starting from the index <code>start</code> upto the index <code>stop</code>, but not including <code>stop</code> can be sliced as <code>S[start:stop]</code>.</p>
+<p>For example, the slice of the string <code>sentence</code> from index <code>4</code> to index <code>9</code>, but not including <code>9</code> is:</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sentence[<span class="dv">4</span>:<span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -742,11 +742,19 @@ Enter year of birth:1900</code></pre>
 <p>Input a string, and count and print the number of ’t’s.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a sentence:"</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>count_t <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(string)):</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> string[i]<span class="op">==</span><span class="st">'t'</span>:</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>        count_t <span class="op">=</span> count_t<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of 't's in the string = "</span>,count_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Initializing a variable 'count_t' which will store the number of 't's in the string</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>count_t <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Iterating over the entire length of the string. </span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">#The length of the string is given by the len() function</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(string)):</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">#If the ith character of the string is 't', then we count it</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> string[i]<span class="op">==</span><span class="st">'t'</span>:</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>        count_t <span class="op">=</span> count_t<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of 't's in the string = "</span>,count_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter a sentence:Getting a tatto is not a nice experience
 Number of 't's in the string =  6</code></pre>
