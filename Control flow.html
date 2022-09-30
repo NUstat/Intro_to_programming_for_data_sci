@@ -218,6 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="toc-section-number">3.2.2</span>  <code>while</code> loop</a></li>
   <li><a href="#practice-exercise-3" id="toc-practice-exercise-3" class="nav-link" data-scroll-target="#practice-exercise-3"><span class="toc-section-number">3.2.3</span>  Practice exercise 3</a></li>
   </ul></li>
+  <li><a href="#break-statement" id="toc-break-statement" class="nav-link" data-scroll-target="#break-statement"><span class="toc-section-number">3.3</span>  <code>break</code> statement</a>
+  <ul class="collapse">
+  <li><a href="#practice-exercise-4" id="toc-practice-exercise-4" class="nav-link" data-scroll-target="#practice-exercise-4"><span class="toc-section-number">3.3.1</span>  Practice exercise 4</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -677,9 +681,36 @@ Prime</code></pre>
 97</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+</section>
+<section id="break-statement" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="break-statement"><span class="header-section-number">3.3</span> <code>break</code> statement</h2>
+<p>The <code>break</code> statement is used to unconditionally exit the innermost loop.</p>
+<p>For example, suppose we need to keep asking the user to input year of birth and compute age, until the user enters 1900 as the year of birth.</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The loop will continue to run indefinitely as the condition 'True' is always true</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter year of birth:"</span>))</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year<span class="op">==</span><span class="dv">1900</span>:</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>        <span class="co">#If the user inputs 1900, then break out of the loop</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Age = "</span>,<span class="dv">2022</span><span class="op">-</span>year)    <span class="co">#Otherwise compute and print the age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter year of birth:1987
+Age =  35
+Enter year of birth:1995
+Age =  27
+Enter year of birth:2001
+Age =  21
+Enter year of birth:1900</code></pre>
+</div>
+</div>
+<section id="practice-exercise-4" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="practice-exercise-4"><span class="header-section-number">3.3.1</span> Practice exercise 4</h3>
+<p>Write a program that finds and prints the largest factor of a number input by the user. Check the output if the user inputs 133.</p>
+
+
 </section>
 </section>
 
