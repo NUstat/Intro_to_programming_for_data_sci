@@ -147,6 +147,13 @@
     "text": "3.3 break statement\nThe break statement is used to unconditionally exit the innermost loop.\nFor example, suppose we need to keep asking the user to input year of birth and compute the corresponding age, until the user enters 1900 as the year of birth.\n\n#The loop will continue to run indefinitely as the condition 'True' is always true\nwhile True:\n    year = int(input(\"Enter year of birth:\"))\n    if year==1900:\n        break        #If the user inputs 1900, then break out of the loop\n    else:\n        print(\"Age = \",2022-year)    #Otherwise compute and print the age\n\nEnter year of birth:1987\nAge =  35\nEnter year of birth:1995\nAge =  27\nEnter year of birth:2001\nAge =  21\nEnter year of birth:1900\n\n\n\n3.3.1 Practice exercise 4\nWrite a program that finds and prints the largest factor of a number input by the user. Check the output if the user inputs 133."
   },
   {
+    "objectID": "Control flow.html#loops-with-strings",
+    "href": "Control flow.html#loops-with-strings",
+    "title": "3  Control flow statements",
+    "section": "3.4 Loops with strings",
+    "text": "3.4 Loops with strings\nLoops can be used to iterate over a string, just like we used them to iterate over a sequence of numbers.\nConsider the following string:\n\nsentence = \"She sells sea shells on the sea shore\"\n\nThe ith character of the string can be retrieved by its index. For example, the first character of the string is:\n\nsentence[0]\n\n'S'\n\n\nSlicing a string:\nNote that a part of the string can be sliced by using the desired start index and stop index in the format [start:stop]. For a string S, the characters starting from the index start upto the index stop can be retrieved as S[start:stop].\nFor example, the characters of the string sentence from index 4 to index 8 are:\n\nsentence[4:9]\n\n'sells'\n\n\nExample:\nInput a string, and count and print the number of ’t’s.\n\nstring = input(\"Enter a sentence:\")\ncount_t = 0\nfor i in range(len(string)):\n    if string[i]=='t':\n        count_t = count_t+1\nprint(\"Number of 't's in the string = \",count_t)\n\nEnter a sentence:Getting a tatto is not a nice experience\nNumber of 't's in the string =  6\n\n\n\n3.4.1 Pracrice exercise 5\nWrite a program that asks the user to input a string, and print the number of ’the’s in the string."
+  },
+  {
     "objectID": "functions.html",
     "href": "functions.html",
     "title": "4  Functions",
