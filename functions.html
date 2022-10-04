@@ -123,6 +123,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -205,11 +208,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">4.1</span>  Introduction</a></li>
   <li><a href="#defining-a-function" id="toc-defining-a-function" class="nav-link" data-scroll-target="#defining-a-function"><span class="toc-section-number">4.2</span>  Defining a function</a></li>
-  <li><a href="#arguments-of-a-function" id="toc-arguments-of-a-function" class="nav-link" data-scroll-target="#arguments-of-a-function"><span class="toc-section-number">4.3</span>  Arguments of a function</a>
+  <li><a href="#parameters-and-arguments-of-a-function" id="toc-parameters-and-arguments-of-a-function" class="nav-link" data-scroll-target="#parameters-and-arguments-of-a-function"><span class="toc-section-number">4.3</span>  Parameters and arguments of a function</a>
   <ul class="collapse">
-  <li><a href="#function-with-an-argument" id="toc-function-with-an-argument" class="nav-link" data-scroll-target="#function-with-an-argument"><span class="toc-section-number">4.3.1</span>  Function with an argument</a></li>
-  <li><a href="#function-with-an-argument-having-a-default-value" id="toc-function-with-an-argument-having-a-default-value" class="nav-link" data-scroll-target="#function-with-an-argument-having-a-default-value"><span class="toc-section-number">4.3.2</span>  Function with an argument having a default value</a></li>
-  <li><a href="#function-with-multiple-arguments" id="toc-function-with-multiple-arguments" class="nav-link" data-scroll-target="#function-with-multiple-arguments"><span class="toc-section-number">4.3.3</span>  Function with multiple arguments</a></li>
+  <li><a href="#function-with-a-parameter" id="toc-function-with-a-parameter" class="nav-link" data-scroll-target="#function-with-a-parameter"><span class="toc-section-number">4.3.1</span>  Function with a parameter</a></li>
+  <li><a href="#function-with-a-parameter-having-a-default-value" id="toc-function-with-a-parameter-having-a-default-value" class="nav-link" data-scroll-target="#function-with-a-parameter-having-a-default-value"><span class="toc-section-number">4.3.2</span>  Function with a parameter having a default value</a></li>
+  <li><a href="#function-with-multiple-parameters" id="toc-function-with-multiple-parameters" class="nav-link" data-scroll-target="#function-with-multiple-parameters"><span class="toc-section-number">4.3.3</span>  Function with multiple parameters</a></li>
   <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="toc-section-number">4.3.4</span>  Practice exercise 1</a></li>
   </ul></li>
   <li><a href="#functions-that-return-objects" id="toc-functions-that-return-objects" class="nav-link" data-scroll-target="#functions-that-return-objects"><span class="toc-section-number">4.4</span>  Functions that return objects</a></li>
@@ -246,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As the words suggests, <em>functions</em> are a piece of code that have a specific function or purpose. As an analogy, if a human is a computer program, then the mind can be considered to be a function, which has purpose of thinking, eyes can be another function, which have a purpose of seeing. These functions are called upon by the human when needed.</p>
 <p>Similarly, in case of a computer program, functions are a piece of code, that perform a specific task, when called upon by the program. Instead of being defined as a function, the piece of code can also be used directly whenever it is needed in a program. However, defining a frequently-used piece of code as a function has the following benefits:</p>
 <ol type="1">
-<li><p>It reduces the number of lines of code, as the lines of code need to be written just once in the function definition. Thereafter, the function is called by its name, wherever needed in the program. This makes the code compact, and enhances readibility.</p></li>
+<li><p>It reduces the number of lines of code, as the lines of code need to be written just once in the function definition. Thereafter, the function is called by its name, wherever needed in the program. This makes the code compact, and enhances readability.</p></li>
 <li><p>It makes the process of writing code easier, as the user needs to just type the name of the function, wherever it is needed, instead of pasting lines of code.</p></li>
 <li><p>It can be used in different programs, thereby saving time in writing other programs.</p></li>
 </ol>
@@ -282,11 +285,11 @@ Odd</code></pre>
 </div>
 </div>
 </section>
-<section id="arguments-of-a-function" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="arguments-of-a-function"><span class="header-section-number">4.3</span> Arguments of a function</h2>
-<p>Note that the function defined above needs no input when called. However, sometimes we may wish to define a function that takes input(s), and performs computations on the inputs to produce an output. These input(s) are called argument(s) of a function.</p>
-<section id="function-with-an-argument" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="function-with-an-argument"><span class="header-section-number">4.3.1</span> Function with an argument</h3>
+<section id="parameters-and-arguments-of-a-function" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="parameters-and-arguments-of-a-function"><span class="header-section-number">4.3</span> Parameters and arguments of a function</h2>
+<p>Note that the function defined above needs no input when called. However, sometimes we may wish to define a function that takes input(s), and performs computations on the inputs to produce an output. These input(s) are called parameter(s) of a function. When a function is called, the value(s) of these parameter(s) must be specified as argument(s) to the function.</p>
+<section id="function-with-a-parameter" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="function-with-a-parameter"><span class="header-section-number">4.3.1</span> Function with a parameter</h3>
 <p>Let us change the previous example to write a function that takes an integer as an input argument, and prints whether it is odd or even:</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition that has an argument</span></span>
@@ -313,9 +316,9 @@ Even</code></pre>
 </div>
 </div>
 </section>
-<section id="function-with-an-argument-having-a-default-value" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="function-with-an-argument-having-a-default-value"><span class="header-section-number">4.3.2</span> Function with an argument having a default value</h3>
-<p>To avoid errors as above, sometimes is a good idea to assign a default value to the argument in the function definition:</p>
+<section id="function-with-a-parameter-having-a-default-value" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="function-with-a-parameter-having-a-default-value"><span class="header-section-number">4.3.2</span> Function with a parameter having a default value</h3>
+<p>To avoid errors as above, sometimes is a good idea to assign a default value to the parameter in the function definition:</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This is an example of a function definition that has an argument with a default value</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> odd_even(num<span class="op">=</span><span class="dv">0</span>):           </span>
@@ -324,7 +327,7 @@ Even</code></pre>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Odd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, we can call the function without an argument. The function will use the default value of the argument specified in the function definition.</p>
+<p>Now, we can call the function without an argument. The function will use the default value of the parameter specified in the function definition.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>odd_even()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -332,9 +335,9 @@ Even</code></pre>
 </div>
 </div>
 </section>
-<section id="function-with-multiple-arguments" class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="function-with-multiple-arguments"><span class="header-section-number">4.3.3</span> Function with multiple arguments</h3>
-<p>A function can have as many arguments as needed. Multiple arguments are separated by commas. For example, below is a function that inputs two strings, concatenates them with a space in between, and prints the output:</p>
+<section id="function-with-multiple-parameters" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="function-with-multiple-parameters"><span class="header-section-number">4.3.3</span> Function with multiple parameters</h3>
+<p>A function can have as many parameters as needed. Multiple parameters/arguments are separated by commas. For example, below is a function that inputs two strings, concatenates them with a space in between, and prints the output:</p>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> concat_string(string1, string2):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(string1<span class="op">+</span><span class="st">' '</span><span class="op">+</span>string2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -348,7 +351,7 @@ Even</code></pre>
 </section>
 <section id="practice-exercise-1" class="level3" data-number="4.3.4">
 <h3 data-number="4.3.4" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">4.3.4</span> Practice exercise 1</h3>
-<p>Write a function that prints prime numbers between two real numbers - <code>a</code> and <code>b</code>, where <code>a</code> and <code>b</code> are the arguments of the function. Call the function and check the output with a = 60, b = 80.</p>
+<p>Write a function that prints prime numbers between two real numbers - <code>a</code> and <code>b</code>, where <code>a</code> and <code>b</code> are the parameters of the function. Call the function and check the output with a = 60, b = 80.</p>
 </section>
 </section>
 <section id="functions-that-return-objects" class="level2" data-number="4.4">
@@ -363,7 +366,7 @@ Even</code></pre>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="st">"Odd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The function above returns a string “Odd” pr “Even”, depending on whether the number is odd or even. This result can be stored in a variable, which can be used later.</p>
+<p>The function above returns a string “Odd” or “Even”, depending on whether the number is odd or even. This result can be stored in a variable, which can be used later.</p>
 <div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>response<span class="op">=</span>odd_even(<span class="dv">3</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -372,6 +375,12 @@ Even</code></pre>
 </div>
 </div>
 <p>The variable <code>response</code> now refers to the object where the string “Odd” or “Even” is stored. Thus, the result of the computation is stored, and the variable can be used later on in the program. Note that the control flow exits the function as soon as the first <code>return</code> statement is executed.</p>
+<p>The picture below shows the terminology associated with functions.</p>
+<div class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<img src="./Datasets/function_picture.jpg" width="700" height="400">
+</div>
+</div>
 </section>
 <section id="global-and-local-variables-with-respect-to-a-function" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="global-and-local-variables-with-respect-to-a-function"><span class="header-section-number">4.5</span> Global and local variables with respect to a function</h2>
