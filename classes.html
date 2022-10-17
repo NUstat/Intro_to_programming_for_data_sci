@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="toc-section-number">6.2</span>  Class</a>
   <ul>
   <li><a href="#creating-your-own-class" id="toc-creating-your-own-class" class="nav-link" data-scroll-target="#creating-your-own-class"><span class="toc-section-number">6.2.1</span>  Creating your own class</a></li>
+  <li><a href="#example-a-class-that-analyzes-a-string" id="toc-example-a-class-that-analyzes-a-string" class="nav-link" data-scroll-target="#example-a-class-that-analyzes-a-string"><span class="toc-section-number">6.2.2</span>  Example: A class that analyzes a string</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -253,9 +254,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>integer_example <span class="op">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The attributes and methods of this <em>integer</em> object can be seen by putting a <code>.</code> next to its name, and pressing the <em>tab</em> key. A dropdown menu consisting of the attributes and methods will appear as shown below.</p>
-<div class="cell" data-execution_count="69">
-<div class="cell-output cell-output-display" data-execution_count="69">
-<img src="./Datasets/attributes.jpg" width="500" height="200">
+<div class="cell" data-execution_count="79">
+<div class="cell-output cell-output-display" data-execution_count="79">
+<img src="./Datasets/attributes.jpg" width="400" height="200">
 </div>
 </div>
 <p>A list of all attributes and methods associated with an object can be obtained with the <code>dir()</code> function. Ignore the ones with underscores - these are used by Python itself. The rest of them can be used to perform operations.</p>
@@ -325,7 +326,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>72</code></pre>
 </div>
 </div>
-<p>We can use the</p>
+</section>
+<section id="example-a-class-that-analyzes-a-string" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="example-a-class-that-analyzes-a-string"><span class="header-section-number">6.2.2</span> Example: A class that analyzes a string</h3>
+<p>Let us create a class that analyzes a string.</p>
+<div class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AnalyzeString():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Constructor</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, s):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> s.lower()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.words <span class="op">=</span> s.split()</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#This method counts the numebr of words</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> number_of_words(<span class="va">self</span>):</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="bu">len</span>(<span class="va">self</span>.words))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#This method counts the number of words starting with the string s</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> starts_with(<span class="va">self</span>,s):</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>([x <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>.words <span class="cf">if</span> x[:<span class="bu">len</span>(s)]<span class="op">==</span>s])</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#This method counts the number of words of length n</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> words_with_length(<span class="va">self</span>,n):</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>([x <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>.words <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">==</span>n])</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">#This method returns the frequency of the word w</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> word_frequency(<span class="va">self</span>,w):</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.words.count(w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let us create an instance of the class <code>AnalyzeString()</code> to analyze a sentence.</p>
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">'This sentence in an example of a string that we will analyse using a class we have defined'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sentence_analysis <span class="op">=</span> AnalyzeString(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The attribute 'word' contains the list of words in the sentence</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sentence_analysis.words</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
+<pre><code>['this',
+ 'sentence',
+ 'in',
+ 'an',
+ 'example',
+ 'of',
+ 'a',
+ 'string',
+ 'that',
+ 'we',
+ 'will',
+ 'analyse',
+ 'using',
+ 'a',
+ 'class',
+ 'we',
+ 'have',
+ 'defined']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The method 'word_frequncy()' provides the frequency of a word in the sentence</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sentence_analysis.word_frequency(<span class="st">'we'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>2</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The method 'starts_with()' provides the frequency of number of words starting with a particular string</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sentence_analysis.starts_with(<span class="st">'th'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+<pre><code>2</code></pre>
+</div>
+</div>
 
 
 </section>
