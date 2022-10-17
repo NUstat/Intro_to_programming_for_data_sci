@@ -216,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#creating-your-own-class" id="toc-creating-your-own-class" class="nav-link" data-scroll-target="#creating-your-own-class"><span class="toc-section-number">6.2.1</span>  Creating your own class</a></li>
   <li><a href="#example-a-class-that-analyzes-a-string" id="toc-example-a-class-that-analyzes-a-string" class="nav-link" data-scroll-target="#example-a-class-that-analyzes-a-string"><span class="toc-section-number">6.2.2</span>  Example: A class that analyzes a string</a></li>
+  <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="toc-section-number">6.2.3</span>  Practice exercise 1</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -356,10 +357,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Let us create an instance of the class <code>AnalyzeString()</code> to analyze a sentence.</p>
 <div class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">'This sentence in an example of a string that we will analyse using a class we have defined'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Defining a string</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">'This sentence in an example of a string that we will analyse using a class we have defined'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sentence_analysis <span class="op">=</span> AnalyzeString(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating an instance of class AnalyzeString()</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sentence_analysis <span class="op">=</span> AnalyzeString(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="75">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The attribute 'word' contains the list of words in the sentence</span></span>
@@ -387,17 +390,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The method 'word_frequncy()' provides the frequency of a word in the sentence</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sentence_analysis.word_frequency(<span class="st">'we'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sentnce_analysis.word_frequency(<span class="st">'we'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="76">
 <pre><code>2</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="78">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The method 'starts_with()' provides the frequency of number of words starting with a particular string</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sentence_analysis.starts_with(<span class="st">'th'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sentnce_analysis.starts_with(<span class="st">'th'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="78">
 <pre><code>2</code></pre>
 </div>
+</div>
+</section>
+<section id="practice-exercise-1" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">6.2.3</span> Practice exercise 1</h3>
+<p>Write a class called <code>PasswordManager</code>. The class should have a list called <code>old_passwords</code> that holds all of the user’s past passwords. The last item of the list is the user’s current password. There should be a method called <code>get_password</code> that returns the current password and a method called <code>set_password</code> that sets the user’s password. The <code>set_password</code> method should only change the password if the attempted password is different from all the user’s past passwords. It should either print ‘<em>Password changed successfully!</em>’, or ‘<em>Old password cannot be reused, try again.</em>’ Finally, create a method called <code>is_correct</code> that receives a string and returns a boolean <code>True</code> or <code>False</code> depending on whether the string is equal to the current password or not.</p>
+<p>To initialize the object of the class, use the list below.</p>
+<p>After defining the class:</p>
+<ol type="1">
+<li><p>Check the attribute <code>old_passwords</code></p></li>
+<li><p>Check the method <code>get_password()</code></p></li>
+<li><p>Try re-setting the password to ‘ibiza1972’, and then check the current password.</p></li>
+<li><p>Try re-setting the password to ‘oktoberfest2022’, and then check the current password.</p></li>
+<li><p>Check the <code>is_correct()</code> method</p></li>
+</ol>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>past_passwords <span class="op">=</span> [<span class="st">'titanic1911'</span>,<span class="st">'ibiza1972'</span>,<span class="st">'montecarlo799'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
