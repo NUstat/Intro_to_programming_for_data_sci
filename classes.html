@@ -212,7 +212,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#object" id="toc-object" class="nav-link active" data-scroll-target="#object"><span class="toc-section-number">6.1</span>  Object</a></li>
-  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="toc-section-number">6.2</span>  Class</a></li>
+  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class"><span class="toc-section-number">6.2</span>  Class</a>
+  <ul>
+  <li><a href="#creating-your-own-class" id="toc-creating-your-own-class" class="nav-link" data-scroll-target="#creating-your-own-class"><span class="toc-section-number">6.2.1</span>  Creating your own class</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="./Datasets/attributes.jpg" width="400" height="400">
 </div>
 </div>
-<p>A list of all attributes and methods associated with an object can be obtained with the <code>dir()</code> function.</p>
+<p>A list of all attributes and methods associated with an object can be obtained with the <code>dir()</code> function. Ignore the ones with underscores - these are used by Python itself. The rest of them can be used to perform operations.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This code is not executed to avoid printing a long list</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(integer_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -278,15 +281,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="class" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="class"><span class="header-section-number">6.2</span> Class</h2>
-<p>A <em>class</em> is a template for objects. It contains the attributes and methods associated with the object of the class.</p>
-<div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
-<pre><code>int</code></pre>
+<p>A <em>class</em> is a template for objects. It contains the attributes and methods associated with the object of the class. As an analaogy, the <em>class</em> Cat will consist of characterisitcs (or <em>attributes</em>) shared by all cats such as breed, fur color, etc., as well as capability to perform functions (or <em>methods</em>) such as run, meow, etc.</p>
+<p><strong>Instance:</strong> An <em>instance</em> is a specific realization of the object of a particular class. Continuing with the Cat analaogy of a class, a particular cat is an <em>instance</em> of the class Cat. Similarly, in the example above, the object <code>integer_example</code> is an instance of the class <em>integer</em>. The words <em>object</em> and <em>instance</em> are often used interchangeably.</p>
+<section id="creating-your-own-class" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="creating-your-own-class"><span class="header-section-number">6.2.1</span> Creating your own class</h3>
+<p>Until now we saw examples of in-built Python classes, such as <em>integer, List</em>, etc. Now, we’ll learn to create our own class that serves our purpose.</p>
+<p>Below is a toy example of a class.</p>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ToyClass:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add(<span class="va">self</span>):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x <span class="op">+</span> <span class="va">self</span>.y</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> multiply(<span class="va">self</span>):</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x<span class="op">*</span><span class="va">self</span>.y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+<p>In the toy example above, note the following:</p>
+<ul>
+<li><p>We use the <code>class</code> statement to create a class. The <a href="https://peps.python.org/pep-0008/#class-names">Python style guide</a> recommends to use CamelCase for class names.</p></li>
+<li></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
