@@ -253,9 +253,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>integer_example <span class="op">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The attributes and methods of this <em>integer</em> object can be seen by putting a <code>.</code> next to its name, and pressing the <em>tab</em> key. A dropdown menu consisting of the attributes and methods will appear as shown below.</p>
-<div class="cell" data-execution_count="50">
-<div class="cell-output cell-output-display" data-execution_count="50">
-<img src="./Datasets/attributes.jpg" width="700" height="200">
+<div class="cell" data-execution_count="68">
+<div class="cell-output cell-output-display" data-execution_count="68">
+<img src="./Datasets/attributes.jpg" width="600" height="200">
 </div>
 </div>
 <p>A list of all attributes and methods associated with an object can be obtained with the <code>dir()</code> function. Ignore the ones with underscores - these are used by Python itself. The rest of them can be used to perform operations.</p>
@@ -288,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="creating-your-own-class"><span class="header-section-number">6.2.1</span> Creating your own class</h3>
 <p>Until now we saw examples of in-built Python classes, such as <em>integer, List</em>, etc. Now, we’ll learn to create our own class that serves our purpose.</p>
 <p>Below is a toy example of a class.</p>
-<div class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ToyClass:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
@@ -307,6 +307,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>The <code>self</code> argument:</strong> This is the first argument to every method in the class. Whenever the class refers to one of its attributes or methods, it must precede them by <code>self</code>. The purpose of <code>self</code> is to distinguish the class’s attributes and methods from other variables and functions in the program.</p></li>
 </ul>
 <p>The class <code>ToyClass</code> consists of two attributes <code>x</code> and <code>y</code>, a constructor <code>__init__()</code>, and two methods <code>add()</code> and <code>multiply()</code>.</p>
+<p>To create an <em>object</em> or <em>instance</em> of the class <code>ToyClass</code>, we’ll use the class name with the values to be passed as argument to the constructor for initializing the <em>object / instance</em>.</p>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>toy_instance <span class="op">=</span> ToyClass(<span class="dv">6</span>,<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>x</code> <em>attribute</em> of the class <code>ToyClass</code> can be called using the <code>.</code> operator with the object name:</p>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>toy_instance.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>6</code></pre>
+</div>
+</div>
+<p>To use the <code>multiply()</code> <em>method</em> of the class <code>ToyClass</code>, we’ll use the <code>.</code> operator with the object name:</p>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>toy_instance.multiply()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+<pre><code>72</code></pre>
+</div>
+</div>
+<p>We can use the</p>
 
 
 </section>
