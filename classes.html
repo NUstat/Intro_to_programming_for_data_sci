@@ -218,6 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#example-a-class-that-analyzes-a-string" id="toc-example-a-class-that-analyzes-a-string" class="nav-link" data-scroll-target="#example-a-class-that-analyzes-a-string"><span class="toc-section-number">6.2.2</span>  Example: A class that analyzes a string</a></li>
   <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="toc-section-number">6.2.3</span>  Practice exercise 1</a></li>
   </ul></li>
+  <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance"><span class="toc-section-number">6.3</span>  Inheritance</a>
+  <ul>
+  <li><a href="#practice-exercise-2" id="toc-practice-exercise-2" class="nav-link" data-scroll-target="#practice-exercise-2"><span class="toc-section-number">6.3.1</span>  Practice exercise 2</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -417,6 +421,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="cell" data-execution_count="86">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>past_passwords <span class="op">=</span> [<span class="st">'titanic1911'</span>,<span class="st">'ibiza1972'</span>,<span class="st">'montecarlo799'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="inheritance" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">6.3</span> Inheritance</h2>
+<p>In object-oriented programming there is a concept called inheritance where we can create a new class that builds off of another class. The new class gets all of the variables and methods of the class it is inheriting from (called the base class). It can then define additional variables and methods that are not present in the base class, and it can also override some of the methods of the base class. That is, it can rewrite them to suit its own purposes. Here is a simple example:</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Parent:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, a, b):</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.a <span class="op">=</span> a</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> method1(<span class="va">self</span>):</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.a<span class="op">+</span><span class="st">' should study!'</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> method2(<span class="va">self</span>):</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.a<span class="op">+</span><span class="st">' does not study enough '</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Child(Parent):</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, a,b):</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.a <span class="op">=</span> a</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b <span class="op">=</span> b</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> method1(<span class="va">self</span>):</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.a<span class="op">+</span><span class="st">' should play with '</span> <span class="op">+</span> <span class="va">self</span>.b</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> method3(<span class="va">self</span>):</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.a <span class="op">+</span> <span class="st">' does not play enough'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that when inheriting from a class, we indicate the parent class in parentheses in the <code>class</code> statement.</p>
+<p>We see that <code>method1</code> is present in both the <code>Parent</code> and <code>Child</code> classes, while <code>method2</code> is only present in the <code>Parent</code> class. Let us understand how does the <code>Child</code> class use the methods of the Parent class, and what happens if a method with the same name is present in both the parent and child classes.</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Parent(<span class="st">'Sam'</span>, <span class="st">'John'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> Child(<span class="st">'Sam'</span>,<span class="st">'Pam'</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Parent method 1: '</span>, p.method1())</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Parent method 2: '</span>, p.method2())</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Child method 1: '</span>, c.method1())</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Child method 2: '</span>, c.method2())</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Child method 3: '</span>, c.method3())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parent method 1:  Sam should study!
+Parent method 2:  Sam does not study enough 
+
+Child method 1:  Sam should play with Pam
+Child method 2:  Sam does not study enough 
+Child method 3:  Sam does not play enough</code></pre>
+</div>
+</div>
+<p>We see in the example above that the child has overridden the parent’s <code>method1</code>. The child has inherited the parent’s <code>method2</code>, so it can use it without having to define it. The child also adds some features to the parent class, namely a new variable <code>b</code> and a new method, <code>method3</code>.</p>
+<section id="practice-exercise-2" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="practice-exercise-2"><span class="header-section-number">6.3.1</span> Practice exercise 2</h3>
+<p>Define a class that inherits the in-built Python class <code>list</code>, and adds a new method to the class called <code>nunique()</code> which returns the number of unique elements in the list.</p>
+<p>Define the following list as an object of the class you created. Then:</p>
+<ol type="1">
+<li><p>Find the number of unique elements in the object using the method <code>nunique()</code> of the inherited class.</p></li>
+<li><p>Check if the <code>pop()</code> method of the parent class works to pop an element out of the object.</p></li>
+</ol>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>list_ex <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
