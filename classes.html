@@ -221,6 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance"><span class="toc-section-number">6.3</span>  Inheritance</a>
   <ul>
   <li><a href="#practice-exercise-2" id="toc-practice-exercise-2" class="nav-link" data-scroll-target="#practice-exercise-2"><span class="toc-section-number">6.3.1</span>  Practice exercise 2</a></li>
+  <li><a href="#practice-exercise-3" id="toc-practice-exercise-3" class="nav-link" data-scroll-target="#practice-exercise-3"><span class="toc-section-number">6.3.2</span>  Practice exercise 3</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -419,7 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Try re-setting the password to ‘oktoberfest2022’, and then check the current password.</p></li>
 <li><p>Check the <code>is_correct()</code> method</p></li>
 </ol>
-<div class="cell" data-execution_count="86">
+<div class="cell" data-execution_count="133">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>past_passwords <span class="op">=</span> [<span class="st">'titanic1911'</span>,<span class="st">'ibiza1972'</span>,<span class="st">'montecarlo799'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -483,6 +484,14 @@ Child method 3:  Sam does not play enough</code></pre>
 <div class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>list_ex <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="practice-exercise-3" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="practice-exercise-3"><span class="header-section-number">6.3.2</span> Practice exercise 3</h3>
+<p>Define a class named <code>PasswordManagerUpdated</code> that inherits the class <code>PasswordManager</code> defined in Practice exercise 1. The class <code>PasswordManagerUpdated</code> should have two methods, other than the <em>constructor</em>:</p>
+<ol type="1">
+<li><p>The method <code>set_password()</code> that sets a new password. The new passowrd must only be accepted if it does not have any punctuations in it, and if it is not the same as one of the old passwords. If the new password is not acceptable, then one of the appropriate messages should be printed - (a) <em>Cannot have punctuation in password, try again</em>, or (b) <em>Old password cannot be reused, try again</em>.</p></li>
+<li><p>The method <code>suggest_password()</code> that randomly sets and returns a password as a string comprising of 15 randomly chosen letters. Letters may be repeated as well.</p></li>
+</ol>
 
 
 </section>
