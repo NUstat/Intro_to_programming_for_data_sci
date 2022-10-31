@@ -16,7 +16,7 @@ book:
     - data_structures.ipynb
     - classes.ipynb
     - Assignment 4 (classes).ipynb
-    - Variable_expressions_statements-R.html
+    - Variable_expressions_statements-R.qmd
     - references.qmd
 
 bibliography: references.bib
