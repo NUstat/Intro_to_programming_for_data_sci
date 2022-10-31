@@ -306,5 +306,12 @@
     "title": "3  Conditionals and loops",
     "section": "3.2 Loops",
     "text": "3.2 Loops"
+  },
+  {
+    "objectID": "Variable_expressions_statements-R.html",
+    "href": "Variable_expressions_statements-R.html",
+    "title": "8  Variables, expression and statements: R",
+    "section": "",
+    "text": "Some of the commonly used objects in R are numbers - integer and double (or numeric), character and logical (TRUE/FALSE). The data type of the object can be identified using the in-built R function class(). For example, see the following objects and their types:\n\nclass(4)\n\n[1] \"numeric\"\n\n\n\nclass(4.4)\n\n[1] \"numeric\"\n\n\n\nclass('4')\n\n[1] \"character\"\n\n\n\nclass(TRUE)\n\n[1] \"logical\""
   }
 ]
