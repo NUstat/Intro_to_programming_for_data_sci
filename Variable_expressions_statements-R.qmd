@@ -30,3 +30,5 @@ class('4')
 class(TRUE)
 ```
 
+## Variable names
+
