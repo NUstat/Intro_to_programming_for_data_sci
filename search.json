@@ -313,5 +313,19 @@
     "title": "7  Assignment 4 (Classes and Objects)",
     "section": "7.4 Bonus question: Creating a new datatype - list of dictionaries",
     "text": "7.4 Bonus question: Creating a new datatype - list of dictionaries\nRead movie_data with the code below.\n\n\nCode\nimport json\nwith open(\"movies.json\", encoding=\"utf8\") as file:\n    movie_data=json.load(file)\n\n\nInherit the in-built python class list() to create a new class list_dict(). This class will be used for objects that are a list of dictionaries, where all the dictionaries in the list have the same keys. Add a method in this class, named as sort_by_dict_value() that sorts the dictionaries of the list based on the values of the desired key in the dictionaries. Sorting can be done in ascending or descending order depending on the user. The key to be used for sorting and the order (ascending / descending) will be parameters to the method sort_by_dict_value(). If the sorting order is unspecified, use ascending as default.\nInstantiate an object of the class list_dict() with movie_data.\nIf the name of the object is mov, then the method sort_by_dict_value() may be called as: mov.sort_by_dict_value(movie_parameter, ascending = True)\nwhere movie_parameter can be any key of the dictionaries, using the values of which the list of dictionaries has to be sorted.\n\n7.4.1 \nUse the method sort_by_dict_value() to sort the list of dictionaries in increasing order of Production Budget. What is the name of the 45th movie in the sorted list of dictionaries?\n\n\n7.4.2 \nUse the method sort_by_dict_value() to sort the list of dictionaries in decreasing order of Worldwide Gross. What is the name of the 2nd movie in the sorted list of dictionaries?\n(25 points - No partial credit)"
+  },
+  {
+    "objectID": "Variable_expressions_statements-R.html",
+    "href": "Variable_expressions_statements-R.html",
+    "title": "8  Variables, expression and statements: R",
+    "section": "",
+    "text": "Some of the commonly used objects in R are numbers - integer and double (or numeric), character and logical (TRUE/FALSE). The data type of the object can be identified using the in-built R function class(). For example, see the following objects and their types:\n\nclass(4)\n\n[1] \"numeric\"\n\n\n\nclass(4.4)\n\n[1] \"numeric\"\n\n\n\nclass('4')\n\n[1] \"character\"\n\n\n\nclass(TRUE)\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "Variable_expressions_statements-R.html#variable-names",
+    "href": "Variable_expressions_statements-R.html#variable-names",
+    "title": "8  Variables, expression and statements: R",
+    "section": "8.2 Variable names",
+    "text": "8.2 Variable names"
   }
 ]
