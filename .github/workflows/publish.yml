@@ -34,7 +34,7 @@ jobs:
     
       - name: Install curl
         run: |-
-          Rscript -e "install.packages(c('curl', 'jsonlite'), repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')"
+          Rscript -e "install.packages(c('curl'), repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')"
           
       - name: Install Dependencies
         run: |
