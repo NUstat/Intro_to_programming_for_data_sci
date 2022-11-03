@@ -10,15 +10,31 @@ editor_options:
 
 ## Data Types
 
-Some of the commonly used objects in R are numbers - integer and double (or numeric), character and logical (TRUE/FALSE). The data type of the object can be identified using the in-built R function `class()`. For example, see the following objects and their types:
+Some of the commonly used objects in R are numbers - integer and double (or numeric), character and logical (TRUE/FALSE). The data type of the object can be identified using the in-built R function `class()` or `typeof()`. For example, see the following objects and their types:
+
 
 ```{r}
 class(4)
 ```
 
+```{r}
+typeof(4)
+```
 
 ```{r}
 class(4.4)
+```
+
+```{r}
+typeof(4.4)
+```
+
+```{r}
+class(4L)
+```
+
+```{r}
+typeof(4L)
 ```
 
 
@@ -27,8 +43,17 @@ class('4')
 ```
 
 ```{r}
+typeof('4')
+```
+
+```{r}
 class(TRUE)
 ```
+
+```{r}
+typeof(FALSE)
+```
+
 
 ## Variable names
 

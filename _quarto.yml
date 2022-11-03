@@ -18,6 +18,7 @@ book:
     - classes.ipynb
     - Assignment 4 (classes).ipynb
     - Variable_expressions_statements-R.qmd
+    - control_flow.qmd
     - references.qmd
 
 bibliography: references.bib
