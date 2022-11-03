@@ -1,5 +1,5 @@
 ---
-title: "R: Control flow statements"
+title: "R: Functions"
 format:
   html:
     toc: true

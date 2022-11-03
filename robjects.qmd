@@ -74,7 +74,11 @@ For example, let us define a 2x3 matrix (2 rows and 3 columns) consisting of con
 matrix(1:6,2,3)
 ```
 
+Note that the integers fill up column-wise in the matrix. If we wish to fill-up the matrix by row, we can use the `byrow` argument.
 
+```{r}
+matrix(1:6,2,3, byrow = TRUE)
+```
 
 
 
