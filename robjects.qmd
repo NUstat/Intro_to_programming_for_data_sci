@@ -1,0 +1,42 @@
+---
+title: "R: Objects"
+format:
+    html:
+      toc: true
+      self-contained: true
+editor_options: 
+  chunk_output_type: console
+---
+  
+## Atomic vectors
+  
+An atomic vector in R is a vector containing objects of the same datatype. If the objects are not of the same datatype, then they are coerced to be of the same datatype. It is defined using the keyword `c()`.
+
+```{r}
+numbers = c(1,2,67)
+```
+
+The in-built R function `length()` is used to find the length of an atomic vector.
+
+```{r}
+length(numbers)
+```
+
+### Removing elements from atomic vector
+
+Elements can be removed from the vector using the negative sign within `[]` brackets.
+
+Remove the 2nd element from the vector:
+
+```{r}
+vec<-1:5
+vec[-2]
+```
+
+If multiple elements need to be removed, the indices of the elements to be removed can be given as an atomic vector.
+
+Remove elements `2` to `6` and element 10 from the vector:
+```{r}
+vec<-1:20
+vec[-c(2:6,10)]
+```

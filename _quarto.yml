@@ -20,7 +20,6 @@ book:
     - Variable_expressions_statements-R.qmd
     - control_flow.qmd
     - functions.qmd
-    - references.qmd
 
 bibliography: references.bib
 
