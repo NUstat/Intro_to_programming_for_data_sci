@@ -151,6 +151,8 @@ The break statement is used to unconditionally exit the innermost loop.
 For example, suppose we need to keep asking the user to input year of birth and compute the corresponding age, until the user enters 1900 as the year of birth.
 
 ```{r}
+#| eval: false
+
 #The loop will continue to run indefinitely as the condition 'True' is always true
 while(TRUE)
 {
@@ -159,6 +161,8 @@ while(TRUE)
     if(year==1900){break}else{print(paste("Age = ",2022-year))}
 }
 ```
+
+## `next` statement
 
 
 
