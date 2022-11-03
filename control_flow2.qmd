@@ -8,264 +8,46 @@ editor_options:
   chunk_output_type: console
 ---
 
-## The if - else if - else statement
+## Defining a function
 
-The if - else if - else statements can check several conditions, and execute the code corresponding to the condition that is true. Note that there can be as many `else if` statements as required.
+Functions in R are defined using the keyword `function()`. All the statements withing a function are enclosed with `{}` braces. Look at the function defined below. It takes an integer as an argument, and prints whether the integer is odd or even.
 
-**Syntax:** R uses curly braces `{}` to identify the code to be executed if a condition is true. All the code in the curly braces within a condition is executed if the condition is true.
-
-**Example:** Input a number. Print whether it is positive, negative or zero. If it is negative, print its absolute value.
 
 ```{r}
-number = readline("Enter a number:")
-```
-
-```{r}
-#| eval: true
-number = '3'
-```
-
-```{r}
-number_integer = as.integer(number)
-if(number_integer>0)
+odd_even<-function(intgr)
 {
-  print("Number is positive")
-}else if(number_integer==0)
-{
-  print("Number is zero")
-}else  
-{
-  print("Number is negative")
-}
-```
-
-## TryCatch
-
-If we suspect that some lines of code may produce an error or a warning, we can put them in a `tryCatch()` statement, and if an error does occur, we can use the *warning* or the *error* argument to instead execute an alternative piece of code. Both the *warning* and *error*  arguments have a function that is executed in case of warnings and errors respectively. The argument to this function is the warning / error message. The program will direct the code to the relevant function if an error or warning occurs.
-
-**Example:** Input an integer from the user. If the user inputs a valid integer, print whether it is a multiple of 3. However, if the user does not input a valid integer, print a message saying that the input is invalid.
-
-
-```{r}
-num = readline("Enter a number:")
-```
-
-```{r}
-num = '3r'
-```
-
-```{r}
-tryCatch(
-  { num_int = as.integer(num)  ; 
-  if(num_int%%3==0)
+  if(intgr%%2==0)
   {
-    print("Number is a multiple of 3")
-  }else{
-    print("Number is not a multiple of 3")
-  }}
-  ,warning = function(w) {print("Input must be an integer")})
-```
-
-## Loops
-
-### `for` loop
-
-We use the `:` operator to define a vector of consecutive integers. For example, the sequence of integers from `1` to `10` can be generated with the code `1:10`. Usually, we generate a sequence in this manner to iterate over the sequence with a `for` loop.
-
-**Example:** Print the first $n$ elements of the Fibonacci sequence, where $n$ is an integer input by the user, such that $n>2$. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from $0,1$. The sequence is as follows:
-
-$0,1,1,2,3,5,8,13,....$
-
-```{r}
-n = readline("Enter a number:")
-```
-
-```{r}
-n = 6
-```
-
-```{r}
-#Initializing the sequence to start from 0, 1
-n1=0;n2=1
-
-#Printing the first two numbers of the sequence
-elements<-c(n1,n2)
-
-for(i in 1:(n-2))  #Since two numbers of the sequence are already printed,n-2 numbers are required 
-{
-  #Computing the next number of the sequence as the summation of the previous two numbers
-  n3 = n1+n2
-  elements<-c(elements,n3)
-  
-  #As 'n3' is already printed, it is no longer the next number of the sequence. 
-  #Thus, we move the values of the variables n1 and n2 one place to the right to compute the next number of the sequence.
-  n1 = n2
-  n2 = n3  
-}
-print(elements)
-print(paste0("These are the first ", n, " elements of the fibonacci series"))
-```
-
-
-### `while` loop
-
-**Example:** Print all the elements of the Fibonacci sequence less than n, where n is an integer input by the user, such that n>2. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:
-
-0,1,1,2,3,5,8,13,..
-
-```{r}
-n = readline("Enter a number:")
-```
-
-```{r}
-n = 50
-```
-
-
-```{r}
-#Initializing the sequence to start from 0, 1
-n1=0;n2=1
-
-#Printing the first number of the sequence
-elements<-n1
-while(n2<n)
-{
-  #Print the next number of the sequence
-  elements<-c(elements,n2)
-  
-  #Comptuing the next number of the sequence as the summation of the previous two numbers
-  n3 = n1+n2
-  
-  #As n2 is already printed, assigning n2 to n3, so that the next number of the sequence (i.e., currently n3) is printed if the program enters the loop again
-  #Assigning n1 to n2 as n1 has already been used to compute the next number of the seqeunce (i.e., currently n3). 
-  n1 = n2
-  n2 = n3  
-}
-print(elements)
-print(paste("These are all the elements of the fibonacci series less than", n))
-```
-## `break` statement
-
-The break statement is used to unconditionally exit the innermost loop.
-
-For example, suppose we need to keep asking the user to input year of birth and compute the corresponding age, until the user enters 1900 as the year of birth.
-
-```{r}
-#| eval: false
-
-#The loop will continue to run indefinitely as the condition 'True' is always true
-while(TRUE)
-{
-  year = (readline("Enter year of birth:"))
-  year = as.integer(year)
-  if(year==1900){break}else{print(paste("Age = ",2022-year))}
-}
-```
-
-## `next` statement
-
-The `next` statement is used to continue with the next iteration of the loop without executing the lines of code below it.
-
-For example, consider the following code:
-
-```{r}
-for(i in 1:10)
-{
-  if(i%%2==0){next}
-  print(i)
-}
-
-```
-
-When the control flow reads the statement `next`, it goes back to the beginning of the `for` loop, and ignores the lines of code below the statement.
-
-### Practice exercise
-
-Write a program that asks the user the question, “How many stars are in the Milky Way (in billions)?”. If the user answers 100, the program should print correct, and stop. However, if the user answers incorrectly, the program should print “incorrect”, and ask them if they want to try again. The program should continue to run until the user answers correctly, or they want to stop trying.
-
-```{r}
-#| eval: false
-#| echo: false
-
-while(TRUE)
-{
-  answer = readline("How many stars are there in the Milky Way (in billions)? ")
-  if(answer=='100')
-  {
-    print("Correct")
-    break
-  }else{
-    print("Incorrect")
-  }
-  try_again = readline("Do you want to try again? (Y/N):")
-  if(try_again=='Y'){
-    next
-  }else{
-    break
+    print("even")}else{
+      print("odd")
   }
 }
-```
 
-## Loops with the `character` vector
-
-Loops can be used to iterate over the elements in a `character` vector, just like we used them to iterate over a sequence of integers. The function  `nchar` is used to get the number of characters in the `character` vector/
-
-Consider the following `character` vector:
-
-```{r}
-sentence = 'She sells sea shells on the sea shore'
-```
-
-The length of the `character` vector is:
-```{r}
-nchar(sentence)
-```
-
-**Slicing a character data**: The function `substr()` is used to slice a character vector from the `start` index to the `stop` index. Note that the indices in R start from `1`, instead of `0`. For example, let us slice the object `sentence` from the $5^{th}$ index to the $9^{the}$ index:
-
-```{r}
-substr(sentence,5,9)
-```
-
-**Example:** Define a `character` vector and count the number of *t*s.
-
-```{r}
-char_vec = 'Getting a tatto is not a nice experience'
-#Initializing a variable 'count_t' which will store the number of 't's in the string
-count_t = 0
-
-#Iterating over the entire length of the string. 
-#The length of the string is given by the len() function
-for(i in 1:nchar(char_vec))
-{
-  if(substr(char_vec,i,i)=='t')
-  {
-    count_t<-count_t+1
-  }
-}
-print(paste("Number of 't's in the string = ",count_t))
-
+odd_even(3)
 ```
 
 
 ### Practice exercise
 
-Write a program that asks the user to input a sentence, and print the number of 'the's in the sentence
+Write a function that returns all prime numbers between $a$ and $b$, where $a$ and $b$ are parameters of the function.
+
 
 ```{r}
-#| echo: false
-#| eval: false
-
-sentence = "She sells the sea shells on the sea shore during the summer"
-count = 0
-for(i in 1:(nchar(sentence)-nchar("the")))
+prime<-function(a,b)
 {
-  if(substr(sentence,i,i+nchar("the")-1)=="the")
+  prime_numbers<-c()
+  for(number in a:b)
   {
-    count = count + 1
+    prime = 1
+    for(factor in 2:(number-1))
+    {
+      if(number%%factor==0){
+        prime = 0
+      }
+    }
+    if(prime==1){prime_numbers<-c(prime_numbers,number)}
   }
+  return(prime_numbers)
 }
-print(paste("Number of thes in the sentence = ",count))
+prime(40,60)
 ```
-
-

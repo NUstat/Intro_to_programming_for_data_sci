@@ -66,6 +66,15 @@ time.taken
 
 ## Matrix
 
+Matrices are two-dimensional arrays. The in-built function `matrix()` is used to define a matrix. An atomic vector can be organized as a matrix by specifying the number of rows and columns.
+
+For example, let us define a 2x3 matrix (2 rows and 3 columns) consisting of consecutive integers fro1 1 to 6.
+
+```{r}
+matrix(1:6,2,3)
+```
+
+
 
 
 
