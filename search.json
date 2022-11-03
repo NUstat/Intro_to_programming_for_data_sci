@@ -326,6 +326,13 @@
     "href": "Variable_expressions_statements-R.html#variable-names",
     "title": "8  Variables, expression and statements: R",
     "section": "8.2 Variable names",
-    "text": "8.2 Variable names"
+    "text": "8.2 Variable names\nWe have the following rules for a R variable name:\n\nA variable name must start with a letter and can be a combination of letters, digits, period(.) and underscore(_). If it starts with period(.), it cannot be followed by a digit.\nA variable name cannot start with a number or underscore (_)\nVariable names are case-sensitive (age, Age and AGE are three different variables)\nReserved words cannot be used as variables (TRUE, FALSE, NULL, if…)"
+  },
+  {
+    "objectID": "Variable_expressions_statements-R.html#converting-datatypes",
+    "href": "Variable_expressions_statements-R.html#converting-datatypes",
+    "title": "8  Variables, expression and statements: R",
+    "section": "8.3 Converting datatypes",
+    "text": "8.3 Converting datatypes\nSometimes a value may have a datatype that is not suitable for using it. For example, consider the variable called annual_income in the code below:\n\nannual_income = \"80000\"\n\nSuppose we wish to divide annual_income by 12 to get the monthly income. We cannot use the variable annual_income directly as its datatype is a string and not a number. Thus, numerical operations cannot be performed on the variable annual_income.\nWe’ll need to convert annual_income to an integer. For that we will use the R’s in-built as.integer() function:\n\nannual_income = as.integer(annual_income)\nmonthly_income = annual_income/12\nprint(paste0(\"monthly income = \", monthly_income))\n\n[1] \"monthly income = 6666.66666666667\"\n\n\nSimilarly, datatypes can be converted from one type to another using in-built R functions as shown below:\n\n#Converting integer to character\nas.character(9)\n\n[1] \"9\"\n\n\n\n#Converting character to numeric\nas.numeric('9.4')\n\n[1] 9.4\n\n\n\n#Converting logical to integer\nas.numeric(FALSE)\n\n[1] 0\n\n\nSometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable greeting defined below to a number:\n\ngreeting = \"hello\"\n\nHowever, strings can be concatenated using the paste0() function:\n\npaste0(\"hello\", \" there!\")\n\n[1] \"hello there!\"\n\n\nR’s in-built readline() function can be used to accept an input from the user. For example, suppose we wish the user to input their age:\n\nage = readline(\"Enter your age:\")\n\nEnter your age:\n\n\nThe entered value is stored in the variable age and can be used for computation."
   }
 ]
