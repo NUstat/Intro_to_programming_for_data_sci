@@ -1,0 +1,146 @@
+---
+title: "Control flow statements: R"
+format:
+  html:
+    toc: true
+    self-contained: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## The if - else if - else statement
+
+The if - else if - else statements can check several conditions, and execute the code corresponding to the condition that is true. Note that there can be as many else if statements as required.
+
+**Syntax:** R uses curly braces {} to identify the code to be executed if a condition is true. All the code in the curly braces within a condition is executed if the condition is true.
+
+**Example:** Input a number. Print whether it is positive, negative or zero. If it is negative, print its absolute value.
+
+```{r}
+number = readline("Enter a number:")
+```
+
+```{r}
+#| eval: true
+number = '3'
+```
+
+```{r}
+number_integer = as.integer(number)
+if(number_integer>0)
+{
+  print("Number is positive")
+}else if(number_integer==0)
+{
+  print("Number is zero")
+}else  
+{
+  print("Number is negative")
+}
+```
+
+## TryCatch
+
+If we suspect that some lines of code may produce an error, we can put them in a `tryCatch()` statement, and if an error does occur, we can use the *error* argument to instead execute an alternative piece of code. In case of warning, we can use the *warning* argument to instead execute an alternative piece of code. Both the *error* and *warning* arguments have a function that is executed in case of errors and warnings respectively. The argument to this function is the error / warning message. The program will direct the code to the relevant function if an error or warning occurs.
+
+```{r}
+num = readline("Enter a number:")
+```
+
+```{r}
+#| eval: true
+num = '3r'
+```
+
+```{r}
+tryCatch(
+  { num_int = as.integer(num)  ; 
+  if(num_int%%3==0)
+  {
+    print("Number is a multiple of 3")
+  }else{
+    print("Number is not a multiple of 3")
+  }}
+  ,warning = function(w) {print(w);print("Input must be an integer")})
+```
+
+## Loops
+
+### for loop
+
+We use the `:` operator to define a vector of consecutive integers. For example, the sequence of integers from `1` to `10` can be generated with the code `1:10`. Usually, we generate a sequence in this manner to iterate over the sequence with a `for` loop.
+
+**Example:** Print the first n elements of the Fibonacci sequence, where n is an integer input by the user, such that n\>2. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:
+
+0,1,1,2,3,5,8,13,....
+
+```{r}
+n = readline("Enter a number:")
+```
+
+```{r}
+n = 6
+```
+
+```{r}
+#Initializing the sequence to start from 0, 1
+n1=0;n2=1
+
+#Printing the first two numbers of the sequence
+elements<-c(n1,n2)
+
+for(i in 1:(n-2))  #Since two numbers of the sequence are already printed,n-2 numbers are required 
+{
+  #Computing the next number of the sequence as the summation of the previous two numbers
+  n3 = n1+n2
+  elements<-c(elements,n3)
+  
+  #As 'n3' is already printed, it is no longer the next number of the sequence. 
+  #Thus, we move the values of the variables n1 and n2 one place to the right to compute the next number of the sequence.
+  n1 = n2
+  n2 = n3  
+}
+print(elements)
+print(paste0("These are the first ", n, " elements of the fibonacci series"))
+```
+
+
+### while loop
+
+**Example:** Print all the elements of the Fibonacci sequence less than n, where n is an integer input by the user, such that n>2. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:
+
+0,1,1,2,3,5,8,13,..
+
+```{r}
+n = readline("Enter a number:")
+```
+
+```{r}
+n = 50
+```
+
+
+```{r}
+#Initializing the sequence to start from 0, 1
+n1=0;n2=1
+
+#Printing the first number of the sequence
+elements<-n1
+while(n2<n)
+{
+    #Print the next number of the sequence
+    elements<-c(elements,n2)
+    
+    #Comptuing the next number of the sequence as the summation of the previous two numbers
+    n3 = n1+n2
+    
+    #As n2 is already printed, assigning n2 to n3, so that the next number of the sequence (i.e., currently n3) is printed if the program enters the loop again
+    #Assigning n1 to n2 as n1 has already been used to compute the next number of the seqeunce (i.e., currently n3). 
+    n1 = n2
+    n2 = n3  
+}
+print(elements)
+print(paste("These are all the elements of the fibonacci series less than", n))
+```
+
+  

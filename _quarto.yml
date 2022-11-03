@@ -1,6 +1,7 @@
 project:
   type: book
 
+
 book:
   title: "Introduction to programming for data science"
   logo: 'NU_Stat_logo.png'

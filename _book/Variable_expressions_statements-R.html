@@ -3972,6 +3972,8 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types"> <span class="header-section-number">8.1</span> Data Types</a></li>
+  <li><a href="#variable-names" id="toc-variable-names" class="nav-link" data-scroll-target="#variable-names"> <span class="header-section-number">8.2</span> Variable names</a></li>
+  <li><a href="#converting-datatypes" id="toc-converting-datatypes" class="nav-link" data-scroll-target="#converting-datatypes"> <span class="header-section-number">8.3</span> Converting datatypes</a></li>
   </ul>
 </nav>
     </div>
@@ -4021,6 +4023,74 @@ vertical-align: -.125em;
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
+</section>
+<section id="variable-names" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="variable-names"><span class="header-section-number">8.2</span> Variable names</h2>
+<p>We have the following rules for a R variable name:</p>
+<ul>
+<li>A variable name must start with a letter and can be a combination of letters, digits, period(.) and underscore(_). If it starts with period(.), it cannot be followed by a digit.</li>
+<li>A variable name cannot start with a number or underscore (_)</li>
+<li>Variable names are case-sensitive (age, Age and AGE are three different variables)</li>
+<li>Reserved words cannot be used as variables (TRUE, FALSE, NULL, if…)</li>
+</ul>
+</section>
+<section id="converting-datatypes" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="converting-datatypes"><span class="header-section-number">8.3</span> Converting datatypes</h2>
+<p>Sometimes a value may have a datatype that is not suitable for using it. For example, consider the variable called <code>annual_income</code> in the code below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="ot">=</span> <span class="st">"80000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Suppose we wish to divide <code>annual_income</code> by 12 to get the monthly income. We cannot use the variable <code>annual_income</code> directly as its datatype is a string and not a number. Thus, numerical operations cannot be performed on the variable <code>annual_income</code>.</p>
+<p>We’ll need to convert annual_income to an integer. For that we will use the R’s in-built as.integer() function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="ot">=</span> <span class="fu">as.integer</span>(annual_income)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>monthly_income <span class="ot">=</span> annual_income<span class="sc">/</span><span class="dv">12</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"monthly income = "</span>, monthly_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "monthly income = 6666.66666666667"</code></pre>
+</div>
+</div>
+<p>Similarly, datatypes can be converted from one type to another using in-built R functions as shown below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting integer to character</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "9"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting character to numeric</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">'9.4'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting logical to integer</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p>Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable greeting defined below to a number:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>greeting <span class="ot">=</span> <span class="st">"hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>However, strings can be concatenated using the <code>paste0()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"hello"</span>, <span class="st">" there!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello there!"</code></pre>
+</div>
+</div>
+<p>R’s in-built readline() function can be used to accept an input from the user. For example, suppose we wish the user to input their age:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">readline</span>(<span class="st">"Enter your age:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter your age:</code></pre>
+</div>
+</div>
+<p>The entered value is stored in the variable <code>age</code> and can be used for computation.</p>
 
 
 </section>
