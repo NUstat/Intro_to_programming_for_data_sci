@@ -164,5 +164,90 @@ while(TRUE)
 
 ## `next` statement
 
+The `next` statement is used to continue with the next iteration of the loop without executing the lines of code below it.
+
+For example, consider the following code:
+
+```{r}
+for(i in 1:10)
+{
+  if(i%%2==0){next}
+  print(i)
+}
+    
+```
+
+When the control flow reads the statement `next`, it goes back to the beginning of the `for` loop, and ignores the lines of code below the statement.
+
+### Practice exercise
+
+Write a program that asks the user the question, “How many stars are in the Milky Way (in billions)?”. If the user answers 100, the program should print correct, and stop. However, if the user answers incorrectly, the program should print “incorrect”, and ask them if they want to try again. The program should continue to run until the user answers correctly, or they want to stop trying.
+
+```{r}
+#| eval: false
+#| echo: false
+
+while(TRUE)
+{
+   answer = readline("How many stars are there in the Milky Way (in billions)? ")
+   if(answer=='100')
+   {
+     print("Correct")
+     break
+   }else{
+     print("Incorrect")
+   }
+   try_again = readline("Do you want to try again? (Y/N):")
+   if(try_again=='Y'){
+     next
+   }else{
+     break
+   }
+}
+```
+
+## Loops with the `character` vector
+
+Loops can be used to iterate over the elements in a `character` vector, just like we used them to iterate over a sequence of integers. The function  `nchar` is used to get the number of characters in the `character` vector/
+
+Consider the following `character` vector:
+
+```{r}
+sentence = 'She sells sea shells on the sea shore'
+```
+
+The length of the `character` vector is:
+```{r}
+nchar(sentence)
+```
+
+**Slicing a character data**: The function `substr()` is used to slice a character vector from the `start` index to the `stop` index. Note that the indices in R start from `1`, instead of `0`. For example, let us slice the object `sentence` from the $5^{th}$ index to the $9^{the}$ index:
+
+```{r}
+substr(sentence,5,9)
+```
+
+**Example:** Define a `character` vector and count the number of *t*s.
+
+```{r}
+char_vec = 'Getting a tatto is not a nice experience'
+#Initializing a variable 'count_t' which will store the number of 't's in the string
+count_t = 0
+
+#Iterating over the entire length of the string. 
+#The length of the string is given by the len() function
+for(i in 1:nchar(char_vec))
+{
+  if(substr(char_vec,i,i)=='t')
+  {
+    count_t<-count_t+1
+  }
+}
+print(paste("Number of 't's in the string = ",count_t))
+
+```
+
+
+
 
 
