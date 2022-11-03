@@ -80,5 +80,5 @@ Note that the integers fill up column-wise in the matrix. If we wish to fill-up 
 matrix(1:6,2,3, byrow = TRUE)
 ```
 
-
+A very useful application of matrices is that parallel computations can be performed on rows or columns of a matrix. 
 

@@ -10,7 +10,7 @@ editor_options:
 
 ## Defining a function
 
-Functions in R are defined using the keyword `function()`. All the statements withing a function are enclosed with `{}` braces. Look at the function defined below. It takes an integer as an argument, and prints whether the integer is odd or even.
+Functions in R are defined using the keyword `function()`. All the statements within a function are enclosed with `{}` braces. Look at the function defined below. It takes an integer as an argument, and prints whether the integer is odd or even.
 
 
 ```{r}
