@@ -1,5 +1,5 @@
 ---
-title: "Control flow statements: R"
+title: "R: Control flow statements"
 format:
   html:
     toc: true
@@ -130,16 +130,16 @@ n1=0;n2=1
 elements<-n1
 while(n2<n)
 {
-    #Print the next number of the sequence
-    elements<-c(elements,n2)
-    
-    #Comptuing the next number of the sequence as the summation of the previous two numbers
-    n3 = n1+n2
-    
-    #As n2 is already printed, assigning n2 to n3, so that the next number of the sequence (i.e., currently n3) is printed if the program enters the loop again
-    #Assigning n1 to n2 as n1 has already been used to compute the next number of the seqeunce (i.e., currently n3). 
-    n1 = n2
-    n2 = n3  
+  #Print the next number of the sequence
+  elements<-c(elements,n2)
+  
+  #Comptuing the next number of the sequence as the summation of the previous two numbers
+  n3 = n1+n2
+  
+  #As n2 is already printed, assigning n2 to n3, so that the next number of the sequence (i.e., currently n3) is printed if the program enters the loop again
+  #Assigning n1 to n2 as n1 has already been used to compute the next number of the seqeunce (i.e., currently n3). 
+  n1 = n2
+  n2 = n3  
 }
 print(elements)
 print(paste("These are all the elements of the fibonacci series less than", n))
@@ -156,9 +156,9 @@ For example, suppose we need to keep asking the user to input year of birth and 
 #The loop will continue to run indefinitely as the condition 'True' is always true
 while(TRUE)
 {
-    year = (readline("Enter year of birth:"))
-    year = as.integer(year)
-    if(year==1900){break}else{print(paste("Age = ",2022-year))}
+  year = (readline("Enter year of birth:"))
+  year = as.integer(year)
+  if(year==1900){break}else{print(paste("Age = ",2022-year))}
 }
 ```
 
@@ -174,7 +174,7 @@ for(i in 1:10)
   if(i%%2==0){next}
   print(i)
 }
-    
+
 ```
 
 When the control flow reads the statement `next`, it goes back to the beginning of the `for` loop, and ignores the lines of code below the statement.
@@ -189,20 +189,20 @@ Write a program that asks the user the question, “How many stars are in the Mi
 
 while(TRUE)
 {
-   answer = readline("How many stars are there in the Milky Way (in billions)? ")
-   if(answer=='100')
-   {
-     print("Correct")
-     break
-   }else{
-     print("Incorrect")
-   }
-   try_again = readline("Do you want to try again? (Y/N):")
-   if(try_again=='Y'){
-     next
-   }else{
-     break
-   }
+  answer = readline("How many stars are there in the Milky Way (in billions)? ")
+  if(answer=='100')
+  {
+    print("Correct")
+    break
+  }else{
+    print("Incorrect")
+  }
+  try_again = readline("Do you want to try again? (Y/N):")
+  if(try_again=='Y'){
+    next
+  }else{
+    break
+  }
 }
 ```
 
@@ -248,6 +248,24 @@ print(paste("Number of 't's in the string = ",count_t))
 ```
 
 
+### Practice exercise
 
+Write a program that asks the user to input a sentence, and print the number of 'the's in the sentence
+
+```{r}
+#| echo: false
+#| eval: false
+
+sentence = "She sells the sea shells on the sea shore during the summer"
+count = 0
+for(i in 1:(nchar(sentence)-nchar("the")))
+{
+  if(substr(sentence,i,i+nchar("the")-1)=="the")
+  {
+    count = count + 1
+  }
+}
+print(paste("Number of thes in the sentence = ",count))
+```
 
 

@@ -1,0 +1,12 @@
+---
+title: "R: Functions"
+format:
+  html:
+    toc: true
+    self-contained: true
+editor_options: 
+  chunk_output_type: console
+---
+  
+## The if - else if - else statement
+  

@@ -1,5 +1,5 @@
 ---
-title: "Variables, expression and statements: R"
+title: "R: Variables, expression and statements"
 format:
   html:
     toc: true
