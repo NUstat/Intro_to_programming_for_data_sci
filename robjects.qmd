@@ -40,3 +40,32 @@ Remove elements `2` to `6` and element 10 from the vector:
 vec<-1:20
 vec[-c(2:6,10)]
 ```
+
+**Example:** USA’s GDP per capita from 1960 to 2021 is given by the vector `G` in the code chunk below. The values are arranged in ascending order of the year, i.e., the first value is for 1960, the second value is for 1961, and so on. Store the years in which the GDP per capita of the US increased by more than 10%, in a vector.
+
+```{r}
+G = c(3007, 3067, 3244, 3375,3574, 3828, 4146, 4336, 4696, 5032,5234,5609,6094,6726,7226,7801,8592,9453,10565,11674,12575,13976,14434,15544,17121,18237,19071,20039,21417,22857,23889,24342,25419,26387,27695,28691,29968,31459,32854,34515,36330,37134,37998,39490,41725,44123,46302,48050,48570,47195,48651,50066,51784,53291,55124,56763,57867,59915,62805,65095,63028,69288)
+```
+
+```{r}
+options(digits.secs = 6)
+start.time <- Sys.time()
+
+years<-c()
+for(i in 1:(length(G)-1))
+{
+  diff = (G[i+1]-G[i])/G[i]
+  if(diff>0.1){years<-c(years,1960+i)}
+}
+print(years)
+#print(proc.time()[3]-start_time)
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
+```
+
+## Matrix
+
+
+
+
