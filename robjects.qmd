@@ -80,5 +80,20 @@ Note that the integers fill up column-wise in the matrix. If we wish to fill-up 
 matrix(1:6,2,3, byrow = TRUE)
 ```
 
-A very useful application of matrices is that parallel computations can be performed on rows or columns of a matrix. 
+Suppose we need to sum up all the rows of the matrix. We can do it using a `for` loop as follows:
+
+```{r}
+mat<-matrix(1:6,2,3)
+row_sum<-c()
+for(i in nrow(mat))
+{
+  for(j in ncol(mat))
+  {
+    row_sum[i]<-row_sum[i]+mat[i][j]
+  }
+}
+```
+
+
+A very useful application of matrices is that parallel computations can be performed on rows or columns of a matrix using the `apply()` function.
 
