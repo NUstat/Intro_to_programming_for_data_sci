@@ -71,13 +71,15 @@ Matrices are two-dimensional arrays. The in-built function `matrix()` is used to
 For example, let us define a 2x3 matrix (2 rows and 3 columns) consisting of consecutive integers fro1 1 to 6.
 
 ```{r}
-matrix(1:6,2,3)
+mat<-matrix(1:6,2,3)
+mat
 ```
 
 Note that the integers fill up column-wise in the matrix. If we wish to fill-up the matrix by row, we can use the `byrow` argument.
 
 ```{r}
-matrix(1:6,2,3, byrow = TRUE)
+mat<-matrix(1:6,2,3, byrow = TRUE)
+mat
 ```
 
 The functions `nrow()` and `ncol()` can be used to get the number of rows and columns of the matrix respectively.
@@ -136,9 +138,11 @@ row_sum
 ```
 
 
-In the above code, we sum up all the elements of the row simultaneously.
+In the above code, we sum up all the elements of the row simultaneously. However, we still need to sum up the elements of each row one at a time.
 
+### The `apply()` function
 
+The `apply()` function is used to apply a function simultaneously on all rows or columns of a matrix
 
 A very useful application of matrices is that parallel computations can be performed on rows or columns of a matrix using the `apply()` function.
 
