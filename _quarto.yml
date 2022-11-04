@@ -24,6 +24,7 @@ book:
         - Variable_expressions_statements-R.qmd
         - control_flow.qmd
         - control_flow2.qmd
+        - robjects.qmd
 
 bibliography: references.bib
 

@@ -123,6 +123,22 @@ for(i in 1:nrow(mat))
 row_sum
 ```
 
+Observe that in the above `for` loop, elements of each row are added one at a time. We can add all the elements of a row simultaneously using the `sum()` function. This will reduce a `for` loop from the above code:
+
+```{r}
+mat<-matrix(1:6,2,3)
+row_sum<-c(0,0)
+for(i in 1:nrow(mat))
+{
+    row_sum[i]<-sum(mat[i,])
+}
+row_sum
+```
+
+
+In the above code, we sum up all the elements of the row simultaneously.
+
+
 
 A very useful application of matrices is that parallel computations can be performed on rows or columns of a matrix using the `apply()` function.
 
