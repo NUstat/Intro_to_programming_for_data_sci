@@ -22,6 +22,40 @@ The in-built R function `length()` is used to find the length of an atomic vecto
 length(numbers)
 ```
 
+### Slicing the atomic vector
+
+An atomic vector can be sliced using the indices of the elements within  `[]` brackets.
+
+For example, consider the vector:
+
+```{r}
+vec<-1:40
+```
+
+Suppose, we wish to get the $3^{rd}$ element of the vector. We can get it using the index `3`:
+
+```{r}
+vec[3]
+```
+
+A sequence of consecutive elements can be sliced using the indices of the first element and the last element around the `:` operator. For example, let us slice elements from the $3^{rd}$ index to the $10^{th}$ element of the vector `vec`:
+
+```{r}
+vec[3:10]
+```
+
+We can slice elements at different indices by putting the indices in an atomic vector within the `[]` brackets. Let us slice the $4^{th}$, $7^{th}$, and $18^{th}$ elements of the vector `vec`:
+
+```{r}
+vec[c(4,7,18)]
+```
+
+We can slice consecutive elements, and non-consecutive elements simultaneously. Let us slice the elements from the $4^{th}$ index to the $9^{th}$ index and the $30^{th}$ and $36^{th}$ element.
+
+```{r}
+vec[c(4:9,30,36)]
+```
+
 ### Removing elements from atomic vector
 
 Elements can be removed from the vector using the negative sign within `[]` brackets.
@@ -40,6 +74,7 @@ Remove elements `2` to `6` and element 10 from the vector:
 vec<-1:20
 vec[-c(2:6,10)]
 ```
+
 
 **Example:** USA’s GDP per capita from 1960 to 2021 is given by the vector `G` in the code chunk below. The values are arranged in ascending order of the year, i.e., the first value is for 1960, the second value is for 1961, and so on. Store the years in which the GDP per capita of the US increased by more than 10%, in a vector.
 
