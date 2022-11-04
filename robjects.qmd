@@ -92,6 +92,14 @@ for(i in 1:(length(G)-1))
 print(years)
 ```
 
+### The `seq()` function
+
+The `seq()` function is used to generate an atomic vector consisting of a sequence of integers with a constant gap. For example, the code below generates a sequence of integers starting from 20 upto 60 with gaps of 5.
+
+```{r}
+seq(20,60,5)
+```
+
 ## Matrix
 
 Matrices are two-dimensional arrays. The in-built function `matrix()` is used to define a matrix. An atomic vector can be organized as a matrix by specifying the number of rows and columns.
@@ -240,4 +248,50 @@ time.taken
 ```
 
 Observe that matrices reduce the execution time of the code as computations are performed simultaneously, in contrast to a `for` loop where computations are performed one at a time.
+
+Sometimes, the computations on rows / columns of a matrix are not straighforward and we may need to use the `apply()` function to apply a function on each row / column of a matrix.
+
+**Example:** Find the maximum GDP per capita of the US in each of the 5 year periods starting from 1961-1965, and upto 2015-2020.
+
+```{r}
+GDP_5year<-matrix(G[-c(1,length(G))],12,5,byrow = TRUE)
+GDP_max_5year<-apply(GDP_5year,1,max)
+```
+
+In the above code, we applied the in-built function `max` on all the rows. Sometimes, an in-built function may not be available for the computations to be performed. In such as case, we can write our own user-defined function within the `apply()` function. See the example below.
+
+**Example:** Find the range (max-min) of GDP per capita of the US in each of the 5 year periods starting from 1961-1965, and upto 2015-2020.
+
+```{r}
+GDP_5year<-matrix(G[-c(1,length(G))],12,5,byrow = TRUE)
+GDP_range_5year<-apply(GDP_5year,1,function(x) max(x)-min(x))
+```
+
+In the code above we applied a user-defined function on each row of the matrix. However, if the function has multiple lines, it may be inconvenient to write the function within the `apply()` function. In that case, we can define the function outside the `apply()` function.
+
+**Example:** Find the five year periods  starting from 1961-1965, and upto 2016-2020, during which the GDP per capita decreased as compared to the previous year.
+
+
+```{r}
+
+GDP_inc<-function(GDP_5yr)
+{
+  dec<-0
+  for(i in 1:4)
+  {
+    if(GDP_5yr[i+1]<GDP_5yr[i]){dec<-1}
+  }
+  return(dec)
+}
+
+GDP_5year_mat<-matrix(G[-c(1,length(G))],12,5,byrow = TRUE)
+years_inc_dec<-apply(GDP_5year_mat,1,GDP_inc)
+five_year_periods<-seq(1960,2015,5)
+print("Five year periods in which the GDP per capita decreased are those starting from the years:")
+print(five_year_periods[years_inc_dec==1]+1)
+```
+
+
+### Practice exercise
+
 
