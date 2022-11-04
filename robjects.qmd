@@ -294,4 +294,12 @@ print(five_year_periods[years_inc_dec==1]+1)
 
 ### Practice exercise
 
+Find the 5 year period in which the difference of the maximum GDP per capita and the minium GDP per capita as a percentage of the minimum GDP per capita was the highest.
+
+```{r}
+#| eval: false
+#| echo: false
+
+five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
+```
 
