@@ -11,19 +11,19 @@ book:
   chapters:
     - index.qmd
     - part: "Python"
-        chapters:
-            - Introduction to Jupyter Notebooks and programming in python.ipynb
-            - Variable_expressions_statements.ipynb
-            - Control flow.ipynb
-            - functions.ipynb
-            - data_structures.ipynb
-            - classes.ipynb
-            - Assignment 4 (classes).ipynb
+      chapters:
+        - Introduction to Jupyter Notebooks and programming in python.ipynb
+        - Variable_expressions_statements.ipynb
+        - Control flow.ipynb
+        - functions.ipynb
+        - data_structures.ipynb
+        - classes.ipynb
+        - Assignment 4 (classes).ipynb
     - part: "R"
-        chapters:
-            - Variable_expressions_statements-R.qmd
-            - control_flow.qmd
-            - control_flow2.qmd
+      chapters:
+        - Variable_expressions_statements-R.qmd
+        - control_flow.qmd
+        - control_flow2.qmd
 
 bibliography: references.bib
 

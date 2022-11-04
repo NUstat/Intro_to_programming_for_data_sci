@@ -80,18 +80,47 @@ Note that the integers fill up column-wise in the matrix. If we wish to fill-up 
 matrix(1:6,2,3, byrow = TRUE)
 ```
 
+The functions `nrow()` and `ncol()` can be used to get the number of rows and columns of the matrix respectively.
+
+```{r}
+nrow(mat)
+```
+
+```{r}
+ncol(mat)
+```
+
+Matrices can be sliced using the indices of row and column separated by a `,` in box brackets. Suppose we wish to get the element in the $2^{nd}$ row and $3^{rd}$ column of the matrix:
+
+```{r}
+mat[2,3]
+```
+
+For selecting all rows or columns of a matrix, the index for the row/column can be left blank. Suppose we wish to get all the elements of the $1^{st}$ of the matrix:
+
+```{r}
+mat[1,]
+```
+
+Row and columns of the matrix can be sliced using the `:` operator. Suppose we want to select a sub-matrix that has elements in the first two rows and columns 2 and 3 of the matrix `mat`:
+
+```{r}
+mat[1:2,2:3]
+```
+
 Suppose we need to sum up all the rows of the matrix. We can do it using a `for` loop as follows:
 
 ```{r}
 mat<-matrix(1:6,2,3)
-row_sum<-c()
-for(i in nrow(mat))
+row_sum<-c(0,0)
+for(i in 1:nrow(mat))
 {
-  for(j in ncol(mat))
+  for(j in 1:ncol(mat))
   {
-    row_sum[i]<-row_sum[i]+mat[i][j]
+    row_sum[i]<-row_sum[i]+mat[i,j]
   }
 }
+row_sum
 ```
 
 
