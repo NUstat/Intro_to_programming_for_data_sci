@@ -100,6 +100,41 @@ The `seq()` function is used to generate an atomic vector consisting of a sequen
 seq(20,60,5)
 ```
 
+### The `rep()` function
+
+The `rep()` function is used to repeat an object a fixed number of times.
+
+```{r}
+rep(4,10)
+```
+
+```{r}
+rep(c(2,3),10)
+```
+
+### The `which()` function
+
+The `which()` function is used to find the index of an object in an atomic vector. 
+
+```{r}
+vec<-c(8,3,4,7,9,7,5)
+```
+
+```{r}
+which(vec==8)
+```
+
+The index of the maximum and minimum values can be found using `which.max()` and `which.min()` respectively.
+
+```{r}
+which.max(vec)
+```
+
+```{r}
+which.min(vec)
+```
+
+
 ### Practice exercise 1
 
 Below is a vector consisting of responses to the question: “At what age do you think you will marry?” from students of the STAT303-1 Fall 2022 class.
@@ -188,6 +223,18 @@ Row and columns of the matrix can be sliced using the `:` operator. Suppose we w
 mat[1:2,2:3]
 ```
 
+Element-wise arithmatic operations can be performed between 2 matrices of the same shape.
+
+```{r}
+mat1<-matrix(1:6,2,3)
+mat2<-matrix(c(9,2,6,5,1,0),2,3)
+mat1+mat2
+```
+
+```{r}
+mat1-mat2
+```
+
 Suppose we need to sum up all the rows of the matrix. We can do it using a `for` loop as follows:
 
 ```{r}
@@ -212,6 +259,7 @@ for(i in 1:nrow(mat))
 }
 row_sum
 ```
+
 
 
 In the above code, we sum up all the elements of the row simultaneously. However, we still need to sum up the elements of each row one at a time.
