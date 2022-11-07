@@ -51,7 +51,7 @@ Note that a student using a particular platform may be using other platforms as 
 How many students use at least 3 streaming platforms?
 
 
-## Prime Factors with and without `for` loops.
+## Prime Factors with and without `for` loops
 
 ### Prime number
 Define a function named as `prime` that checks if an integer is prime. The function must accept the integer as an argument, and return `TRUE` if the integer is prime, otherwise it must return `FALSE`.
