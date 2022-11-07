@@ -1,0 +1,56 @@
+---
+title: "Assignment 5"
+subtitle: "Functions, loops, atomic vectors and matrices"
+format:
+  html:
+    toc: true
+self-contained: true
+link-external-newwindow: true
+---
+
+## Phrase search
+Write a function that accepts a sentence and a phrase as parameters, and returns the number of times the phrase occurs in the string.
+
+Call the function with the following sentence and phrase:
+
+Sentence: "She sells the sea shells on the sea shore during the summer. She sits on the rocks, and reads the book on the horizon",
+
+Phrase: "on the"
+
+## Prime Factors with and without `for` loops.
+
+### Prime number
+Define a function named as `prime` that checks if an integer is prime. The function must accept the integer as an argument, and return `TRUE` if the integer is prime, otherwise it must return `FALSE`.
+
+Call your function with the argument as 197.
+
+### Factor
+
+Define a function named as `factor` that checks if an integer is a factor of another integer. The function must accept both the integers as arguments, and return `TRUE` if the integer is a factor, otherwise it must return `FALSE`.
+
+Call your function with the arguments as (19,85)
+
+### Prime factors
+
+Define a function named as `prime_factors` that returns the prime factors of an integer. The function must use the functions `prime` and `factor`.
+
+Call the function with the argument as `1234567`, and print the returned object, which should be the prime factors of the number.
+
+### Prime factors code: Time
+
+Record and print the time taken to execute the function `prime_factors` for the integer `1234567`.
+
+### Prime number: Without `for` loop
+Update the function `prime` so that it works without a `for` loop. Name the updated function as `prime_nofor`. Call the function `prime_nofor` with the argument as 197.
+
+### Prime factors: Without `for` loop
+Update the function `prime_factors` so that it works without a `for` loop. Name the updated function as `prime_factors_nofor`. The function must use the functions `prime_nofor` and `factor`. Call the function `prime_factors_nofor` with the argument as 1234567, and print the returned object, which should be the prime factors of the number.
+
+### Prime factors: Time taken without `for` loop
+
+Record and print the time taken to execute the function `prime_factors_nofor` for the integer `1234567`. Is it less than the time taken by `prime_factors` for the integer `1234567`? 
+
+
+
+
+

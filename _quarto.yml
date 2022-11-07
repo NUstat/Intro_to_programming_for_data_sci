@@ -25,6 +25,7 @@ book:
         - control_flow.qmd
         - control_flow2.qmd
         - robjects.qmd
+        - assignment5.qmd
 
 bibliography: references.bib
 
