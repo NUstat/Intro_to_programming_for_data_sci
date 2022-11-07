@@ -100,6 +100,48 @@ The `seq()` function is used to generate an atomic vector consisting of a sequen
 seq(20,60,5)
 ```
 
+### Practice exercise 1
+
+Below is a vector consisting of responses to the question: “At what age do you think you will marry?” from students of the STAT303-1 Fall 2022 class.
+
+```{r}
+exp_marriage_age=c('24','30','28','29','30','27','26','28','30+','26','28','30','30','30','probably never','30','25','25','30','28','30+ ','30','25','28','28','25','25','27','28','30','30','35','26','28','27','27','30','25','30','26','32','27','26','27','26','28','37','28','28','28','35','28','27','28','26','28','26','30','27','30','28','25','26','28','35','29','27','27','30','24','25','29','27','33','30','30','25','26','30','32','26','30','30','I wont','25','27','27','25','27','27','32','26','25','never','28','33','28','35','25','30','29','30','31','28','28','30','40','30','28','30','27','by 30','28','27','28','30-35','35','30','30','never','30','35','28','31','30','27','33','32','27','27','26','N/A','25','26','29','28','34','26','24','28','30','120','25','33','27','28','32','30','26','30','30','28','27','27','27','27','27','27','28','30','30','30','28','30','28','30','30','28','28','30','27','30','28','25','never','69','28','28','33','30','28','28','26','30','26','27','30','25','Never','27','27','25')
+```
+
+#### Cleaning data
+Remove the elements that are not integers - such as ‘probably never’, ‘30+’, etc. Convert the reamining elements to integer. What is the length of the new vector?
+
+```{r}
+#| eval: false
+#| echo: false
+
+new_vector<-as.integer(exp_marriage_age)
+numeric_values<-new_vector[!is.na(new_vector)]
+length(numeric_values)
+```
+
+
+#### Capping unreasonably high values
+Cap the values greater than 80 to 80, in the clean vector obtained above. What is the mean age when people expect to marry in the new vector?
+
+```{r}
+#| eval: false
+#| echo: false
+
+numeric_values[numeric_values>80]<-80
+mean(numeric_values)
+```
+
+
+#### People marrying at 30 or more
+Determine the percentage of people who expect to marry at an age of 30 or more.
+```{r}
+#| eval: false
+#| echo: false
+sum(numeric_values>=30)/length(numeric_values)
+```
+
+
 ## Matrix
 
 Matrices are two-dimensional arrays. The in-built function `matrix()` is used to define a matrix. An atomic vector can be organized as a matrix by specifying the number of rows and columns.
@@ -292,7 +334,7 @@ print(five_year_periods[years_inc_dec==1]+1)
 ```
 
 
-### Practice exercise
+### Practice exercise 2
 
 Find the 5 year period in which the difference of the maximum GDP per capita and the minium GDP per capita as a percentage of the minimum GDP per capita was the highest.
 
@@ -303,9 +345,9 @@ Find the 5 year period in which the difference of the maximum GDP per capita and
 five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
 ```
 
-### Practice exercise
+### Practice exercise 3
 
-The object `countries` is an atomic vector consisting of country names. The object `coordinates` is a matrix consisting of the latitude-longitude pair of the capital city of the respective country. The order of countries in `countries` is the same as the order in which their capital city coordinates (latitude-longitude) appear in the matrix `coord`.
+The object `countries` is an atomic vector consisting of country names. The object `coordinates` is a matrix consisting of the latitude-longitude pair of the capital city of the respective country. The order of countries in `countries` is the same as the order in which their capital city coordinates (latitude-longitude) appear in the matrix `coordinates`.
 
 ```{r}
 countries<-c('Afghanistan', 'Aland Islands', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'British Indian Ocean Territory', 'British Virgin Islands', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos Islands', 'Colombia', 'Comoros', 'Cook Islands', 'Costa Rica', 'Cote dâ€™Ivoire', 'Croatia', 'Cuba', 'CuraÃƒÂ§ao', 'Cyprus', 'Czech Republic', 'Democratic Republic of the Congo', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Federated States of Micronesia', 'Fiji', 'Finland', 'France', 'French Polynesia', 'French Southern and Antarctic Lands', 'Gabon', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard Island and McDonald Islands', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'North Korea', 'Northern Cyprus', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn Islands', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Republic of Congo', 'Romania', 'Russia', 'Rwanda', 'Saint Barthelemy', 'Saint Helena', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Martin', 'Saint Pierre and Miquelon', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Sint Maarten', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'Somaliland', 'South Africa', 'South Georgia and South Sandwich Islands', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'The Gambia', 'Timor-Leste', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'US Minor Outlying Islands', 'US Virgin Islands', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Wallis and Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe')
@@ -341,7 +383,7 @@ coord_close<-coordinates[which.min(distances),]
 
 1. Print the names of the countries of the top 10 capital cities closest to the US capital - Washington DC. 
 
-2. Create and print a matrix containing the coordinates of the top 10 cities.
+2. Create and print a matrix containing the coordinates of the top 10 capital cities closest to Washington DC.
 
 ```{r}
 #| eval: false
@@ -354,7 +396,4 @@ for(i in 1:10)
   coord_close<-rbind(coord_close,coordinates[which.min(distances),])
 }
 cc
-```
-
-
 ```
