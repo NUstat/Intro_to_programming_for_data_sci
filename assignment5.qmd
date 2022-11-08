@@ -27,15 +27,21 @@ streaming_platform_section2<-c('Netflix;Hulu;Amazon Prime;Disney+', 'Netflix;Ama
 ### Streaming platforms of all students
 Concatenate the atomic vectors `streaming_platform_section1`  and `streaming_platform_section2` to obtain a vector named as `streaming_platforms` that consists of the streaming platforms of all students.
 
+*(2 points)*
+
 ### Number of unique combinations of streaming platforms
 What is the number of unique combinations of streaming platforms used by students?
 
 **Hint:** Use the functions `unique()` and `length()`
 
+*(3 points)*
+
 ### Most popular combination
 What is the most popular combination of streaming platforms used by students? How many students use it?
 
 **Hint:** Use the function `table()`
+
+*(4 points)*
 
 ### Frequency of a streaming platform
 Write a function that takes a streaming platform *(for example, 'Netflix')* as an argument, and returns the number of students using that platform.
@@ -45,11 +51,14 @@ Call the function to find the number of students using:
 #### Netflix
 #### Hulu
 
+*(8 points)*
+
 Note that a student using a particular platform may be using other platforms as well. 
 
 ### At least 3 platforms
 How many students use at least 3 streaming platforms?
 
+*(6 points)*
 
 ## Prime Factors with and without `for` loops
 
@@ -58,11 +67,15 @@ Define a function named as `prime` that checks if an integer is prime. The funct
 
 Call your function with the argument as 197.
 
+*(2 points)*
+
 ### Factor
 
 Define a function named as `factor` that checks if an integer is a factor of another integer. The function must accept both the integers as arguments, and return `TRUE` if the integer is a factor, otherwise it must return `FALSE`.
 
 Call your function with the arguments as (19,85)
+
+*(2 points)*
 
 ### Prime factors
 
@@ -70,19 +83,29 @@ Define a function named as `prime_factors` that returns the prime factors of an 
 
 Call the function with the argument as `1234567`, and print the returned object, which should be the prime factors of the number.
 
+*(4 points)*
+
 ### Prime factors code: Time
 
 Record and print the time taken to execute the function `prime_factors` for the integer `1234567`.
 
+*(3 points)*
+
 ### Prime number: Without `for` loop
 Update the function `prime` so that it works without a `for` loop. Name the updated function as `prime_nofor`. Call the function `prime_nofor` with the argument as 197.
+
+*(6 points)*
 
 ### Prime factors: Without `for` loop
 Update the function `prime_factors` so that it works without a `for` loop. Name the updated function as `prime_factors_nofor`. The function must use the functions `prime_nofor` and `factor`. Call the function `prime_factors_nofor` with the argument as `1234567`, and print the returned object, which should be the prime factors of the number.
 
+*(12 points)*
+
 ### Prime factors: Time taken without `for` loop
 
 Record and print the time taken to execute the function `prime_factors_nofor` for the integer `1234567`. Is it less than the time taken by `prime_factors` for the integer `1234567`? 
+
+*(3 points)*
 
 ## Air quality sensors
 
@@ -105,13 +128,19 @@ Note that:
 
 2. 'Air quality sensor' will be referred as 'sensor' in the questions below for brevity.
 
+*(2 points)*
+
 ### First sensor
 The first sensor is to be installed closest to Denver *(closest in terms of Euclidean distance)*. Find the coordinate-pair of the location where the first sensor will be installed. The coordinate-pair of Denver is: [39.7392$^{\circ}$ N, 104.9903$^{\circ}$ W] 
 
 Note that the suffixes $^{\circ}$ N and $^{\circ}$ W are omitted in the object `candidate_set`.
 
+*(6 points)*
+
 ### Second sensor
 Find the coordinate-pair of the installation of the next sensor, such that it is as far as possible from the first sensor installed near Denver.
+
+*(6 points)*
 
 ### Air sensor coordinates
 Use the `rbind()` function to stack the coordinate-pairs of the first and second sensors vertically to obtain a 2 x 2 matrix. Name the matrix as `air_sensor_coordinates`. 
@@ -134,6 +163,8 @@ points(-air_sensor_coordinates[,2],air_sensor_coordinates[,1],pch=16)
 
 ```
 
+*(4 points)*
+
 ### Third sensor
 Now you need to find the coordinate-pair for installing the third sensor such that it is far away from the two already-installed sensors. Proceed as follows:
 
@@ -153,6 +184,8 @@ For step (1) above:
 
 2. Apply the function on all the coordinate-pairs in `candidate_set` using the `apply()` function.
 
+*(16 points)*
+
 ### 47 more sensors
 
 You need to find 47 more coordinate-pairs to install air quality sensors well-spread across Colorado. We will generalize the steps in the previous question as follows:
@@ -166,3 +199,4 @@ You need to find 47 more coordinate-pairs to install air quality sensors well-sp
 3. Select the $i+1^{th}$ coordinate-pair (from `candidate_set`) as the one whose minimum distance from the $i$ already installed sensors is the maximum. 
 Execute the code provided in the previous question to check if your results seem correct. You should see 50 black dots well spread across Colorado.
 
+*(6 points)*
