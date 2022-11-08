@@ -161,11 +161,52 @@ numeric_values[numeric_values>80]<-80
 mean(numeric_values)
 ```
 
-
 #### People marrying at 30 or more
 Determine the percentage of people who expect to marry at an age of 30 or more.
 ```{r}
 sum(numeric_values>=30)/length(numeric_values)
+```
+
+## The `sapply()` function
+
+The `sapply()` function is used to apply a function on all elements of a list, atomic vector or matrix.
+
+For example, consider a vector below:
+
+```{r}
+vec<-1:6
+vec
+```
+
+Suppose, we wish to square each element of the vector. We can use the `sapply()` function as below:
+
+```{r}
+sapply(vec, FUN = function(x) x**2)
+```
+
+
+### Practice exercise 2
+
+Write a function that identifies if a word is a [palindrome](https://en.wikipedia.org/wiki/Palindrome) *(A palindrome is a word that reads the same both backwards and forwards, for example, peep, rotator, madam, etc.)*. Apply the function to the vector of words below to count the vector of palindrome words.
+
+```{r}
+words_vec<-c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
+```
+
+```{r}
+#| eval: false
+#| echo: false
+
+palindrome<-function(word)
+{
+  reversed_word<-''
+  for(c in 1:nchar(word))
+  {
+    reversed_word<-paste0(substr(word,c,c),reversed_word)
+  }
+  if(reversed_word==word){return(TRUE)}else{return(FALSE)}
+}
+sum(sapply(words_vec,palindrome))
 ```
 
 
@@ -374,7 +415,7 @@ print(five_year_periods[years_inc_dec==1]+1)
 
 The 5 year periods during which the GDP per capita decreased as compared to the previous year are 2006-2010, and 2016-2020.
 
-### Practice exercise 2
+### Practice exercise 3
 
 Find the 5 year period in which the difference of the maximum GDP per capita and the minimum GDP per capita as a percentage of the minimum GDP per capita was the highest.
 
@@ -384,7 +425,7 @@ five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/mi
 
 During 1976-1980 the difference of the maximum GDP per capita and the minimum GDP per capita as a percentage of the minimum GDP per capita was the highest.
 
-### Practice exercise 3
+### Practice exercise 4
 
 The object `country_names` is an atomic vector consisting of country names. The object `coordinates_capital_cities` is a matrix consisting of the latitude-longitude pair of the capital city of the respective country. The order of countries in `country_names` is the same as the order in which their capital city coordinates (latitude-longitude) appear in the matrix `coordinates_capital_cities`.
 
