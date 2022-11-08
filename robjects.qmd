@@ -395,7 +395,7 @@ setwd("C:\\Users\\akl0407\\Desktop\\STAT303-1\\Quarto Book\\Intro_to_programming
 ```
 
 Download the file *capital_cities.csv* from [here](https://nuwildcat-my.sharepoint.com/:f:/g/personal/akl0407_ads_northwestern_edu/EkQnSWXXMm5Ak8qCCWx2fVgBz3s-ksJ7xNgbzn-mmf0IFw?e=pebtNE
-). Make sure the file *capital_cities.csv* is in your current working directory. Execute the following code to obtain the objects `coordinates_capital_cities` and `country_names`. 
+). Make sure the file is in your current working directory. Execute the following code to obtain the objects `coordinates_capital_cities` and `country_names`. 
 
 ```{r}
 #| eval: false
@@ -432,11 +432,11 @@ coord_close<-coordinates_capital_cities[which.min(distances),]
 
 2. Create a matrix that has coordinates of Washington DC in each row, and has the same number of rows as the matrix `coordinates_capital_cities`.
 
-3. Subtract `coordinates_capital_cities` from the matrix created in (2). Element-wise subtraction will occur.
+3. Subtract `coordinates_capital_cities` from the matrix created in (2). Element-wise subtraction will occur between the matrices.
 
 4. Use the `apply()` function on the matrix obtained above to find the Euclidean distance of Washington DC from the rest of the capital cities. 
 
-5. Using the distance obtained above, find the country that has the closest capital to DC.
+5. Using the distances obtained above, find the country that has the closest capital to DC.
 
 #### Top 10 countries closest to DC
 
