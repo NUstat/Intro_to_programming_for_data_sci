@@ -10,6 +10,20 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Instructions {-}
+
+1. You may talk to a friend, discuss the questions and potential directions for solving them. However, you need to write your own solutions and code separately, and not as a group activity. 
+
+2. Do not write your name on the assignment.
+
+3. Make R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.
+
+4. Render the file as HTML to submit.
+
+5. There are 5 points for clealiness and organization. The code should be commented and clearly written with intuitive variable names. For example, use variable names such as number_input, factor, hours, instead of a,b,xyz, etc.
+
+6. The assignment is worth 100 points, and is due on **14th November 2022 at 11:59 pm**. 
+
 ## Streaming platforms
 
 The streaming platforms used by the students of two sections of the STAT303-1 Fall 2022 class are give below as two atomic vectors - `streaming_platform_section1` and `streaming_platform_section2`
@@ -51,9 +65,9 @@ Call the function to find the number of students using:
 #### Netflix
 #### Hulu
 
-*(8 points)*
-
 Note that a student using a particular platform may be using other platforms as well. 
+
+*(8 points)*
 
 ### At least 3 platforms
 How many students use at least 3 streaming platforms?
