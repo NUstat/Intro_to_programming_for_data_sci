@@ -185,7 +185,6 @@ Write a program that asks the user the question, “How many stars are in the Mi
 
 ```{r}
 #| eval: false
-#| echo: false
 
 while(TRUE)
 {
@@ -250,12 +249,9 @@ print(paste("Number of 't's in the string = ",count_t))
 
 ### Practice exercise
 
-Write a program that asks the user to input a sentence, and print the number of 'the's in the sentence
+Write a program that prints the number of 'the's found in sentence
 
 ```{r}
-#| echo: false
-#| eval: false
-
 sentence = "She sells the sea shells on the sea shore during the summer"
 count = 0
 for(i in 1:(nchar(sentence)-nchar("the")))
