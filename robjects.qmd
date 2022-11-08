@@ -167,11 +167,11 @@ Determine the percentage of people who expect to marry at an age of 30 or more.
 sum(numeric_values>=30)/length(numeric_values)
 ```
 
-## The `sapply()` function
+### The `sapply()` function
 
-The `sapply()` function is used to apply a function on all elements of a list, atomic vector or matrix.
+The `sapply()` function is used to apply a function on all the elements of a list, atomic vector or matrix.
 
-For example, consider a vector below:
+For example, consider the vector below:
 
 ```{r}
 vec<-1:6
@@ -187,7 +187,7 @@ sapply(vec, FUN = function(x) x**2)
 
 ### Practice exercise 2
 
-Write a function that identifies if a word is a [palindrome](https://en.wikipedia.org/wiki/Palindrome) *(A palindrome is a word that reads the same both backwards and forwards, for example, peep, rotator, madam, etc.)*. Apply the function to the vector of words below to count the vector of palindrome words.
+Write a function that identifies if a word is a [palindrome](https://en.wikipedia.org/wiki/Palindrome) *(A palindrome is a word that reads the same both backwards and forwards, for example, peep, rotator, madam, etc.)*. Apply the function to the vector of words below to count the number of palindrome words.
 
 ```{r}
 words_vec<-c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
@@ -497,3 +497,8 @@ for(i in 1:10)
 }
 cc
 ```
+
+## Lists
+
+
+
