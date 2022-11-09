@@ -27,6 +27,7 @@ book:
         - recursion.qmd
   appendices: 
     - Assignment 1 (control flow).ipynb
+    - Assignment 2 (functions).ipynb
     - Assignment 3 (data structures).ipynb
     - Assignment 4 (classes).ipynb
     - assignment5.qmd
