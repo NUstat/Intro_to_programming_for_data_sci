@@ -350,7 +350,6 @@ time.taken <- end.time - start.time
 time.taken
 ```
 
-
 Without matrices, the time taken to perform the same computation is  measured with the code below.
 
 ```{r}
@@ -418,6 +417,8 @@ The 5 year periods during which the GDP per capita decreased as compared to the 
 ### Practice exercise 3
 
 Find the 5 year period in which the difference of the maximum GDP per capita and the minimum GDP per capita as a percentage of the minimum GDP per capita was the highest.
+
+**Solution:**
 
 ```{r}
 five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
@@ -500,5 +501,42 @@ cc
 
 ## Lists
 
+Atomic vectors and matrices are quite useful in R. However, a constraint with them is that they can only contain objects of the same datatype. For example, an atomic vector can contain all numeric objects, all character objects, or all logical objects, but not a mixture of multiple types of objects. Thus, there arises a need for a `list` data structure R that can store objects of multiple datatypes.
+
+A list can be defined using the `list()` function. For example, consider the list below:
+
+```{r}
+list_ex<-list(1, "apple", TRUE, list("another list", TRUE))
+```
+
+The list `list_ex` consists of objects of mutiple datatypes. The length of the list can be obtained using the `length()`function:
+
+```{r}
+length(list_ex)
+```
+
+A list is an ordered collection of objects. Each object of the list is associated with an index that corresponds to its order of occurrence in the list. 
+
+A single element can be sliced from the list by specifying its index within the `[[]]` operator. Let us slice the $2^{nd}$ element of the list `list_ex`:
+
+```{r}
+list_ex[[2]]
+```
+
+Multiple elements can be sliced from the list by specifying the indices as an atomic vector within the `[]` operator. Let us slice the $1^{st}$ and $3^{rd}$ elements from the list `list_ex`:
+
+```{r}
+list_ex[c(1,3)]
+```
+
+
+
+```{r}
+#| eval: false
+
+library(rjson)
+movies<-fromJSON(file = 'movies.json')
+class(ted_talks)
+```
 
 
