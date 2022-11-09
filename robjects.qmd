@@ -7,9 +7,9 @@ format:
 editor_options: 
   chunk_output_type: console
 ---
-  
+
 ## Atomic vectors
-  
+
 An atomic vector in R is a vector containing objects of the same datatype. If the objects are not of the same datatype, then they are coerced to be of the same datatype. It is defined using the keyword `c()`.
 
 ```{r}
@@ -288,7 +288,7 @@ Observe that in the above `for` loop, elements of each row are added one at a ti
 row_sum<-c(0,0)
 for(i in 1:nrow(mat))
 {
-    row_sum[i]<-sum(mat[i,])
+  row_sum[i]<-sum(mat[i,])
 }
 row_sum
 ```
@@ -313,7 +313,7 @@ start.time <- Sys.time()
 row_sum<-c(0,0)
 for(i in 1:nrow(mat))
 {
-    row_sum[i]<-sum(mat[i,])
+  row_sum[i]<-sum(mat[i,])
 }
 row_sum
 end.time <- Sys.time()
@@ -547,13 +547,62 @@ Note that if the name of the element does not begin with a letter or has special
 list_ex$`3rd_element`
 ```
 
+Names of elements of a list can also be specified while defining the list, as in the example below:
+
+```{r}
+list_ex_with_names<-list(movie = 'The Dark Knight', IMDB_rating = 9)
+```
+
+A list can be converted to an atomic vector using the `unlist()` function. For example, let us convert the list `list_ex` to a vector:
+
+```{r}
+unlist(list_ex)
+```
+
+Since a vector can contain objects of a single datatype, note that all objects have been converted to the `character` datatype in the vector above.
+
+### Practice exercise
+
+Download the dataset *movies.json*. Execute the following code to read the data into the object `movies`:
 
 ```{r}
 #| eval: false
 
 library(rjson)
 movies<-fromJSON(file = 'movies.json')
-class(ted_talks)
+```
+
+#### 
+What is the datatype of the object `movies`?
+
+#### 
+Count the number movies having a negative profit, i.e., their production budget is higher than their worldwide gross. 
+
+Ignore the movies that:
+
+1. Have missing values of production budget or worldwide gross. Use the `is.null()` function to identify missing or NULL values.
+
+2. Have a zero worldwide gross *(A zero worldwide gross is probably an incorrect value)*. 
+
+```{r}
+#| echo: false
+#| eval: false
+
+negative_profit<-c()
+for(i in 1:length(movies))
+{
+  pb<-movies[[i]]$`Production Budget`
+  wg<-movies[[i]]$`Worldwide Gross`
+  if(!(is.null(pb) | is.null(wg)))
+  {
+    if(pb>wg & wg>0)
+    {
+      negative_profit<-c(negative_profit,movies[[i]]$Title)
+    }
+  }
+  
+}
+length(negative_profit)
 ```
 
 
