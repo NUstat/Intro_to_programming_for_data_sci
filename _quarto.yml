@@ -26,6 +26,8 @@ book:
         - control_flow2.qmd
         - robjects.qmd
         - assignment5.qmd
+  appendices: 
+    - Datasets.ipynb
 
 bibliography: references.bib
 
