@@ -1,0 +1,48 @@
+---
+title: "R: Recursion"
+format:
+    html:
+      toc: true
+      self-contained: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Recursion
+
+Recursion is a method of solving a problem by dividing it into smaller instances of the same problem. Recursion solves such problems by using functions that call themselves from within their own code.
+
+Below is an example, where we defined a function that computes the factorial of a number by recursion.
+
+```{r}
+factorial<-function(n)
+{
+  if(n==1){return(1)}else(return(n*factorial(n-1)))
+}
+factorial(5)
+```
+
+### Practice exercise 1
+
+Use recursion to write a function that accepts a word as an argument, and returns `TRUE` if the word is a palindrome, otherwise returns `FALSE`.
+
+
+```{r}
+#| echo: false
+#| eval: false
+
+word<-'reduyder'
+palindrome<-function(word)
+{
+  if(nchar(word)<=1)
+  {
+    return(TRUE)
+  }else if(substr(word,1,1)==substr(word,nchar(word),nchar(word)))
+  {
+    palindrome(substr(word,2,nchar(word)-1))
+  }else{
+    return(FALSE)
+  }
+}
+palindrome(word)
+```
