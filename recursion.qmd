@@ -17,7 +17,12 @@ Below is an example, where we defined a function that computes the factorial of 
 ```{r}
 factorial<-function(n)
 {
-  if(n==1){return(1)}else(return(n*factorial(n-1)))
+  if(n==1)
+    {
+      return(1)
+  }else{
+      return(n*factorial(n-1))
+    }
 }
 factorial(5)
 ```
