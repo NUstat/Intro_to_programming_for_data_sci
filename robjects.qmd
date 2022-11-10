@@ -439,6 +439,7 @@ Download the file *capital_cities.csv* from [here](https://nuwildcat-my.sharepoi
 ). Make sure the file is in your current working directory. Execute the following code to obtain the objects `coordinates_capital_cities` and `country_names`. 
 
 ```{r}
+#| eval: false
 capital_cities<-read.csv('capital_cities.csv')
 coordinates_capital_cities<-as.matrix(capital_cities[,c(3,4)])
 country_names<-capital_cities[,1]
@@ -466,6 +467,7 @@ Note that:
 
 
 ```{r}
+#| eval: false
 US_index<-which(country_names=='United States')
 DC_coord<-coordinates_capital_cities[US_index,]
 DC_coord_matrix<-matrix(rep(DC_coord,245),245,2,byrow = TRUE)
@@ -484,6 +486,7 @@ top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_ci
 2. Create and print a matrix containing the coordinates of the top 10 capital cities closest to Washington DC.
 
 ```{r}
+#| eval: false
 for(i in 1:9)
 {
   distance_of_DC_from_other_cities[which.min(distance_of_DC_from_other_cities)]<-999999
