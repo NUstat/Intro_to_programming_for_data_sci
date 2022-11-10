@@ -560,6 +560,7 @@ Since a vector can contain objects of a single datatype, note that all objects h
 Download the dataset *movies.json*. Execute the following code to read the data into the object `movies`:
 
 ```{r}
+#| eval: false
 library(rjson)
 movies<-fromJSON(file = 'movies.json')
 ```
