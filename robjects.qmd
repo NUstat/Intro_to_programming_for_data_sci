@@ -432,7 +432,6 @@ The object `country_names` is an atomic vector consisting of country names. The 
 
 ```{r}
 #| echo: false
-#| eval: false
 setwd("C:\\Users\\akl0407\\Desktop\\STAT303-1\\Quarto Book\\Intro_to_programming_for_data_sci\\Datasets")
 ```
 
@@ -440,8 +439,6 @@ Download the file *capital_cities.csv* from [here](https://nuwildcat-my.sharepoi
 ). Make sure the file is in your current working directory. Execute the following code to obtain the objects `coordinates_capital_cities` and `country_names`. 
 
 ```{r}
-#| eval: false
-
 capital_cities<-read.csv('capital_cities.csv')
 coordinates_capital_cities<-as.matrix(capital_cities[,c(3,4)])
 country_names<-capital_cities[,1]
@@ -455,19 +452,6 @@ Note that:
 1. The *Country Name* for US is given as *United States* in the data.
 2. The 'closeness' of capital cities from the US capital is based on the Euclidean distance of their coordinates to those of the US capital.
 
-```{r}
-#| eval: false
-#| echo: false
-
-dc_coord<-coordinates_capital_cities[which(country_names=='United States'),]
-diff = coordinates_capital_cities-matrix(c(rep(dc_coord,245)),245,2,byrow = TRUE)
-distances = apply(diff**2,1,sum)
-distances[distances==0]<-99999
-closest_country<-country_names[which.min(distances)]
-print(closest_country)
-coord_close<-coordinates_capital_cities[which.min(distances),]
-```
-
 **Hint:**
 
 1. Get the coordinates of Washington DC from `coordinates_capital_cities`. The row that contains the coordinates of DC will have the same index as `United States` has in the vector `country_names`
@@ -480,6 +464,19 @@ coord_close<-coordinates_capital_cities[which.min(distances),]
 
 5. Using the distances obtained above, find the country that has the closest capital to DC.
 
+
+```{r}
+US_index<-which(country_names=='United States')
+DC_coord<-coordinates_capital_cities[US_index,]
+DC_coord_matrix<-matrix(rep(DC_coord,245),245,2,byrow = TRUE)
+DC_minus_capital_cities<-DC_coord_matrix-coordinates_capital_cities
+distance_of_DC_from_other_cities<-apply(DC_minus_capital_cities**2,1,sum)
+distance_of_DC_from_other_cities[distance_of_DC_from_other_cities==0]<-999999
+country_names[which.min(distance_of_DC_from_other_cities)]
+coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
+top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
+```
+
 #### Top 10 countries closest to DC
 
 1. Print the names of the countries of the top 10 capital cities closest to the US capital - Washington DC. 
@@ -487,16 +484,13 @@ coord_close<-coordinates_capital_cities[which.min(distances),]
 2. Create and print a matrix containing the coordinates of the top 10 capital cities closest to Washington DC.
 
 ```{r}
-#| eval: false
-#| echo: false
-cc<-c()
-for(i in 1:10)
+for(i in 1:9)
 {
-  distances[which.min(distances)]<-99999
-  cc<-c(cc,countries[which.min(distances)])
-  coord_close<-rbind(coord_close,coordinates[which.min(distances),])
+  distance_of_DC_from_other_cities[which.min(distance_of_DC_from_other_cities)]<-999999
+  print(country_names[which.min(distance_of_DC_from_other_cities)])
+  coord_closest_to_DC<-coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
+  top_10_coords<-rbind(top_10_coords,coord_closest_to_DC)
 }
-cc
 ```
 
 ## Lists
@@ -566,8 +560,6 @@ Since a vector can contain objects of a single datatype, note that all objects h
 Download the dataset *movies.json*. Execute the following code to read the data into the object `movies`:
 
 ```{r}
-#| eval: false
-
 library(rjson)
 movies<-fromJSON(file = 'movies.json')
 ```
