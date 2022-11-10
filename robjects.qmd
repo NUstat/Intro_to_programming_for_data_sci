@@ -194,17 +194,16 @@ words_vec<-c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
 ```
 
 ```{r}
-#| eval: false
-#| echo: false
-
 palindrome<-function(word)
 {
-  reversed_word<-''
-  for(c in 1:nchar(word))
+  for(i in 1:as.integer(nchar(word)/2))
   {
-    reversed_word<-paste0(substr(word,c,c),reversed_word)
+    if(substr(word,i,i)!=substr(word,nchar(word)-(i-1),nchar(word)-(i-1)))
+    {
+      return(FALSE)
+    }
   }
-  if(reversed_word==word){return(TRUE)}else{return(FALSE)}
+  return(TRUE)
 }
 sum(sapply(words_vec,palindrome))
 ```
@@ -432,6 +431,7 @@ The object `country_names` is an atomic vector consisting of country names. The 
 
 ```{r}
 #| echo: false
+#| eval: false
 setwd("C:\\Users\\akl0407\\Desktop\\STAT303-1\\Quarto Book\\Intro_to_programming_for_data_sci\\Datasets")
 ```
 
