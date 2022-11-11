@@ -22,7 +22,6 @@ Below is an example, where we defined a function that computes the factorial of 
 
 
 ```{r}
-start_time<-Sys.time()
 factorial<-function(n)
 {
   if(n==1)
@@ -32,9 +31,7 @@ factorial<-function(n)
       return(n*factorial(n-1))
     }
 }
-factorial(50)
-end_time<-Sys.time()
-print(paste("Time taken = ", end_time-start_time))
+factorial(5)
 ```
 
 In the above example, the case $n=1$ is the base case, where the function does not need to call itself, and returns 1. All other cases, where $n>1$, and $n \in  \mathbb{Z}$ are recursive cases, where the function calls itself with a smaller instance of the same problem. 
@@ -46,6 +43,36 @@ A recursive function must satisfy the following conditions:
 2. There must be a base case that makes no recursive calls.
 
 3. When the function makes a recursive call, it should be to a simpler instance and make forward progress towards the base case.
+
+**Example:** Write a recursive function that returns the $n^{th}$ term of the Fibonacci sequence, where $n$ is an integer, and $n>0$. In a Fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from $0,1$. The sequence is as follows:
+
+$0, 1, 1, 2, 3, 5, 8, 13, 21, ...$
+
+```{r}
+#| eval: false
+#| echo: false
+term<-function(N)
+{
+  fibonacci(N-1)
+}
+fibonacci<-function(n)
+{
+  if(n==0 | n==1){
+    return(n)
+  }
+  if(n==2)
+  {
+    return(1)
+  }
+  return(fibonacci(n-1)+fibonacci(n-2))
+}
+for(i in 0:10)
+{
+  print(fibonacci(i))
+}
+term(10)
+```
+
 
 ### Practice exercise 1
 
@@ -67,6 +94,30 @@ squares(10)
 ```
 
 ### Practice exercise 2
+
+Write a function that counts the occurrence of digit $k$ in a given integer $n$ using recursion. The function has $n$ and $k$ as parameters.
+
+```{r}
+#| eval: false
+#| echo: false
+freq_digits<-function(n,d)
+{
+  if(n==0)
+  {
+    return(0)
+  }
+  digit = n%%10
+  n_int = as.integer(n/10)
+  if(digit==d)
+  {
+    return(1+freq_digits(n_int,d))
+  }
+  return(freq_digits(n_int,d))
+}
+freq_digits(8670800,0)
+```
+
+### Practice exercise 3
 
 Use recursion to write a function that accepts a word as an argument, and returns `TRUE` if the word is a palindrome, otherwise returns `FALSE`.
 
@@ -90,3 +141,11 @@ palindrome<-function(word)
 }
 palindrome(word)
 ```
+
+## Recursion vs iteration
+
+Recursion is typically used when the problem is naturally recursive (for e.g., generating a Fibonacci sequence), or the data is naturally recursive ( for e.g., filesystem). Recursive solutions can be easy to read and understand as compared to the corresponding iterative solution.
+
+One downside of recursion is that it may take more space than an iterative solution. Building up a stack of recursive calls consumes memory temporarily, and the stack is limited in size, which may become a limit on the size of the problem that the recursive implementation can solve.
+
+
