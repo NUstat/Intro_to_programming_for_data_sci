@@ -10,11 +10,19 @@ editor_options:
 
 ## Recursion
 
-Recursion is a method of solving a problem by dividing it into smaller instances of the same problem. Recursion solves such problems by using functions that call themselves from within their own code.
+Recursion is a method of solving a problem by dividing it into smaller instances of the same problem. Recursion solves such problems by using functions that call themselves from within their own code. This forms a loop, where every time the function is called, it calls itself again and again. However, every time the function calls itself, it checks certain condition(s) which are the stopping condition(s). When such condition(s) are true the function will stop calling itself. These conditions are called the base case of the recursive function.
 
-Below is an example, where we defined a function that computes the factorial of a number by recursion.
+Every recursive function must have at least two cases:
+
+**1. Base case:** This is the simplest case that can be answered directly, and the function does not call itself.
+
+**2. Recursive case:** This is a relatively more complex case that cannot be answered directly, but can be described as a smaller instance of the same problem. In this case, the function calls itself to answer the smaller problem. 
+
+Below is an example, where we defined a function that computes the factorial of an integer by recursion.
+
 
 ```{r}
+start_time<-Sys.time()
 factorial<-function(n)
 {
   if(n==1)
@@ -24,10 +32,41 @@ factorial<-function(n)
       return(n*factorial(n-1))
     }
 }
-factorial(5)
+factorial(50)
+end_time<-Sys.time()
+print(paste("Time taken = ", end_time-start_time))
 ```
 
+In the above example, the case $n=1$ is the base case, where the function does not need to call itself, and returns 1. All other cases, where $n>1$, and $n \in  \mathbb{Z}$ are recursive cases, where the function calls itself with a smaller instance of the same problem. 
+
+A recursive function must satisfy the following conditions:
+
+1. There must be a case for all valid inputs.
+
+2. There must be a base case that makes no recursive calls.
+
+3. When the function makes a recursive call, it should be to a simpler instance and make forward progress towards the base case.
+
 ### Practice exercise 1
+
+Write a recursive function that computes the sum of squares of the first $N$ natural numbers, where $N$ is a parameter to the function.
+
+```{r}
+#| eval: false
+#| echo: false
+squares<-function(N)
+{
+  if(N==1)
+  {
+    return(1)
+  }else{
+    return(N**2+squares(N-1))
+  }
+}
+squares(10)
+```
+
+### Practice exercise 2
 
 Use recursion to write a function that accepts a word as an argument, and returns `TRUE` if the word is a palindrome, otherwise returns `FALSE`.
 
