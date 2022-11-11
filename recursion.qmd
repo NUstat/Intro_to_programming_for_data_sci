@@ -24,12 +24,11 @@ Below is an example, where we defined a function that computes the factorial of 
 ```{r}
 factorial<-function(n)
 {
-  if(n==1)
-    {
-      return(1)
-  }else{
-      return(n*factorial(n-1))
-    }
+  if(n==1)      #Base case
+  {
+      return(1)  
+  }        
+  return(n*factorial(n-1)) #Recursive case
 }
 factorial(5)
 ```
@@ -51,14 +50,10 @@ $0, 1, 1, 2, 3, 5, 8, 13, 21, ...$
 ```{r}
 fibonacci<-function(n)
 {
-  if(n==0 | n==1){
+  if(n==0 | n==1){  #Base case
     return(n)
   }
-  if(n==2)
-  {
-    return(1)
-  }
-  return(fibonacci(n-1)+fibonacci(n-2))
+  return(fibonacci(n-1)+fibonacci(n-2))  #Recursive case
 }
 #The function `fibonacci` prints the n+1th term of the fibonacci sequence when `n` is passed as an argument. Thus, we need to reduce `n` by 1 to print the nth term of the sequence. The function `nth_term` reduces `n` by 1 before passing `n` to the function `fibonacci()`.
 nth_term<-function(N)
@@ -78,10 +73,10 @@ Write a recursive function that computes the sum of squares of the first $N$ nat
 #| echo: false
 squares<-function(N)
 {
-  if(N==1)
+  if(N==1)  #Base case
   {
     return(1)
-  }else{
+  }else{    #Recursive case
     return(N**2+squares(N-1))
   }
 }
