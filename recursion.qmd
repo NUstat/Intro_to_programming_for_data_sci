@@ -49,9 +49,7 @@ A recursive function must satisfy the following conditions:
 $0, 1, 1, 2, 3, 5, 8, 13, 21, ...$
 
 ```{r}
-#| eval: false
-#| echo: false
-term<-function(N)
+nth_term<-function(N)
 {
   fibonacci(N-1)
 }
@@ -70,7 +68,7 @@ for(i in 0:10)
 {
   print(fibonacci(i))
 }
-term(10)
+nth_term(7)
 ```
 
 
