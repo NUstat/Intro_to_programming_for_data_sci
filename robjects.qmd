@@ -571,6 +571,13 @@ movies<-fromJSON(file = 'movies.json')
 #### 
 What is the datatype of the object `movies`?
 
+```{r}
+#| eval: false
+class(movies)
+```
+
+The datatype of the object `movies` is list.
+
 #### 
 Count the number movies having a negative profit, i.e., their production budget is higher than their worldwide gross. 
 
@@ -618,7 +625,7 @@ lapply(list_ex, function(x) class(x))
 
 ### Practice exercise 6
 
-Solve practice exercise 5 without using a `for` loop. Use the `lapply()` function.
+Solve [practice exercise 5](https://nustat.github.io/Intro_to_programming_for_data_sci/robjects.html#practice-exercise-5) without using a `for` loop. Use the `lapply()` function.
 
 ```{r}
 #| eval: false
