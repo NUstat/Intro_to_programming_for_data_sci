@@ -581,6 +581,7 @@ Ignore the movies that:
 2. Have a zero worldwide gross *(A zero worldwide gross is probably an incorrect value)*. 
 
 ```{r}
+#| eval: false
 negative_profit<-c()
 count<-0
 for(i in 1:length(movies))
