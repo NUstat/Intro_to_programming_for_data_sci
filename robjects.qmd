@@ -558,7 +558,7 @@ unlist(list_ex)
 
 Since a vector can contain objects of a single datatype, note that all objects have been converted to the `character` datatype in the vector above.
 
-### Practice exercise
+### Practice exercise 5
 
 Download the dataset *movies.json*. Execute the following code to read the data into the object `movies`:
 
@@ -581,10 +581,8 @@ Ignore the movies that:
 2. Have a zero worldwide gross *(A zero worldwide gross is probably an incorrect value)*. 
 
 ```{r}
-#| echo: false
-#| eval: false
-
 negative_profit<-c()
+count<-0
 for(i in 1:length(movies))
 {
   pb<-movies[[i]]$`Production Budget`
@@ -593,12 +591,39 @@ for(i in 1:length(movies))
   {
     if(pb>wg & wg>0)
     {
-      negative_profit<-c(negative_profit,movies[[i]]$Title)
+      count<-count+1
     }
   }
   
 }
-length(negative_profit)
+print(paste("Number of movies with negative profit =",count))
 ```
 
+### The `lapply()` function
 
+The `lapply()` function is used to apply a function on each element of a list, and returns a list of the same length.
+
+For example, consider the list below:
+
+```{r}
+list_ex<-list(1, "apple", TRUE, list("another list", TRUE))
+```
+
+Let us use the `lapply()` function to find the class of each element of the list `list_ex`:
+
+```{r}
+lapply(list_ex, function(x) class(x))
+```
+
+### Practice exercise 6
+
+Solve practice exercise 5 without using a `for` loop. Use the `lapply()` function.
+
+```{r}
+#| eval: false
+#| echo: false
+
+profit<-lapply(movies, function(x) x$`Worldwide Gross`-x$`Production Budget`)
+positive_wg<-lapply(movies, function(x) x$`Worldwide Gross`>0)
+sum(profit<0 & positive_wg>0,na.rm = TRUE)
+```
