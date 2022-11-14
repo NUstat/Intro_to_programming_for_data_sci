@@ -1,0 +1,348 @@
+---
+title: "Assignment 6 (R: Lists and Recursion)"
+subtitle: "R: Lists and recursion"
+format:
+  html:
+    toc: true
+self-contained: true
+link-external-newwindow: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Instructions {-}
+
+1. You may talk to a friend, discuss the questions and potential directions for solving them. However, you need to write your own solutions and code separately, and not as a group activity. 
+
+2. Do not write your name on the assignment.
+
+3. Make R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.
+
+4. Render the file as HTML to submit.
+
+5. There are 5 points for clealiness and organization. The code should be commented and clearly written with intuitive variable names. For example, use variable names such as number_input, factor, hours, instead of a,b,xyz, etc.
+
+6. The assignment is worth 100 points, and is due on **22nd November 2022 at 11:59 pm**. 
+
+7. You are **not allowed to use a `for` loop** in this assignment, except in the last question on Sudoku.
+
+## TED Talks
+
+Execute the following code to get the object `ted_talks`, which contains information about TED talks.
+
+Note that you are **not allowed to use a `for` loop** or any other kind of loop in all the questions below.
+
+```{r}
+library(rjson)
+ted_talks<-fromJSON(file='TED_Talks.json')
+```
+
+### Number of talks
+How many TED talks are there in the data?
+
+```{r}
+length(ted_talks)
+```
+
+There are 2474 TED talks in the data.
+
+### Average number of views
+What is the mean number of views of the TED talks?
+
+```{r}
+mean(as.integer(sapply(ted_talks,function(x) x$views)))
+```
+
+On an average, there are 1.74 million views for a Ted Talk.
+
+### Highest number of views
+Find the `headline`, `year_filmed`, and number of `views` of the top five talks with the highest number of views. 
+
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+```{r}
+names(ted_talks)<-1:length(ted_talks)
+
+max_views_index=as.integer(names(sort(sapply(ted_talks,function(x) as.integer(x$views)),decreasing = TRUE)[1:5]))
+
+#Headlines of top 5 talks
+sapply(max_views_index, function(x) ted_talks[[x]]$headline)
+
+#Year filmed of top 5 talks
+sapply(max_views_index, function(x) ted_talks[[x]]$year_filmed)
+
+#Number of views of top 5 talks
+sapply(max_views_index, function(x) ted_talks[[x]]$views)
+
+```
+
+### Most fascinating votss
+Find the `headline`, `year_filmed` and `count` of *Funny* votes of the top five talks with the highest number of *Funny* votes 
+
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+
+```{r}
+#Naming type of vote to access it by name for each Ted talk
+type_of_vote<-function(x)
+{
+  names(x$rates)<-sapply(x$rates, function (x) x$name)
+  return(x)
+}
+ted_talks_named<-lapply(ted_talks,type_of_vote)
+
+max_funny_talks_index=as.integer(names(sort(sapply(ted_talks_named,function(x) as.integer(x$rates$Funny$count)),decreasing = TRUE)[1:5]))
+
+sapply(max_funny_talks_index, function(x) ted_talks_named[[x]]$headline)
+
+sapply(max_funny_talks_index, function(x) ted_talks_named[[x]]$year_filmed)
+
+sapply(max_funny_talks_index, function(x) ted_talks_named[[x]]$rates$Funny$count)
+```
+
+### Highest proportion of *Inspiring* votes
+Find the `headline`, `year_filmed`, and proportion of *Inspiring* votes from among all the votes for the talk, of the top five talks with the highest proportion of *Inspiring* votes. 
+
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+```{r}
+#Adding total votes for each Ted talk
+total_votes<-function(x)
+{
+  tot_votes<-sum(sapply(x$rates,function(y) y$count))
+  x$rates$total_votes<-tot_votes
+  return(x)
+}
+ted_talks_total_votes<-lapply(ted_talks_named,total_votes)
+proportion_inspiring_votes<-sapply(ted_talks_total_votes,function(x) x$rates$Inspiring$count/x$rates$total_votes)
+
+max_inspiring_prop_index=as.integer(names(sort(proportion_inspiring_votes,decreasing = TRUE))[1:5])
+
+sapply(max_inspiring_prop_index, function(x) ted_talks_named[[x]]$headline)
+
+sapply(max_inspiring_prop_index, function(x) ted_talks_named[[x]]$year_filmed)
+
+sort(proportion_inspiring_votes,decreasing = TRUE)[1:5]
+```
+
+### Most popular voting category
+Add the votes of all TED talks for each category. Which category has received the most votes? What is the proportion of total votes for this category?
+
+```{r}
+categories<-names(ted_talks_named[[1]]$rates)
+
+talk_votes_per_category<-function(x)
+{
+  votes_category<-sapply(categories, function(category) x$rates[[category]]$count)
+  return(votes_category)
+}
+votes_per_category<-matrix(sapply(ted_talks_named,talk_votes_per_category),length(ted_talks),length(categories),byrow = TRUE)
+
+total_votes_per_category<-apply(votes_per_category,2,sum)
+
+categories[which.max(total_votes_per_category)]
+#categories[which.min(total_votes_per_category)]
+max(total_votes_per_category)/sum(total_votes_per_category)
+```
+
+# 3
+## 3(a)
+
+Execute the code below to get the object `wordlist_global`, which contains a vector of words. Write a **recursive** function that accepts a word, say `word_to_search` and a vector of words, say `wordlist` as arguments, and finds if the `word_to_search` occurs in `wordlist_global` or not. This is very simple to do with the code `word_to_search %in% tuple_of_words`. However, this code is unfortunately very slow.
+
+As the words in the `wordlist_global` are already sorted in alphabetical order, we can search using a faster way, called binary search. To implement binary search in a function, start by comparing `word_to_search` with the middle entry in the `wordlist_global`. If they are equal, then you are done and the function should return `True`. On the other hand, if the `word_to_search` comes before the middle entry, then the function must call itself to search the first half of `wordlist_global`. If it comes after the middle entry, then the function must call itself to search the second half of `wordlist_global`. In every recursive call, the function must repeat the process on the appropriate half of the `wordlist` and continue until the word is found or there is nothing left to search, in which case the function short return `False`. The `<` and `>` operators can be used to alphabetically compare two `character` objects.
+
+Note that your function must use **recursion**.
+
+Check your function if the `word_to_search` is:
+1. `'agreement'`
+2. `'aghast'`
+
+## Sudoku
+
+This question is about solving the Sudoku puzzle with recursion. Read about the Sudoku rules [here](https://sudoku.com/how-to-play/sudoku-rules-for-complete-beginners/#:~:text=Sudoku%20is%20played%20on%20a,the%20row%2C%20column%20or%20square.). Think about how to solve the Sudoku puzzle with recursion.
+
+This [blog](https://www.r-bloggers.com/2020/11/how-to-solve-sudoku-with-r/) provides a recursive function `solve_sudoku` to solve the Sudoku puzzle. Read the blog and under how the function is implemented. You will need to add some lines in the code to answer some of the questions below.
+
+### Base case & recursive case
+What are the base and recursive cases of the function? Cite the relevant lines of code, and explain.
+
+### Solving Sudoku
+Use the function to solve the following Sudoku puzzle. Execute the following lines of code to see the puzzle.  
+```{r}
+board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
+                rep(0,5),6,2,0,4,0,7,0,0,4,rep(0,4),9,6,0,0,7,0,5,0,3,
+                4,8,rep(0,6),1,rep(0,5),7,rep(0,4),5,9,5,rep(0,3),7,rep(0,4)),
+              9,9)
+
+plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku")
+for(i in 1:9)
+{
+  for(j in 1:9)
+  {
+    rect(i-1,j-1,i,j)
+    if(board[10-j,i]!=0)
+    {text((i-1)+0.5,(j-1)+0.5,(((board[10-j,i]))))}
+  }
+}
+```
+
+After using the function to solve the puzzle, execute the following lines of code to print the solution:
+
+```{r}
+plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku")
+for(i in 1:9)
+{
+  for(j in 1:9)
+  {
+    rect(i-1,j-1,i,j)
+    if(board[10-j,i]!=0)
+    {text((i-1)+0.5,(j-1)+0.5,(((board[10-j,i]))))}else{
+    text((i-1)+0.5,(j-1)+0.5,(((result[10-j,i]))),col = 2,cex=1.25)}
+  }
+}
+```
+
+### Number of calls
+How many times does the function `solve_sudoku` call itself to solve the puzzle?
+
+### Number of calls for each cell
+
+Create a 9x9 matrix that contains the number of times the function calls itself for the respective cell in the puzzle.
+
+### Reducing recursive calls
+
+Analyze the matrix in the previous question. Edit the function to reduce the number of call it makes to itself to solve the puzzle. The approach must be general and not specific to this particular puzzle. 
+
+Find the number of times the functions calls itself with the improved Sudoku solver to solve the given puzzle.
+
+```{r}
+find_empty_cells <- function(board) {
+  which(board == 0, arr.ind = TRUE)
+}
+
+is_valid <- function(board, num, row, col) {
+  
+  # Check if any cell in the same row has value = num
+  if(any(board[row, ] == num)) {
+    
+    return(FALSE)
+    
+  }
+  
+  # Check if any cell in the same column has value = num
+  if(any(board[, col] == num)) {
+    
+    return(FALSE)
+    
+  }
+  
+  # Get cells in num's box
+  box_x <- floor((row - 1) / 3) + 1
+  box_y <- floor((col - 1) / 3) + 1
+  
+  # Get subset of matrix containing num's box
+  box <- board[(3 * box_x - 2):(3 * box_x), (3 * box_y - 2):(3 * box_y)]
+  
+  # Check if the number appears elsewhere in its box
+  if(any(box == num)) {
+    return(FALSE)
+  }
+  return(TRUE)
+}
+
+result <- board
+iterations<-0
+iterations_mat<-matrix(0,9,9)
+iterations_mat2<-matrix(0,9,9)
+solve_sudoku <- function(board, needed_cells = NULL, index = 1) {
+  
+  # Find all empty cells
+  if(is.null(needed_cells)) 
+  {needed_cells <- find_empty_cells(board)
+  needed_cells<-cbind(needed_cells,rep(0,nrow(needed_cells)))
+  box_num<-c()
+  for(i in 1:nrow(needed_cells))
+  {
+    row<-needed_cells[i,1]
+    col<-needed_cells[i,2]
+    box_x <- floor((row - 1) / 3) + 1
+    box_y <- floor((col - 1) / 3) + 1
+    box<-(box_x-1)*3+box_y
+    box_num<-c(box_num,box)
+  }
+  box_freq<-table(box_num)
+  for(i in 1:nrow(needed_cells))
+  {
+    needed_cells[i,3]<-box_freq[box_num[i]]
+  }
+  needed_cells<-needed_cells[order(needed_cells[,3]),1:2]}
+  
+  if(index > nrow(needed_cells)) {
+    
+    # Set result equal to current value of board
+    # and return TRUE
+    result <<- board
+    return(TRUE)
+    
+  } else {
+    
+    row <- needed_cells[index, 1]
+    col <- needed_cells[index, 2]
+  }
+  
+  # Solve the Sudoku
+  for(num in 1:9) {
+    iterations<<-iterations+1
+    iterations_mat[row,col]<<-iterations_mat[row,col]+1
+    # Test for valid answers
+    if(!is_valid(board, num, row, col)) {next} else{
+      iterations_mat2[row,col]<<-iterations_mat2[row,col]+1
+      board2 = board
+      board2[row, col] <- num
+      
+      # Retest with input
+      if(solve_sudoku(board2, needed_cells, index + 1)) {
+        return(TRUE)
+        
+      }
+      
+    }
+    
+  }
+  
+  # If not solvable, return FALSE
+  return(FALSE)
+  
+}
+solve_sudoku(board)
+```
+
+```{r}
+needed_cells<-cbind(needed_cells,rep(0,nrow(needed_cells)))
+box_num<-c()
+for(i in 1:nrow(needed_cells))
+{
+  row<-needed_cells[i,1]
+  col<-needed_cells[i,2]
+  box_x <- floor((row - 1) / 3) + 1
+  box_y <- floor((col - 1) / 3) + 1
+  box<-(box_x-1)*3+box_y
+  box_num<-c(box_num,box)
+}
+box_freq<-table(box_num)
+for(i in 1:nrow(needed_cells))
+{
+  needed_cells[i,3]<-box_freq[box_num[i]]
+}
+needed_cells[order(needed_cells[,3]),1:2]
+```
+
+what is the base condition
+
+what is the recursive condition
+
+how many times the function was called
+
+reduce computations
+
