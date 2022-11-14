@@ -137,7 +137,7 @@ This [blog](https://www.r-bloggers.com/2020/11/how-to-solve-sudoku-with-r/) prov
 ### Base case & recursive case
 What are the base and recursive cases of the function `solve_sudoku()`? Cite the relevant lines of code, and explain.
 
-*(4 points)*
+*(2 points)*
 
 ### Solving sudoku
 Use the function to solve the following Sudoku puzzle. Execute the following lines of code to see the puzzle.  
@@ -199,3 +199,7 @@ Find the number of times the functions calls itself with the improved sudoku sol
 
 *(8 points)*
 
+### Benefit of recursion
+What challenges will you face if you try to solve this problem without recursion?
+
+*(2 points)*
