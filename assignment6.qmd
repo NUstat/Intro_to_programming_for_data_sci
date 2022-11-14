@@ -31,6 +31,7 @@ Execute the following code to get the object `ted_talks`, which contains informa
 Note that you are **not allowed to use a `for` loop** or any other kind of loop in all the questions below.
 
 ```{r}
+#| eval: false
 library(rjson)
 ted_talks<-fromJSON(file='TED_Talks.json')
 ```
@@ -69,22 +70,6 @@ Reminder: Do not use a `for` loop or any other kind of loop.
 ### Most popular voting category
 Add the votes of all TED talks for each category. Which category has received the most votes? What is the proportion of total votes for this category?
 
-```{r}
-categories<-names(ted_talks_named[[1]]$rates)
-
-talk_votes_per_category<-function(x)
-{
-  votes_category<-sapply(categories, function(category) x$rates[[category]]$count)
-  return(votes_category)
-}
-votes_per_category<-matrix(sapply(ted_talks_named,talk_votes_per_category),length(ted_talks),length(categories),byrow = TRUE)
-
-total_votes_per_category<-apply(votes_per_category,2,sum)
-
-categories[which.max(total_votes_per_category)]
-#categories[which.min(total_votes_per_category)]
-max(total_votes_per_category)/sum(total_votes_per_category)
-```
 
 *(10 points)*
 
@@ -100,6 +85,10 @@ Note that your function must use **recursion**.
 Check your function if the `word_to_search` is:
 1. `'agreement'`
 2. `'aghast'`
+
+```{r}
+wordlist_global<-unlist(read.table('wordlist.txt', header = FALSE, sep = "", dec = "."))
+```
 
 *(15 points)*
 
@@ -138,7 +127,7 @@ board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
                 4,8,rep(0,6),1,rep(0,5),7,rep(0,4),5,9,5,rep(0,3),7,rep(0,4)),
               9,9)
 
-plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku")
+plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku puzzle")
 for(i in 1:9)
 {
   for(j in 1:9)
@@ -153,7 +142,8 @@ for(i in 1:9)
 After using the function to solve the puzzle, execute the following lines of code to print the solution:
 
 ```{r}
-plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku")
+#| eval: false
+plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku solved")
 for(i in 1:9)
 {
   for(j in 1:9)
