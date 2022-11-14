@@ -87,6 +87,7 @@ Check your function if the `word_to_search` is:
 2. `'aghast'`
 
 ```{r}
+#| eval: false
 wordlist_global<-unlist(read.table('wordlist.txt', header = FALSE, sep = "", dec = "."))
 ```
 
