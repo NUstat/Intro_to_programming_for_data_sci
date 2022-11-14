@@ -148,7 +148,7 @@ board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
               9,9)
 
 plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku puzzle",
-     xaxt="n",yaxt="n",bty="n")
+     xaxt="n",yaxt="n",bty="n",asp = 1)
 for(i in 1:9)
 {
   for(j in 1:9)
@@ -158,6 +158,13 @@ for(i in 1:9)
     {text((i-1)+0.5,(j-1)+0.5,(((board[10-j,i]))))}
   }
 }
+for(i in 1:3)
+{
+  for(j in 1:3)
+  {
+    rect((i-1)*3,(j-1)*3,3*i,3*j,lwd=2)
+  }
+}
 ```
 
 After using the function to solve the puzzle, execute the following lines of code to print the solution:
@@ -165,7 +172,7 @@ After using the function to solve the puzzle, execute the following lines of cod
 ```{r}
 #| eval: false
 plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku solved",
-     xaxt="n",yaxt="n",bty="n")
+     xaxt="n",yaxt="n",bty="n",asp = 1)
 for(i in 1:9)
 {
   for(j in 1:9)
@@ -174,6 +181,13 @@ for(i in 1:9)
     if(board[10-j,i]!=0)
     {text((i-1)+0.5,(j-1)+0.5,(((board[10-j,i]))))}else{
     text((i-1)+0.5,(j-1)+0.5,(((result[10-j,i]))),col = 2,cex=1.25)}
+  }
+}
+for(i in 1:3)
+{
+  for(j in 1:3)
+  {
+    rect((i-1)*3,(j-1)*3,3*i,3*j,lwd=2)
   }
 }
 ```
