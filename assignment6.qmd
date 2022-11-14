@@ -75,7 +75,7 @@ Reminder: Do not use a `for` loop or any other kind of loop.
 
 *(10 points)*
 
-## Word search
+## Binary search
 
 Execute the code below to get the object `wordlist_global`, which contains a vector of words. Write a **recursive** function that accepts a word, say `word_to_search` and a vector of words, say `wordlist` as arguments, and finds if the `word_to_search` occurs in `wordlist_global` or not. This is very simple to do with the code `word_to_search %in% tuple_of_words`. However, this code is unfortunately very slow.
 
@@ -180,20 +180,20 @@ for(i in 1:9)
 
 *(4 points)*
 
-### Number of calls
+### Number of recursive calls
 How many times does the function `solve_sudoku` call itself to solve the puzzle?
 
 *(3 points)*
 
 ### Number of calls for each cell
 
-Create and print a 9x9 matrix that contains the number of times the function calls itself to try a digit for the respective cell in the puzzle.
+Create and print a $9 \times 9$ matrix that contains the number of times the function calls itself to try a digit for the respective cell in the puzzle.
 
 *(5 points)*
 
 ### Reducing recursive calls
 
-Analyze the matrix created in the previous question. Edit the function to reduce the number of recursive calls to solve the puzzle. Your approach must be general and not specific to this particular puzzle. 
+Analyze the matrix created in the previous question. Edit the function to reduce the number of recursive calls it takes to solve the puzzle. Your approach must be general and not specific to this particular puzzle. However, you will demonstrate your approach on this puzzle.
 
 Find the number of times the functions calls itself with the improved sudoku solver to solve the given puzzle.
 
