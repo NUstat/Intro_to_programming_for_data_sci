@@ -53,7 +53,7 @@ Reminder: Do not use a `for` loop or any other kind of loop.
 
 *(9 points)*
 
-### Most fascinating votss
+### Most *Funny* votes
 Find the `headline`, `year_filmed` and `count` of *Funny* votes of the top five talks with the highest number of *Funny* votes 
 
 Reminder: Do not use a `for` loop or any other kind of loop.
@@ -69,6 +69,8 @@ Reminder: Do not use a `for` loop or any other kind of loop.
 
 ### Most popular voting category
 Add the votes of all TED talks for each category. Which category has received the most votes? What is the proportion of total votes for this category?
+
+Reminder: Do not use a `for` loop or any other kind of loop.
 
 
 *(10 points)*
@@ -91,6 +93,9 @@ Check your function if the `word_to_search` is:
 wordlist_global<-unlist(read.table('wordlist.txt', header = FALSE, sep = "", dec = "."))
 ```
 
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+
 *(15 points)*
 
 ### Number of iterations
@@ -102,10 +107,14 @@ Check your function if the `word_to_search` is:
 
 **Hint:** You can update a global variable inside the function using the `<<-` operator.
 
+Reminder: Do not use a `for` loop or any other kind of loop.
+
 *(3 points)*
 
 ### Index of `word_to_search`
 Update the function in the previous question to also print the index of `word_to_search` in `wordlist_global` if the word is found. For example, the index of 'abacus' is 1, the index of 'abdomen' is 2, and so on.
+
+Reminder: Do not use a `for` loop or any other kind of loop.
 
 *(6 points)*
 
@@ -128,7 +137,8 @@ board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
                 4,8,rep(0,6),1,rep(0,5),7,rep(0,4),5,9,5,rep(0,3),7,rep(0,4)),
               9,9)
 
-plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku puzzle")
+plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku puzzle",
+     xaxt="n",yaxt="n",bty="n")
 for(i in 1:9)
 {
   for(j in 1:9)
@@ -144,7 +154,8 @@ After using the function to solve the puzzle, execute the following lines of cod
 
 ```{r}
 #| eval: false
-plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku solved")
+plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku solved",
+     xaxt="n",yaxt="n",bty="n")
 for(i in 1:9)
 {
   for(j in 1:9)
