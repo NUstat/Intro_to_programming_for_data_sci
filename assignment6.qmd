@@ -24,6 +24,8 @@ editor_options:
 
 6. You are **not allowed to use a `for` loop** in this assignment, except in the last question on Sudoku.
 
+7. You will submit the assignment on Github. Github link for the assignment is: https://classroom.github.com/a/mzLbthmW
+
 ## TED Talks
 
 Execute the following code to get the object `ted_talks`, which contains information about TED talks.

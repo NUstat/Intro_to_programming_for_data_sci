@@ -4,7 +4,6 @@ project:
 
 book:
   title: "Introduction to programming for data science"
-  logo: 'NU_Stat_logo.png'
   subtitle: "STAT 201"
   author: "Arvind Krishna"
   date: "9/20/2022"
