@@ -14,7 +14,7 @@ book:
         - Introduction to Jupyter Notebooks and programming in python.ipynb
         - Variable_expressions_statements.ipynb
         - Control flow.ipynb
-        - functions.ipynb
+        - functions2.ipynb
         - data_structures.ipynb
         - classes.ipynb
     - part: "R"
