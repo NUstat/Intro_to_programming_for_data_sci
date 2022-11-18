@@ -629,7 +629,6 @@ Solve [practice exercise 5](https://nustat.github.io/Intro_to_programming_for_da
 
 ```{r}
 #| eval: false
-#| echo: false
 
 profit<-lapply(movies, function(x) x$`Worldwide Gross`-x$`Production Budget`)
 positive_wg<-lapply(movies, function(x) x$`Worldwide Gross`>0)
