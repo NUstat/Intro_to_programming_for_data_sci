@@ -26,7 +26,7 @@ editor_options:
 
 7. In addition to uploading the HTML file on Canvas, you will submit this assignment on Github as well. Github link for the assignment is: <https://classroom.github.com/a/mzLbthmW> . 
 
-Put the link to your Github repository containing your rendered HTML file here: <link to Github repository>
+Put the link to your Github repository containing your rendered HTML file here: \<link to Github repository>
 
 ## TED Talks
 
