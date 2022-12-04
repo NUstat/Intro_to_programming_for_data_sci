@@ -405,7 +405,6 @@ is_valid <- function(board, num, row, col) {
 result <- board
 iterations<-0
 iterations_mat<-matrix(0,9,9)
-iterations_mat2<-matrix(0,9,9)
 solve_sudoku <- function(board, needed_cells = NULL, index = 1) {
   
   # Find all empty cells
@@ -504,23 +503,10 @@ solve_sudoku <- function(board, needed_cells = NULL, index = 1) {
   
   # Find all empty cells
   if(is.null(needed_cells)) 
+    #Sorting needed cells so that the cells that are in the 3x3 square with the least number of unfilled cells are filled first. This will reduce the number of possibilities to fill empty cells, and thereby iterations.
   {needed_cells <- find_empty_cells(board)
-  needed_cells<-cbind(needed_cells,rep(0,nrow(needed_cells)))
-  box_num<-c()
-  for(i in 1:nrow(needed_cells))
-  {
-    row<-needed_cells[i,1]
-    col<-needed_cells[i,2]
-    box_x <- floor((row - 1) / 3) + 1
-    box_y <- floor((col - 1) / 3) + 1
-    box<-(box_x-1)*3+box_y
-    box_num<-c(box_num,box)
-  }
-  box_freq<-table(box_num)
-  for(i in 1:nrow(needed_cells))
-  {
-    needed_cells[i,3]<-box_freq[box_num[i]]
-  }
+      box<-apply(needed_cells,1,function(x) 3*floor((x[1]-1)/3)+floor((x[2]-1)/3))+1
+  needed_cells<-cbind(needed_cells,sapply(box,function(x) table(box)[x]))
   needed_cells<-needed_cells[order(needed_cells[,3]),1:2]}
   
   if(index > nrow(needed_cells)) {
@@ -565,31 +551,183 @@ iterations
 iterations_mat
 ```
 
+
 ```{r}
-needed_cells<-cbind(needed_cells,rep(0,nrow(needed_cells)))
-box_num<-c()
-for(i in 1:nrow(needed_cells))
-{
-  row<-needed_cells[i,1]
-  col<-needed_cells[i,2]
-  box_x <- floor((row - 1) / 3) + 1
-  box_y <- floor((col - 1) / 3) + 1
-  box<-(box_x-1)*3+box_y
-  box_num<-c(box_num,box)
-}
-box_freq<-table(box_num)
-for(i in 1:nrow(needed_cells))
-{
-  needed_cells[i,3]<-box_freq[box_num[i]]
-}
-needed_cells[order(needed_cells[,3]),1:2]
+needed_cells <- find_empty_cells(board)
+      box<-apply(needed_cells,1,function(x) 3*floor((x[1]-1)/3)+floor((x[2]-1)/3))+1
+  needed_cells<-cbind(needed_cells,sapply(box,function(x) table(box)[x]))
+  needed_cells<-needed_cells[order(needed_cells[,3]),1:2]
+
 ```
 
-what is the base condition
 
-what is the recursive condition
+```{r}
+needed_cells <- find_empty_cells(board)
+tot_possibilities<-c()
+box<-apply(needed_cells,1,function(x) 3*floor((x[1]-1)/3)+floor((x[2]-1)/3))+1
+nos_filled_vec<-c()
+for(i in 1:nrow(needed_cells))
+{
+  cur_cell<-needed_cells[i,]
+  cur_row<-cur_cell[1]
+  cur_col<-cur_cell[2]
+  nos_filled<-unique(c(board[cur_row,],board[,cur_col]))
+  row_in_box<-(3*(as.integer((box[i]-1)/3))+1):(3*(as.integer((box[i]-1)/3)+1))
+  if(box[i]==1 | box[i]==4 | box[i]==7)
+  {
+    col_in_box<-c(1,2,3)
+  }else if(box[i]==2 | box[i]==5 | box[i]==8){
+    col_in_box<-c(4,5,6)
+  }else{col_in_box<-c(7,8,9)}
+  for(r in row_in_box)
+  {
+    for(c in col_in_box)
+    {
+      nos_filled<-c(nos_filled,board[r,c])
+    }
+  }
+  nos_filled_vec<-c(nos_filled_vec,9-(length(unique(nos_filled))-1))
+}
+det<-which(nos_filled_vec==1)
+vec19<-1:9
+for(i in det)
+{
+  cur_cell<-needed_cells[i,]
+  cur_row<-cur_cell[1]
+  cur_col<-cur_cell[2]
+  nos_filled<-unique(c(board[cur_row,],board[,cur_col]))
+  row_in_box<-(3*(as.integer((box[i]-1)/3))+1):(3*(as.integer((box[i]-1)/3)+1))
+  if(box[i]==1 | box[i]==4 | box[i]==7)
+  {
+    col_in_box<-c(1,2,3)
+  }else if(box[i]==2 | box[i]==5 | box[i]==8){
+    col_in_box<-c(4,5,6)
+  }else{col_in_box<-c(7,8,9)}
+  for(r in row_in_box)
+  {
+    for(c in col_in_box)
+    {
+      nos_filled<-c(nos_filled,board[r,c])
+    }
+  }
+  board[cur_row,cur_col]<-setdiff(vec19,unique(nos_filled))
+}
+#bind<-cbind(needed_cells,nos_filled_vec)
+#needed_cells<-bind[order(bind[,3]),1:2]
+```
 
-how many times the function was called
 
-reduce computations
+```{r}
+find_empty_cells <- function(board) {
+  which(board == 0, arr.ind = TRUE)
+}
 
+is_valid <- function(board, num, row, col) {
+  
+  # Check if any cell in the same row has value = num
+  if(any(board[row, ] == num)) {
+    
+    return(FALSE)
+    
+  }
+  
+  # Check if any cell in the same column has value = num
+  if(any(board[, col] == num)) {
+    
+    return(FALSE)
+    
+  }
+  
+  # Get cells in num's box
+  box_x <- floor((row - 1) / 3) + 1
+  box_y <- floor((col - 1) / 3) + 1
+  
+  # Get subset of matrix containing num's box
+  box <- board[(3 * box_x - 2):(3 * box_x), (3 * box_y - 2):(3 * box_y)]
+  
+  # Check if the number appears elsewhere in its box
+  if(any(box == num)) {
+    return(FALSE)
+  }
+  return(TRUE)
+}
+
+result <- board
+iterations<-0
+iterations_mat<-matrix(0,9,9)
+iterations_mat2<-matrix(0,9,9)
+solve_sudoku <- function(board, needed_cells = NULL, index = 1) {
+  
+  # Find all empty cells
+  if(is.null(needed_cells)) {
+    #Sorting needed cells so that the cells that are in the 3x3 square with the least number of unfilled cells are filled first. This will reduce the number of possibilities to fill empty cells, and thereby iterations.
+  needed_cells <- find_empty_cells(board)
+box<-apply(needed_cells,1,function(x) 3*floor((x[1]-1)/3)+floor((x[2]-1)/3))+1
+nos_filled_vec<-c()
+for(i in 1:nrow(needed_cells))
+{
+  cur_cell<-needed_cells[i,]
+  cur_row<-cur_cell[1]
+  cur_col<-cur_cell[2]
+  nos_filled<-unique(c(board[cur_row,],board[,cur_col]))
+  row_in_box<-(3*(as.integer((box[i]-1)/3))+1):(3*(as.integer((box[i]-1)/3)+1))
+  if(box[i]==1 | box[i]==4 | box[i]==7)
+  {
+    col_in_box<-c(1,2,3)
+  }else if(box[i]==2 | box[i]==5 | box[i]==8){
+    col_in_box<-c(4,5,6)
+  }else{col_in_box<-c(7,8,9)}
+  for(r in row_in_box)
+  {
+    for(c in col_in_box)
+    {
+      nos_filled<-c(nos_filled,board[r,c])
+    }
+  }
+  nos_filled_vec<-c(nos_filled_vec,9-(length(unique(nos_filled))-1))
+}
+bind<-cbind(needed_cells,nos_filled_vec)
+needed_cells<-bind[order(bind[,3]),1:2]
+}
+  
+  if(index > nrow(needed_cells)) {
+    
+    # Set result equal to current value of board
+    # and return TRUE
+    result <<- board
+    return(TRUE)
+    
+  } else {
+    
+    row <- needed_cells[index, 1]
+    col <- needed_cells[index, 2]
+  }
+  
+  # Solve the Sudoku
+  for(num in 1:9) {
+    
+    # Test for valid answers
+    if(!is_valid(board, num, row, col)) {next} else{
+      iterations<<-iterations+1
+      iterations_mat[row,col]<<-iterations_mat[row,col]+1
+      board2 = board
+      board2[row, col] <- num
+      
+      # Retest with input
+      if(solve_sudoku(board2, needed_cells, index + 1)) {
+        return(TRUE)
+        
+      }
+      
+    }
+    
+  }
+  
+  # If not solvable, return FALSE
+  return(FALSE)
+  
+}
+solve_sudoku(board)
+iterations
+iterations_mat
+```
