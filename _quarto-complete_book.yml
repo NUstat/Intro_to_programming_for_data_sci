@@ -1,0 +1,52 @@
+project:
+  type: book
+
+
+book:
+  title: "Introduction to programming for data science"
+  subtitle: "STAT 201"
+  author: "Arvind Krishna"
+  date: "9/20/2022"
+  
+  sidebar:
+    search: true
+    logo: "NU_Stat_logo.png"
+    logo-href: "https://statistics.northwestern.edu/"
+    
+  chapters:
+    - index.qmd
+    - part: "Python"
+      chapters:
+        - Introduction to Jupyter Notebooks and programming in python.ipynb
+        - Variable_expressions_statements.ipynb
+        - Control flow.ipynb
+        - functions2.ipynb
+        - data_structures.ipynb
+        - classes.ipynb
+    - part: "R"
+      chapters:
+        - Variable_expressions_statements-R.qmd
+        - control_flow.qmd
+        - control_flow2.qmd
+        - robjects.qmd
+        - recursion.qmd
+        - Github.ipynb
+  appendices: 
+    - Assignment 1 (control flow).ipynb
+    - Assignment 2 (functions).ipynb
+    - Assignment 3 (data structures).ipynb
+    - Assignment 4 (classes).ipynb
+    - assignment5.qmd
+    - assignment6.qmd
+    - Datasets.ipynb
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
