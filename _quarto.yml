@@ -20,6 +20,7 @@ book:
         - Introduction to Jupyter Notebooks and programming in python.ipynb
         - Variable_expressions_statements.ipynb
         - Control flow incomplete.ipynb
+        - functions2_incomplete.ipynb
   appendices: 
     - Datasets.ipynb
 
