@@ -22,6 +22,7 @@ book:
         - Control flow incomplete.ipynb
         - functions2_incomplete.ipynb
   appendices: 
+    - Assignment 1 (control flow).ipynb
     - Datasets.ipynb
 
 bibliography: references.bib
