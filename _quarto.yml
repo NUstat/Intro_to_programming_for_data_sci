@@ -21,6 +21,7 @@ book:
         - Variable_expressions_statements.ipynb
         - Control flow incomplete.ipynb
         - functions2_incomplete.ipynb
+        - data_structures.ipynb
   appendices: 
     - Assignment 1 (control flow).ipynb
     - Datasets.ipynb
