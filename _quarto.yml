@@ -19,8 +19,8 @@ book:
       chapters:
         - Introduction to Jupyter Notebooks and programming in python.ipynb
         - Variable_expressions_statements.ipynb
-        - Control flow incomplete.ipynb
-        - functions2_incomplete.ipynb
+        - Control flow.ipynb
+        - functions2.ipynb
         - data_structures.ipynb
   appendices: 
     - Assignment 1 (control flow).ipynb
