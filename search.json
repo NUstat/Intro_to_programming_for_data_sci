@@ -280,6 +280,13 @@
     "text": "B.1 Sentence analysis\n\nB.1.1 Word count\nWrite a function that accepts a word, and a sentence as arguments, and returns the number of times the word occurs in the sentence.\nCall the function, and print the returned value if the word is “sea”, and the sentence is “She sells sea shells on the sea shore when the sea is calm.” Note that this is just an example to check your function. Your function should work for any word and sentence.\n(10 points)\n\n\nB.1.2 Max word count\nAsk the user to input a sentence. Use the function in A.1.1 to find the word that occurs the maximum number of times in the sentence. Print the word and its number of occurences. If multiple words occur the maximum number of times, then you can print any one of them.\nCheck your program when the user inputs the sentence, “She sells sea shells on the sea shore when the sea is calm.”. Your program must print, “The word with the maximum number of occurences is ‘sea’ and it occurs 3 times.” Note that this is just an example to check your program. Your program must work for any sentence. If multiple words occur the most, you can print any of them.\n(20 points)"
   },
   {
+    "objectID": "Assignment 2 (control flow).html#prime-factors",
+    "href": "Assignment 2 (control flow).html#prime-factors",
+    "title": "Appendix B — Assignment B",
+    "section": "B.2 Prime factors",
+    "text": "B.2 Prime factors\n\nB.2.1 Prime\nWrite a function that checks if an integer is prime. The function must accept the integer as an argument, and return True if the integer is prime, otherwise it must return False.\nCall your function with the argument as 197.\n(4 points)\n\n\nB.2.2 Factor\nWrite a function that checks if an integer is a factor of another integer. The function must accept both the integers as arguments, and return True if the integer is a factor, otherwise it must return False.\nCall your function with the arguments as (19,85).\n(3 points)\n\n\nB.2.3 Prime Factors\nPrompt the user to input a positive integer. Use the functions in A.2.1 and A.2.2 to print the prime factors of the integer. Your program should be no more than 4 lines (excluding the comments)\nCheck your program is the user inputs 190\n(8 points)"
+  },
+  {
     "objectID": "Datasets.html",
     "href": "Datasets.html",
     "title": "Appendix C — Assignment templates and Datasets",
