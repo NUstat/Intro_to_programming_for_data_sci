@@ -24,6 +24,7 @@ book:
         - data_structures.ipynb
   appendices: 
     - Assignment 1 (control flow).ipynb
+    - Assignment B.ipynb
     - Datasets.ipynb
 
 bibliography: references.bib
