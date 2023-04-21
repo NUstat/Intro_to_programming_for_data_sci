@@ -22,7 +22,7 @@ book:
         - Control flow.ipynb
         - functions2.ipynb
         - data_structures.ipynb
-        - classes_incomplete.ipynb
+        - classes.ipynb
   appendices: 
     - Assignment 1 (control flow).ipynb
     - Assignment 2 (control flow).ipynb
