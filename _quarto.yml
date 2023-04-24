@@ -23,6 +23,10 @@ book:
         - functions2.ipynb
         - data_structures-complete.ipynb
         - classes_incomplete.ipynb
+    - part: "R"
+      chapters:
+        - Variable_expressions_statements-R.qmd
+        - control_flow_noSol.qmd
   appendices: 
     - Assignment 1 (control flow).ipynb
     - Assignment 2 (control flow).ipynb
