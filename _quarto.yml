@@ -22,7 +22,7 @@ book:
         - Control flow.ipynb
         - functions2.ipynb
         - data_structures-complete.ipynb
-        - classes_incomplete.ipynb
+        - classes.ipynb
     - part: "R"
       chapters:
         - Variable_expressions_statements-R.qmd
