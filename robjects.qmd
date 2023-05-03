@@ -194,6 +194,8 @@ words_vec<-c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
 ```
 
 ```{r}
+#| echo: false
+#| eval: false
 palindrome<-function(word)
 {
   for(i in 1:as.integer(nchar(word)/2))
@@ -420,6 +422,8 @@ Find the 5 year period in which the difference of the maximum GDP per capita and
 **Solution:**
 
 ```{r}
+#| echo: false
+#| eval: false
 five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
 ```
 
@@ -468,6 +472,7 @@ Note that:
 
 ```{r}
 #| eval: false
+#| echo: false
 US_index<-which(country_names=='United States')
 DC_coord<-coordinates_capital_cities[US_index,]
 DC_coord_matrix<-matrix(rep(DC_coord,245),245,2,byrow = TRUE)
@@ -487,6 +492,7 @@ top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_ci
 
 ```{r}
 #| eval: false
+#| echo: false
 for(i in 1:9)
 {
   distance_of_DC_from_other_cities[which.min(distance_of_DC_from_other_cities)]<-999999
@@ -564,6 +570,7 @@ Download the dataset *movies.json*. Execute the following code to read the data 
 
 ```{r}
 #| eval: false
+#| echo: false
 library(rjson)
 movies<-fromJSON(file = 'movies.json')
 ```
@@ -589,6 +596,7 @@ Ignore the movies that:
 
 ```{r}
 #| eval: false
+#| echo: false
 negative_profit<-c()
 count<-0
 for(i in 1:length(movies))
@@ -629,6 +637,7 @@ Solve [practice exercise 5](https://nustat.github.io/Intro_to_programming_for_da
 
 ```{r}
 #| eval: false
+#| echo: false
 
 profit<-lapply(movies, function(x) x$`Worldwide Gross`-x$`Production Budget`)
 positive_wg<-lapply(movies, function(x) x$`Worldwide Gross`>0)

@@ -28,6 +28,7 @@ book:
         - Variable_expressions_statements-R.qmd
         - control_flow_noSol.qmd
         - control_flow2.qmd
+        - robjects.qmd
   appendices: 
     - Assignment 1 (control flow).ipynb
     - Assignment 2 (control flow).ipynb
