@@ -33,6 +33,8 @@ Write a function that returns all prime numbers between $a$ and $b$, where $a$ a
 
 
 ```{r}
+#| echo: false
+#| eval: false
 prime<-function(a,b)
 {
   prime_numbers<-c()
