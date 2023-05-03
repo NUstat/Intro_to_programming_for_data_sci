@@ -315,6 +315,13 @@
     "text": "8.6 Loops with the character vector\nLoops can be used to iterate over the elements in a character vector, just like we used them to iterate over a sequence of integers. The function nchar is used to get the number of characters in the character vector/\nConsider the following character vector:\n\nsentence = 'She sells sea shells on the sea shore'\n\nThe length of the character vector is:\n\nnchar(sentence)\n\n[1] 37\n\n\nSlicing a character data: The function substr() is used to slice a character vector from the start index to the stop index. Note that the indices in R start from 1, instead of 0. For example, let us slice the object sentence from the \\(5^{th}\\) index to the \\(9^{the}\\) index:\n\nsubstr(sentence,5,9)\n\n[1] \"sells\"\n\n\nExample: Define a character vector and count the number of ts.\n\nchar_vec = 'Getting a tatto is not a nice experience'\n#Initializing a variable 'count_t' which will store the number of 't's in the string\ncount_t = 0\n\n#Iterating over the entire length of the string. \n#The length of the string is given by the len() function\nfor(i in 1:nchar(char_vec))\n{\n  if(substr(char_vec,i,i)=='t')\n  {\n    count_t&lt;-count_t+1\n  }\n}\nprint(paste(\"Number of 't's in the string = \",count_t))\n\n[1] \"Number of 't's in the string =  6\"\n\n\n\n8.6.1 Practice exercise\nWrite a program that prints the number of ’the’s found in sentence"
   },
   {
+    "objectID": "control_flow2.html#defining-a-function",
+    "href": "control_flow2.html#defining-a-function",
+    "title": "9  R: Functions",
+    "section": "9.1 Defining a function",
+    "text": "9.1 Defining a function\nFunctions in R are defined using the keyword function(). All the statements within a function are enclosed with {} braces. Look at the function defined below. It takes an integer as an argument, and prints whether the integer is odd or even.\n\nodd_even&lt;-function(intgr)\n{\n  if(intgr%%2==0)\n  {\n    print(\"even\")}else{\n      print(\"odd\")\n  }\n}\n\nodd_even(3)\n\n[1] \"odd\"\n\n\n\n9.1.1 Practice exercise\nWrite a function that returns all prime numbers between \\(a\\) and \\(b\\), where \\(a\\) and \\(b\\) are parameters of the function."
+  },
+  {
     "objectID": "Assignment 1 (control flow).html#instructions",
     "href": "Assignment 1 (control flow).html#instructions",
     "title": "Appendix A — Assignment A",
