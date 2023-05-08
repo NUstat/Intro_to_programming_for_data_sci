@@ -147,8 +147,6 @@ exp_marriage_age=c('24','30','28','29','30','27','26','28','30+','26','28','30',
 Remove the elements that are not integers - such as ‘probably never’, ‘30+’, etc. Convert the reamining elements to integer. What is the length of the new vector?
 
 ```{r}
-#| echo: false
-#| eval: false
 new_vector<-as.integer(exp_marriage_age)
 numeric_values<-new_vector[!is.na(new_vector)]
 length(numeric_values)
@@ -159,8 +157,6 @@ length(numeric_values)
 Cap the values greater than 80 to 80, in the clean vector obtained above. What is the mean age when people expect to marry in the new vector?
 
 ```{r}
-#| echo: false
-#| eval: false
 numeric_values[numeric_values>80]<-80
 mean(numeric_values)
 ```
@@ -168,8 +164,6 @@ mean(numeric_values)
 #### People marrying at 30 or more
 Determine the percentage of people who expect to marry at an age of 30 or more.
 ```{r}
-#| echo: false
-#| eval: false
 sum(numeric_values>=30)/length(numeric_values)
 ```
 
@@ -433,7 +427,11 @@ Find the 5 year period in which the difference of the maximum GDP per capita and
 five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
 ```
 
-During 1976-1980 the difference of the maximum GDP per capita and the minimum GDP per capita as a percentage of the minimum GDP per capita was the highest.
+```{r}
+#| echo: false
+#| eval: false
+print("During 1976-1980 the difference of the maximum GDP per capita and the minimum GDP per capita as a percentage of the minimum GDP per capita was the highest.")
+```
 
 ### Practice exercise 4
 
