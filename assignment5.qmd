@@ -16,7 +16,7 @@ editor_options:
 
 2. Do not write your name on the assignment.
 
-3. Make R code chucks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.
+3. Make R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.
 
 4. Render the file as HTML to submit.
 
