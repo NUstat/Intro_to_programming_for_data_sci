@@ -574,7 +574,6 @@ Download the dataset *movies.json*. Execute the following code to read the data 
 
 ```{r}
 #| eval: false
-#| echo: false
 library(rjson)
 movies<-fromJSON(file = 'movies.json')
 ```
@@ -584,6 +583,7 @@ What is the datatype of the object `movies`?
 
 ```{r}
 #| eval: false
+#| echo: false
 class(movies)
 ```
 
