@@ -597,7 +597,7 @@ Ignore the movies that:
 1. Have missing values of production budget or worldwide gross. Use the `is.null()` function to identify missing or NULL values.
 
 2. Have a zero worldwide gross *(A zero worldwide gross is probably an incorrect value)*. 
-
+ 
 ```{r}
 #| eval: false
 #| echo: false
