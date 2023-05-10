@@ -20,7 +20,7 @@ editor_options:
 
 4. Render the file as HTML to submit.
 
-5. There are 5 points for clealiness and organization. The breakdown is as follows:
+5. There are 5 points for cleanliness and organization. The breakdown is as follows:
 
 - Must be an HTML file rendered using Quarto (1.5 pts).  
 
