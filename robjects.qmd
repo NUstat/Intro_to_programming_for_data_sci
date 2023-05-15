@@ -489,6 +489,7 @@ top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_ci
 
 
 ```{r}
+#| eval: false
 US_index = which(country_names == 'United States')
 dc_coord <- coordinates_capital_cities[US_index,]
 distances_to_DC <- apply(coordinates_capital_cities, 1, function(x) sqrt(sum((x-dc_coord)**2)))
@@ -500,12 +501,14 @@ sorted<-distances_to_DC_matrix[order(distances_to_DC_matrix[,2]),]
 Top 10 countries with capitals closest to Washington DC are the following:
 
 ```{r}
+#| eval: false
 country_names[sorted[3:12, 1]]
 ```
 
 The coordinates of the top 10 capital cities closest to Washington DC are:
 
 ```{r}
+#| eval: false
 coordinates_capital_cities[sorted[3:12, 1],]
 ```
 
@@ -598,7 +601,6 @@ movies<-fromJSON(file = 'movies.json')
 What is the datatype of the object `movies`?
 
 ```{r}
-#| eval: false
 #| echo: false
 class(movies)
 ```
@@ -615,6 +617,7 @@ Ignore the movies that:
 2. Have a zero worldwide gross *(A zero worldwide gross is probably an incorrect value)*. 
  
 ```{r}
+#| eval: false
 negative_profit<-c()
 count<-0
 for(i in 1:length(movies))
