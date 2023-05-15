@@ -601,7 +601,7 @@ movies<-fromJSON(file = 'movies.json')
 What is the datatype of the object `movies`?
 
 ```{r}
-#| echo: false
+#| eval: false
 class(movies)
 ```
 
