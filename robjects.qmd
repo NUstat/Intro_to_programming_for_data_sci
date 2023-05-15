@@ -194,8 +194,6 @@ words_vec<-c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
 ```
 
 ```{r}
-#| echo: false
-#| eval: false
 palindrome<-function(word)
 {
   for(i in 1:as.integer(nchar(word)/2))
@@ -395,7 +393,6 @@ In the code above we applied a user-defined function on each row of the matrix. 
 
 
 ```{r}
-
 GDP_inc<-function(GDP_5yr)
 {
   dec<-0
@@ -422,14 +419,10 @@ Find the 5 year period in which the difference of the maximum GDP per capita and
 **Solution:**
 
 ```{r}
-#| echo: false
-#| eval: false
 five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
 ```
 
 ```{r}
-#| echo: false
-#| eval: false
 print("During 1976-1980 the difference of the maximum GDP per capita and the minimum GDP per capita as a percentage of the minimum GDP per capita was the highest.")
 ```
 
@@ -493,6 +486,29 @@ top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_ci
 1. Print the names of the countries of the top 10 capital cities closest to the US capital - Washington DC. 
 
 2. Create and print a matrix containing the coordinates of the top 10 capital cities closest to Washington DC.
+
+
+```{r}
+US_index = which(country_names == 'United States')
+dc_coord <- coordinates_capital_cities[US_index,]
+distances_to_DC <- apply(coordinates_capital_cities, 1, function(x) sqrt(sum((x-dc_coord)**2)))
+num_of_countries <- length(country_names)
+distances_to_DC_matrix <- cbind(1:num_of_countries, distances_to_DC)
+sorted<-distances_to_DC_matrix[order(distances_to_DC_matrix[,2]),]
+```
+
+Top 10 countries with capitals closest to Washington DC are the following:
+
+```{r}
+country_names[sorted[3:12, 1]]
+```
+
+The coordinates of the top 10 capital cities closest to Washington DC are:
+
+```{r}
+coordinates_capital_cities[sorted[3:12, 1],]
+```
+
 
 ```{r}
 #| eval: false
@@ -599,8 +615,6 @@ Ignore the movies that:
 2. Have a zero worldwide gross *(A zero worldwide gross is probably an incorrect value)*. 
  
 ```{r}
-#| eval: false
-#| echo: false
 negative_profit<-c()
 count<-0
 for(i in 1:length(movies))
