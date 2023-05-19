@@ -69,7 +69,6 @@ nth_term(7)
 Write a recursive function that computes the sum of squares of the first $N$ natural numbers, where $N$ is a parameter to the function.
 
 ```{r}
-#| echo: false
 #| eval: false
 squares<-function(N)
 {
@@ -88,7 +87,6 @@ squares(10)
 Write a function that counts the occurrence of digit $k$ in a given integer $n$ using recursion. The function has $n$ and $k$ as parameters.
 
 ```{r}
-#| echo: false
 #| eval: false
 freq_digits<-function(n,d)
 {
@@ -113,7 +111,6 @@ Use recursion to write a function that accepts a word as an argument, and return
 
 
 ```{r}
-#| echo: false
 #| eval: false
 word<-'racecar'
 palindrome<-function(word)
