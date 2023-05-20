@@ -35,8 +35,7 @@ book:
     - Assignment 2 (control flow).ipynb
     - Assignment C.ipynb
     - Assignment D.ipynb
-    - assignment6_copy.qmd
-    - assignment5.qmd
+    - assignmentF.qmd
     - Datasets.ipynb
 
 bibliography: references.bib
