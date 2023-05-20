@@ -1,0 +1,85 @@
+---
+title: "Assignment F (R: Lists and Recursion)"
+subtitle: "R: Lists and recursion"
+format:
+  html:
+    toc: true
+self-contained: true
+link-external-newwindow: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Instructions {-}
+
+1. You may talk to a friend, discuss the questions and potential directions for solving them. However, you need to write your own solutions and code separately, and not as a group activity. 
+
+2. Do not write your name on the assignment.
+
+3. Make R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.
+
+4. Render the file as HTML to submit.
+
+5. There are 5 points for clealiness and organization. The code should be commented and clearly written with intuitive variable names. For example, use variable names such as number_input, factor, hours, instead of a,b,xyz, etc.
+
+6. The assignment is worth 100 points, and is due on **30th May 2023 at 11:59 pm**. 
+
+7. You are **not allowed to use a `for` loop** in this assignment, except in the last question on Sudoku.
+
+## TED Talks
+
+Execute the following code to get the object `ted_talks`, which contains information about TED talks.
+
+Note that you are **not allowed to use a `for` loop** or any other kind of loop in all the questions below.
+
+```{r}
+#| eval: false
+library(rjson)
+ted_talks<-fromJSON(file='TED_Talks.json')
+```
+
+### Number of talks
+How many TED talks are there in the data?
+
+### Average number of views
+What is the mean number of views of the TED talks?
+
+### Highest number of views
+Find the `headline`, `year_filmed`, and number of `views` of the top five talks with the highest number of views. 
+
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+
+### Most fascinating votss
+Find the `headline`, `year_filmed` and `count` of *Funny* votes of the top five talks with the highest number of *Funny* votes 
+
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+
+### Highest proportion of *Inspiring* votes
+Find the `headline`, `year_filmed`, and proportion of *Inspiring* votes from among all the votes for the talk, of the top five talks with the highest proportion of *Inspiring* votes. 
+
+Reminder: Do not use a `for` loop or any other kind of loop.
+
+
+### Most popular voting category
+Add the votes of all TED talks for each category. Which category has received the most votes? What is the proportion of total votes for this category?
+
+
+## Recursive binary search
+
+Execute the code below to get the object `wordlist_global`, which contains a vector of words. Write a **recursive** function that accepts a word, say `word_to_search` and a vector of words, say `wordlist` as arguments, and finds if the `word_to_search` occurs in `wordlist_global` or not. This is very simple to do with the code `word_to_search %in% tuple_of_words`. However, this code is unfortunately very slow.
+
+As the words in the `wordlist_global` are already sorted in alphabetical order, we can search using a faster way, called binary search. To implement binary search in a function, start by comparing `word_to_search` with the middle entry in the `wordlist_global`. If they are equal, then you are done and the function should return `True`. On the other hand, if the `word_to_search` comes before the middle entry, then the function must call itself to search the first half of `wordlist_global`. If it comes after the middle entry, then the function must call itself to search the second half of `wordlist_global`. In every recursive call, the function must repeat the process on the appropriate half of the `wordlist` and continue until the word is found or there is nothing left to search, in which case the function short return `False`. The `<` and `>` operators can be used to alphabetically compare two `character` objects.
+
+Note that your function must use **recursion**.
+
+### Word search
+
+Check your function if the `word_to_search` is:
+
+1. `'agreement'`
+
+2. `'qualifier'`
+
+3. `'agree'`
