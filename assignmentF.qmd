@@ -33,6 +33,7 @@ Execute the following code to get the object `ted_talks`, which contains informa
 Note that you are **not allowed to use a `for` loop** or any other kind of loop in all the questions below.
 
 ```{r}
+#| eval: false
 library(rjson)
 ted_talks<-fromJSON(file='TED_Talks.json')
 ```
@@ -84,6 +85,7 @@ Check your function if the `word_to_search` is:
 3. `'agree'`
 
 ```{r}
+#| eval: false
 wordlist_global<-unlist(read.table('wordlist.txt', header = FALSE, sep = "", dec = "."))
 ```
 
@@ -121,6 +123,7 @@ What are the base and recursive cases of the function? Cite the relevant lines o
 ### Solving Sudoku
 Use the function to solve the following Sudoku puzzle. Execute the following lines of code to see the puzzle.  
 ```{r}
+#| eval: false
 board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
                 rep(0,5),6,2,0,4,0,7,0,0,4,rep(0,4),9,6,0,0,7,0,5,0,3,
                 4,8,rep(0,6),1,rep(0,5),7,rep(0,4),5,9,5,rep(0,3),7,rep(0,4)),
