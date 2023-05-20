@@ -36,6 +36,7 @@ book:
     - Assignment C.ipynb
     - Assignment D.ipynb
     - assignment5.qmd
+    - assignmentF.qmd
     - Datasets.ipynb
 
 bibliography: references.bib
