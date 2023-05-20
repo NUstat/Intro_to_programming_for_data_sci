@@ -1,5 +1,5 @@
 ---
-title: "Assignment 6 (R: Lists and Recursion)"
+title: "Assignment F (R: Lists and Recursion)"
 subtitle: "R: Lists and recursion"
 format:
   html:
