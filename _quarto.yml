@@ -32,6 +32,7 @@ book:
         - recursion.qmd
   appendices: 
     - Assignment 1 (control flow).ipynb
+    - Assignment 1 (control flow).ipynb
     - Assignment 2 (control flow).ipynb
     - Assignment C.ipynb
     - Assignment D.ipynb
