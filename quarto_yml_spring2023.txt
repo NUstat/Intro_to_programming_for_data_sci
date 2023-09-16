@@ -31,6 +31,12 @@ book:
         - robjects.qmd
         - recursion.qmd
   appendices: 
+    - Assignment 1 (control flow).ipynb
+    - Assignment 1 (control flow).ipynb
+    - Assignment 2 (control flow).ipynb
+    - Assignment C.ipynb
+    - assignment5.qmd
+    - assignmentF.qmd
     - Datasets.ipynb
 
 bibliography: references.bib
