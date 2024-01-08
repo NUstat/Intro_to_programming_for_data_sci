@@ -426,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">80000</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tax_rate <span class="op">=</span> <span class="fl">0.15</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Income tax = "</span>,income<span class="op">*</span>tax_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Income tax = "</span>, income<span class="op">*</span>tax_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Income tax =  12000.0</code></pre>
 </div>
@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="86">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="st">"80000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Suppose we wish to divide <em>annual_income</em> by 12 to get the monthly income. We cannot use the variable <em>monthly_income</em> directly as its datatype is a string and not a number. Thus, numerical operations cannnot be performed on the variable <em>annual_income</em>.</p>
+<p>Suppose we wish to divide <code>annual_income</code> by 12 to get the monthly income. We cannot use the variable <code>monthly_income</code> directly as its datatype is a string and not a number. Thus, numerical operations cannnot be performed on the variable <code>annual_income</code>.</p>
 <p>We’ll need to convert <em>annual_income</em> to an integer. For that we will use the python’s in-built <code>int()</code> function:</p>
 <div class="cell" data-execution_count="87">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="bu">int</span>(annual_income)</span>
@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>1</code></pre>
 </div>
 </div>
-<p>Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable <em>greeting</em> defined below to a number:</p>
+<p>Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable <code>greeting</code> defined below to a number:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">"hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -580,7 +580,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="user-input" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="user-input"><span class="header-section-number">2.6</span> User input</h2>
-<p>Python’s in-built input() function can be used to accept an input from the user. For example, suppose we wish the user to onput their age:</p>
+<p>Python’s in-built <code>input()</code> function can be used to accept an input from the user. For example, suppose we wish the user to onput their age:</p>
 <div class="cell" data-execution_count="106">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your age:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -637,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Misspelled or incorrectly capitalized variable and function names</li>
 <li>Attempts to perform operations (such as math operations) on data of the wrong type (ex. attempting to subtract two variables that hold string values)</li>
 <li>Dividing by zero</li>
-<li>Attempts to use a type conversion function such as int on a value that can’t be converted to an int</li>
+<li>Attempts to use a type conversion function such as <code>int</code> on a value that can’t be converted to an <code>int</code></li>
 </ul>
 <p>For example, suppose a number is multipled as follws:</p>
 <div class="cell">
