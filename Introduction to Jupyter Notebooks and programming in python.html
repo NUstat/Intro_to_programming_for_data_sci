@@ -339,8 +339,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="rendering-notebook-as-html" class="level3" data-number="1.2.4">
 <h3 data-number="1.2.4" class="anchored" data-anchor-id="rendering-notebook-as-html"><span class="header-section-number">1.2.4</span> Rendering notebook as HTML</h3>
-<p>We’ll use Quarto to print the **.ipynb* file as HTML. Check the procedure for rendering a notebook as HTML <a href="https://quarto.org/docs/output-formats/html-basics.html">here</a>. You have several options to format the file.</p>
-<p>You will need to open the command prompt, navigate to the directory containing the file, and use the command: <code>quarto render filename.ipynb --to html</code>.</p>
+<p>We’ll use Quarto to print the **.ipynb* file as HTML. Check the procedure for rendering a notebook as HTML <a href="https://quarto.org/docs/output-formats/html-basics.html">here</a>. You have several options to format the file. Here are some points to remember when using Quarto to render your notebook as HTML:</p>
+<ol type="1">
+<li><p>The <a href="https://nbsphinx.readthedocs.io/en/0.9.3/raw-cells.html"><code>Raw NBConvert</code></a> cell type is used to render different code formats into HTML or LaTeX. This information is stored in the notebook metadata and converted appropriately. <strong>Use this cell type to put the desired formatting settings for the HTML file.</strong></p></li>
+<li><p>In the formatting settings, remember to use the setting <strong><a href="https://quarto.org/docs/output-formats/html-basics.html#self-contained"><code>embed-resources: true</code></a></strong>. This will ensure that the rendered HTML file is self-contained, and is not dependent on other files. This is especially important when you are sending the HTML file to someone, or uploading it somewhere. If the file is self-contained, then you can send the file by itself without having to attach the dependent files with it.</p></li>
+</ol>
+<p>Once you have entered the desired formatting setting in the <code>Raw NBConver</code> cell, you are ready to render the notebook to HTML. Open the command prompt, navigate to the directory containing the notebook <em>(.ipynb file)</em>, and use the command: <code>quarto render filename.ipynb --to html</code>.</p>
 </section>
 </section>
 <section id="in-class-exercise" class="level2" data-number="1.3">
