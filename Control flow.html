@@ -322,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="comparison-operators"><span class="header-section-number">3.1.1</span> Comparison operators</h3>
 <p>For testing if conditions are true or false, first we need to learn the operators that can be used for comparison. For example, suppose we want to check if two objects are equal, we use the <code>==</code> operator:</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">==</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">==</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>False</code></pre>
 </div>
@@ -330,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"hi"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="st">"hi"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">==</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>True</code></pre>
 </div>
@@ -345,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>x==y</td>
+<td>x == y</td>
 <td>Produce True if … x is equal to y</td>
 </tr>
 <tr class="even">
@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sometimes we may need to check multiple conditions simultaneously. The logical operator <code>and</code> is used to check if all the conditions are true, while the logical operator <code>or</code> is used to check if either of the conditons is true.</p>
 <div class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking if both the conditions are true using 'and'</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">==</span><span class="dv">5</span> <span class="kw">and</span> <span class="dv">67</span><span class="op">==</span><span class="dv">68</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">==</span> <span class="dv">5</span> <span class="kw">and</span> <span class="dv">67</span> <span class="op">==</span> <span class="dv">68</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>False</code></pre>
 </div>
@@ -384,7 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking if either condition is true using 'or'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">6</span><span class="op">;</span> y <span class="op">=</span> <span class="dv">90</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">&lt;</span><span class="dv">0</span> <span class="kw">or</span> y<span class="op">&gt;</span><span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> y <span class="op">&gt;</span> <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>True</code></pre>
 </div>
@@ -567,10 +567,10 @@ Grade: B</code></pre>
 <p><strong>Example:</strong> Print the first <em>n</em> elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>, where <em>n</em> is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
 <p>0,1,1,2,3,5,8,13,….</p>
 <div class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter number of elements:"</span>))</span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter number of elements:"</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Initializing the sequence to start from 0, 1</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>n2 <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Printing the first two numbers of the sequence</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
@@ -579,7 +579,7 @@ Grade: B</code></pre>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">-</span><span class="dv">2</span>):  <span class="co">#Since two numbers of the sequence are already printed, n-2 numbers are required</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Computing the next number of the sequence as the summation of the previous two numbers</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1 <span class="op">+</span> n2</span>
 <span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n3)</span>
 <span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#As 'n3' is already printed, it is no longer the next number of the sequence. </span></span>
@@ -608,21 +608,21 @@ These are the first 6 elements of the fibonacci series</code></pre>
 <p><strong>Example:</strong> Print all the elements of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> less than <em>n</em>, where <em>n</em> is an integer input by the user, such that <em>n&gt;2</em>. In a fibonacci sequence, each number is the sum of the preceding two numbers, and the sequence starts from 0,1. The sequence is as follows:</p>
 <p>0,1,1,2,3,5,8,13,….</p>
 <div class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter the value of n:"</span>))</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter the value of n:"</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Initializing the sequence to start from 0, 1</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span><span class="dv">0</span><span class="op">;</span>n2<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> n2 <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Printing the first number of the sequence</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n1)</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n2<span class="op">&lt;</span>n:</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n2 <span class="op">&lt;</span> n:</span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Print the next number of the sequence</span></span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n2)</span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Comptuing the next number of the sequence as the summation of the previous two numbers</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1<span class="op">+</span>n2</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    n3 <span class="op">=</span> n1 <span class="op">+</span> n2</span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#As n2 is already printed, assigning n2 to n3, so that the next number of the sequence (i.e., currently n3) is printed if the program enters the loop again</span></span>
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Assigning n1 to n2 as n1 has already been used to compute the next number of the seqeunce (i.e., currently n3). </span></span>
@@ -655,11 +655,11 @@ These are all the elements of the fibonacci series less than 50</code></pre>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a positive integer:"</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Defining a variable that will have a value of 0 if there are no divisors</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>num_divisors<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>num_divisors <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking if the number has any divisors from 2 to half of the number</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,<span class="bu">int</span>(number<span class="op">/</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span>)):</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> number<span class="op">%</span>divisor <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> number <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>            <span class="co">#If the number has a divisor, setting num_divisors to 1, to indicate that the number is not prime</span></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>            num_divisors <span class="op">=</span> <span class="dv">1</span></span>
@@ -670,7 +670,7 @@ These are all the elements of the fibonacci series less than 50</code></pre>
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co">#If there are no divisors of the number, it is prime, else not prime      </span></span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> num_divisors<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> num_divisors <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Prime"</span>)   </span>
 <span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Not prime"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -700,11 +700,11 @@ Prime</code></pre>
 <span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    number_iterator <span class="op">=</span> number_iterator <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Defining a variable that will have a value of 0 if there are no divisors</span></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    num_divisors<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    num_divisors <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Checking if the integer has any divisors from 2 to half of the integer being checked </span></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,<span class="bu">int</span>(number_iterator<span class="op">/</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span>)):</span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> number_iterator<span class="op">%</span>divisor <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,<span class="bu">int</span>(number_iterator<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)):</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> number_iterator <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>            <span class="co">#If the integer has a divisor, setting num_divisors to 1, to indicate that the number is not prime</span></span>
 <span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>            num_divisors <span class="op">=</span> <span class="dv">1</span></span>
@@ -760,7 +760,7 @@ Prime</code></pre>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="op">==</span> <span class="dv">1900</span>:</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>        <span class="co">#If the user inputs 1900, then break out of the loop</span></span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Age = "</span>, <span class="dv">2022</span><span class="op">-</span>year)    <span class="co">#Otherwise compute and print the age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Age = "</span>, <span class="dv">2022</span> <span class="op">-</span> year)    <span class="co">#Otherwise compute and print the age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter year of birth:1987
 Age =  35
@@ -779,9 +779,9 @@ Enter year of birth:1900</code></pre>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter an integer:"</span>))</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Looping from the half the integer to 0 as the highest factor is likely to be closer to half the integer value than 0</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(num<span class="op">/</span><span class="dv">2</span>)<span class="op">+</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(num<span class="op">/</span><span class="dv">2</span>) <span class="op">+</span> <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num<span class="op">%</span>i <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Largest factor = "</span>,i)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Largest factor = "</span>, i)</span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">#Exiting the loop if the largest integer is found</span></span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
