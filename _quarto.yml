@@ -33,6 +33,7 @@ book:
   appendices: 
     - Assignment 1 (control flow).ipynb
     - Assignment 2 (functions).ipynb
+    - Assignment C (data structures).ipynb
     - Datasets.ipynb
 
 bibliography: references.bib
