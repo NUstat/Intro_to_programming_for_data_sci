@@ -91,6 +91,19 @@ for (i in 1:(length(G) - 1)) {
 print(years)
 ```
 
+### Element-wise operations on atomic vectors
+
+When we use arithmetic operators like `+`, `-`, `*`, etc. between atomic vectors, then these operators are applied element-wise on each pair of elements of the atomic vectors with the same index. Consider the example below.
+
+```{r}
+vec1 <- 1:4
+vec2 <- 1:4
+vec1 + vec2
+```
+
+Now, solve the previous **example** without using a `for` loop?
+
+
 ### The `seq()` function
 
 The `seq()` function is used to generate an atomic vector consisting of a sequence of integers with a constant gap. For example, the code below generates a sequence of integers starting from 20 upto 60 with gaps of 5.
@@ -374,7 +387,7 @@ In the above code, we applied the in-built function `max` on all the rows. Somet
 
 ```{r}
 GDP_5year <- matrix(G[-c(1, length(G))], 12, 5, byrow = TRUE)
-GDP_range_5year <- apply(GDP_5year, 1, function(x) max(x)-min(x))
+GDP_range_5year <- apply(GDP_5year, 1, function(x) max(x) - min(x))
 GDP_range_5year
 ```
 
@@ -394,7 +407,7 @@ GDP_inc <- function (GDP_5yr) {
 
 GDP_5year_mat <- matrix(G[-c(1,length(G))], 12, 5, byrow = TRUE)
 years_inc_dec <- apply(GDP_5year_mat, 1, GDP_inc)
-five_year_periods<-seq(1960, 2015, 5)
+five_year_periods <- seq(1960, 2015, 5)
 print("Five year periods in which the GDP per capita decreased are those starting from the years:")
 print(five_year_periods[years_inc_dec == 1] + 1)
 ```
