@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -41,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -115,13 +91,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -130,11 +108,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Introduction to Jupyter Notebooks and programming in python.html">Python</a></li><li class="breadcrumb-item"><a href="./Variable_expressions_statements.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -142,145 +125,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./NU_Stat_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to programming for data science</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Python</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Introduction to Jupyter Notebooks and programming in python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></a>
+  <a href="./Introduction to Jupyter Notebooks and programming in python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Variable_expressions_statements.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></a>
+  <a href="./Variable_expressions_statements.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Control flow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></a>
+  <a href="./Control flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functions2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="./functions2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structures</span></a>
+  <a href="./data_structures-complete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structures</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./classes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Object-Oriented Programming</span></a>
+  <a href="./classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Object-Oriented Programming</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Variable_expressions_statements-R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R: Variables, expression and statements</span></a>
+  <a href="./Variable_expressions_statements-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R: Variables, expression and statements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./control_flow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R: Control flow statements</span></a>
+  <a href="./control_flow_noSol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R: Control flow statements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./control_flow2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R: Functions</span></a>
+  <a href="./control_flow2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R: Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./robjects.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">R: Objects</span></a>
+  <a href="./robjects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">R: Objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">R: Recursion</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Github.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Github</span></a>
+  <a href="./recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">R: Recursion</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Assignment 1 (control flow).html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Assignment 1 (Control flow)</span></a>
+  <a href="./Assignment 1 (control flow).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Assignment A</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Assignment 2 (functions).html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Assignment 2 (Functions)</span></a>
+  <a href="./Assignment 2 (functions).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Assignment B</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Assignment 3 (data structures).html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Assignment 3 (Data structures)</span></a>
+  <a href="./Assignment C (data structures).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Assignment C</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Assignment 4 (classes).html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Assignment 4 (Classes and Objects)</span></a>
+  <a href="./Assignment D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Assignment D</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Assignment 5 (R: Loops, functions &amp; data structures)</span></a>
+  <a href="./assignment5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Assignment E</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Assignment 6 (R: Lists and Recursion)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Datasets.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Datasets</span></a>
+  <a href="./Datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Assignment templates and Datasets</span></span></a>
   </div>
 </li>
       </ul>
@@ -288,43 +285,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types"> <span class="header-section-number">2.1</span> Data types</a>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types"><span class="header-section-number">2.1</span> Data types</a>
   <ul class="collapse">
-  <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"> <span class="header-section-number">2.1.1</span> Practice exercise 1</a></li>
+  <li><a href="#primitive" id="toc-primitive" class="nav-link" data-scroll-target="#primitive"><span class="header-section-number">2.1.1</span> Primitive</a></li>
+  <li><a href="#containers" id="toc-containers" class="nav-link" data-scroll-target="#containers"><span class="header-section-number">2.1.2</span> Containers</a></li>
+  <li><a href="#practice-exercise-1" id="toc-practice-exercise-1" class="nav-link" data-scroll-target="#practice-exercise-1"><span class="header-section-number">2.1.3</span> Practice exercise 1</a></li>
   </ul></li>
-  <li><a href="#constants-and-variables" id="toc-constants-and-variables" class="nav-link" data-scroll-target="#constants-and-variables"> <span class="header-section-number">2.2</span> Constants and Variables</a>
+  <li><a href="#constants-and-variables" id="toc-constants-and-variables" class="nav-link" data-scroll-target="#constants-and-variables"><span class="header-section-number">2.2</span> Constants and Variables</a>
   <ul class="collapse">
-  <li><a href="#variable-names" id="toc-variable-names" class="nav-link" data-scroll-target="#variable-names"> <span class="header-section-number">2.2.1</span> Variable names</a></li>
-  <li><a href="#practice-exercise-2" id="toc-practice-exercise-2" class="nav-link" data-scroll-target="#practice-exercise-2"> <span class="header-section-number">2.2.2</span> Practice exercise 2</a></li>
+  <li><a href="#variable-names" id="toc-variable-names" class="nav-link" data-scroll-target="#variable-names"><span class="header-section-number">2.2.1</span> Variable names</a></li>
+  <li><a href="#practice-exercise-2" id="toc-practice-exercise-2" class="nav-link" data-scroll-target="#practice-exercise-2"><span class="header-section-number">2.2.2</span> Practice exercise 2</a></li>
   </ul></li>
-  <li><a href="#assignment-statements" id="toc-assignment-statements" class="nav-link" data-scroll-target="#assignment-statements"> <span class="header-section-number">2.3</span> Assignment statements</a></li>
-  <li><a href="#expressions" id="toc-expressions" class="nav-link" data-scroll-target="#expressions"> <span class="header-section-number">2.4</span> Expressions</a>
+  <li><a href="#assignment-statements" id="toc-assignment-statements" class="nav-link" data-scroll-target="#assignment-statements"><span class="header-section-number">2.3</span> Assignment statements</a></li>
+  <li><a href="#expressions" id="toc-expressions" class="nav-link" data-scroll-target="#expressions"><span class="header-section-number">2.4</span> Expressions</a>
   <ul class="collapse">
-  <li><a href="#practice-exercise-3" id="toc-practice-exercise-3" class="nav-link" data-scroll-target="#practice-exercise-3"> <span class="header-section-number">2.4.1</span> Practice exercise 3</a></li>
+  <li><a href="#practice-exercise-3" id="toc-practice-exercise-3" class="nav-link" data-scroll-target="#practice-exercise-3"><span class="header-section-number">2.4.1</span> Practice exercise 3</a></li>
   </ul></li>
-  <li><a href="#converting-datatypes" id="toc-converting-datatypes" class="nav-link" data-scroll-target="#converting-datatypes"> <span class="header-section-number">2.5</span> Converting datatypes</a></li>
-  <li><a href="#user-input" id="toc-user-input" class="nav-link" data-scroll-target="#user-input"> <span class="header-section-number">2.6</span> User input</a>
+  <li><a href="#converting-datatypes" id="toc-converting-datatypes" class="nav-link" data-scroll-target="#converting-datatypes"><span class="header-section-number">2.5</span> Converting datatypes</a></li>
+  <li><a href="#user-input" id="toc-user-input" class="nav-link" data-scroll-target="#user-input"><span class="header-section-number">2.6</span> User input</a>
   <ul class="collapse">
-  <li><a href="#practice-exercise-4" id="toc-practice-exercise-4" class="nav-link" data-scroll-target="#practice-exercise-4"> <span class="header-section-number">2.6.1</span> Practice exercise 4</a></li>
+  <li><a href="#practice-exercise-4" id="toc-practice-exercise-4" class="nav-link" data-scroll-target="#practice-exercise-4"><span class="header-section-number">2.6.1</span> Practice exercise 4</a></li>
   </ul></li>
-  <li><a href="#commenting-code" id="toc-commenting-code" class="nav-link" data-scroll-target="#commenting-code"> <span class="header-section-number">2.7</span> Commenting code</a>
+  <li><a href="#commenting-code" id="toc-commenting-code" class="nav-link" data-scroll-target="#commenting-code"><span class="header-section-number">2.7</span> Commenting code</a>
   <ul class="collapse">
-  <li><a href="#practice-exercise-5" id="toc-practice-exercise-5" class="nav-link" data-scroll-target="#practice-exercise-5"> <span class="header-section-number">2.7.1</span> Practice exercise 5</a></li>
+  <li><a href="#practice-exercise-5" id="toc-practice-exercise-5" class="nav-link" data-scroll-target="#practice-exercise-5"><span class="header-section-number">2.7.1</span> Practice exercise 5</a></li>
   </ul></li>
-  <li><a href="#programming-errors" id="toc-programming-errors" class="nav-link" data-scroll-target="#programming-errors"> <span class="header-section-number">2.8</span> Programming errors</a>
+  <li><a href="#programming-errors" id="toc-programming-errors" class="nav-link" data-scroll-target="#programming-errors"><span class="header-section-number">2.8</span> Programming errors</a>
   <ul class="collapse">
-  <li><a href="#syntax-errors" id="toc-syntax-errors" class="nav-link" data-scroll-target="#syntax-errors"> <span class="header-section-number">2.8.1</span> Syntax errors</a></li>
-  <li><a href="#run-time-errors" id="toc-run-time-errors" class="nav-link" data-scroll-target="#run-time-errors"> <span class="header-section-number">2.8.2</span> Run-time errors</a></li>
-  <li><a href="#semantic-errors" id="toc-semantic-errors" class="nav-link" data-scroll-target="#semantic-errors"> <span class="header-section-number">2.8.3</span> Semantic errors</a></li>
-  <li><a href="#practice-exercise-6" id="toc-practice-exercise-6" class="nav-link" data-scroll-target="#practice-exercise-6"> <span class="header-section-number">2.8.4</span> Practice exercise 6</a></li>
+  <li><a href="#syntax-errors" id="toc-syntax-errors" class="nav-link" data-scroll-target="#syntax-errors"><span class="header-section-number">2.8.1</span> Syntax errors</a></li>
+  <li><a href="#run-time-errors" id="toc-run-time-errors" class="nav-link" data-scroll-target="#run-time-errors"><span class="header-section-number">2.8.2</span> Run-time errors</a></li>
+  <li><a href="#semantic-errors" id="toc-semantic-errors" class="nav-link" data-scroll-target="#semantic-errors"><span class="header-section-number">2.8.3</span> Semantic errors</a></li>
+  <li><a href="#practice-exercise-6" id="toc-practice-exercise-6" class="nav-link" data-scroll-target="#practice-exercise-6"><span class="header-section-number">2.8.4</span> Practice exercise 6</a></li>
   </ul></li>
-  <li><a href="#practice-exercise-7" id="toc-practice-exercise-7" class="nav-link" data-scroll-target="#practice-exercise-7"> <span class="header-section-number">2.9</span> Practice exercise 7</a></li>
+  <li><a href="#practice-exercise-7" id="toc-practice-exercise-7" class="nav-link" data-scroll-target="#practice-exercise-7"><span class="header-section-number">2.9</span> Practice exercise 7</a></li>
   </ul>
 </nav>
     </div>
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></h1>
 </div>
 
 
@@ -341,6 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -349,7 +350,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="data-types" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">2.1</span> Data types</h2>
-<p>Some of the commonly used objects in python are numbers - integer and float, strings and bool (true/false). The data type of the object can be identified using the in-built python function type(). For example, see the following objects and their types:</p>
+<p>Python has several built-in data types for storing different kinds of information in variables.</p>
+<div class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<img src="datatypes.png" width="700" height="400">
+</div>
+</div>
+<section id="primitive" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="primitive"><span class="header-section-number">2.1.1</span> Primitive</h3>
+<p>Integer, float, boolean, None, and string are <em>primitive data types</em> because they represent a single value.</p>
+</section>
+<section id="containers" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="containers"><span class="header-section-number">2.1.2</span> Containers</h3>
+<p>Other data types like list, tuple, and dictionary are often called <em>data structures</em> or <em>containers</em> because they hold multiple pieces of data together. We’ll discuss these datatypes in chapter 5.</p>
+<p>The data type of the object can be identified using the in-built python function type(). For example, see the following objects and their types:</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -374,17 +388,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>bool</code></pre>
 </div>
 </div>
-<section id="practice-exercise-1" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">2.1.1</span> Practice exercise 1</h3>
+</section>
+<section id="practice-exercise-1" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="practice-exercise-1"><span class="header-section-number">2.1.3</span> Practice exercise 1</h3>
 <p>What is the datatype of the following objects?</p>
 <ol type="1">
-<li>‘This is False’</li>
-<li>“This is a number”</li>
-<li>1000</li>
-<li>65.65</li>
-<li>False</li>
+<li><p>‘This is False’</p></li>
+<li><p>“This is a number”</p></li>
+<li><p>1000</p></li>
+<li><p>65.65</p></li>
+<li><p>False</p></li>
 </ol>
-<p><strong>Solution:</strong> 1. String 2. String 3. Integer 4. Float 5. Bool</p>
 </section>
 </section>
 <section id="constants-and-variables" class="level2" data-number="2.2">
@@ -428,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>A variable name must start with a letter or underscore _</p></li>
 <li><p>A variable name may consist of letters, numbers, and underscores only</p></li>
 </ol>
-<p>For example, some of the valid variable names are *salary, text10, _varname<em>. Some of the invalid variable names are </em>salary% 10text, varname)*</p>
+<p>For example, some of the valid variable names are <code>salary</code>, <code>text10</code>, <code>_varname</code>. Some of the invalid variable names are <code>salary%</code>, <code>10text</code>, <code>varname)</code>.</p>
 <ol start="3" type="1">
 <li><p>Variable names are case-sensitive. For example, the variable <code>Varname</code> will be different from <code>varname</code>.</p></li>
 <li><p>There are certain <em>reserved words</em> in python that have some meaning, and cannot be used as variable names. These reserved words are:</p></li>
@@ -442,7 +456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">80000</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tax_rate <span class="op">=</span> <span class="fl">0.15</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Income tax = "</span>,income<span class="op">*</span>tax_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Income tax = "</span>, income<span class="op">*</span>tax_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Income tax =  12000.0</code></pre>
 </div>
@@ -455,16 +469,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Income tax =  12000.0</code></pre>
 </div>
 </div>
-<p>The former code chuck is better than the latter one as it makes the code easy to read and understand.</p>
+<p>The former code chunk is better than the latter one as it makes the code easy to read and understand.</p>
+<p><a href="https://peps.python.org/pep-0008/">Python style guide</a>: Please refer to the python style guide for best coding practices, such as naming variables, using spaces, tabs, and styling the different components of your code.</p>
 </section>
 <section id="practice-exercise-2" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="practice-exercise-2"><span class="header-section-number">2.2.2</span> Practice exercise 2</h3>
-<section id="section" class="level4" data-number="2.2.2.1">
-<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="section"><span class="header-section-number">2.2.2.1</span> </h4>
-<p>In the statements below, classify the objects as variables or constants: 1. value = “name” 2. constant = 7 3. another_const = “variable” 4. True_False = True</p>
-<p>The objects on the left hand side of the ‘=’ sign are variables, and those on the right hand side are constants.</p>
-<p>Which of the following variable names are valid: 1. var.name 2. var9name 3. _varname 4. varname*</p>
-<p>Variable names 2 and 3 are valid becaue they contain only letters, number and and/or underscore.</p>
+<section id="variables-or-constants" class="level4" data-number="2.2.2.1">
+<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="variables-or-constants"><span class="header-section-number">2.2.2.1</span> Variables or constants?</h4>
+<p>In the statements below, classify the objects as variables or constants?</p>
+<ol type="1">
+<li><p>value = “name”</p></li>
+<li><p>constant = 7</p></li>
+<li><p>another_const = “variable”</p></li>
+<li><p>True_False = True</p></li>
+</ol>
+</section>
+<section id="valid-variable-names" class="level4" data-number="2.2.2.2">
+<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="valid-variable-names"><span class="header-section-number">2.2.2.2</span> Valid variable names?</h4>
+<p>Which of the following variable names are valid?</p>
+<ol type="1">
+<li><p>var.name</p></li>
+<li><p>var9name</p></li>
+<li><p>_varname</p></li>
+<li><p>varname*</p></li>
+</ol>
 </section>
 </section>
 </section>
@@ -512,14 +540,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>type(x)</p></li>
 <li><p>x + 4</p></li>
 </ol>
-<p><strong>Solution:</strong></p>
-<p>Only (1) as the constant <code>5</code> is being assigned to the variable <code>x</code></p>
 <p>What will be the result of the following expression:</p>
-<div class="cell" data-execution_count="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">%</span><span class="dv">2</span><span class="op">**</span><span class="dv">3</span><span class="op">*</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>3</code></pre>
-</div>
 </div>
 </section>
 </section>
@@ -527,59 +550,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.5" class="anchored" data-anchor-id="converting-datatypes"><span class="header-section-number">2.5</span> Converting datatypes</h2>
 <p>Sometimes a value may have a datatype that is not suitable for using it. For example, consider the variable called <em>annual_income</em> in the code below:</p>
 <div class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="st">"80000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="st">"80000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Suppose we wish to divide <em>annual_income</em> by 12 to get the monthly income. We cannot use the variable <em>monthly_income</em> directly as its datatype is a string and not a number. Thus, numerical operations cannnot be performed on the variable <em>annual_income</em>.</p>
+<p>Suppose we wish to divide <code>annual_income</code> by 12 to get the monthly income. We cannot use the variable <code>monthly_income</code> directly as its datatype is a string and not a number. Thus, numerical operations cannnot be performed on the variable <code>annual_income</code>.</p>
 <p>We’ll need to convert <em>annual_income</em> to an integer. For that we will use the python’s in-built <code>int()</code> function:</p>
 <div class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="bu">int</span>(annual_income)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>monthly_income <span class="op">=</span> annual_income<span class="op">/</span><span class="dv">12</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"monthly income = "</span>, monthly_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="bu">int</span>(annual_income)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>monthly_income <span class="op">=</span> annual_income<span class="op">/</span><span class="dv">12</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"monthly income = "</span>, monthly_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>monthly income =  6666.666666666667</code></pre>
 </div>
 </div>
 <p>Similarly, datatypes can be converted from one type to another using in-built python functions as shown below:</p>
 <div class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting integer to string</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting integer to string</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="88">
 <pre><code>'9'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="89">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting string to float</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="st">"4.5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting string to float</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="st">"4.5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="89">
 <pre><code>4.5</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="91">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting bool to integer</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Converting bool to integer</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>1</code></pre>
 </div>
 </div>
-<p>Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable <em>greeting</em> defined below to a number:</p>
+<p>Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable <code>greeting</code> defined below to a number:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">"hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">"hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, in some cases, mathematical operators such as <code>+</code> and <code>*</code> can be applied on strings. The operator <code>+</code> concatenates multiple strings, while the operator <code>*</code> can be used to concatenate a string to itself multiple times:</p>
 <div class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">"Hi"</span> <span class="op">+</span> <span class="st">" there!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">"Hi"</span> <span class="op">+</span> <span class="st">" there!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="97">
 <pre><code>'Hi there!'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span> <span class="op">+</span> <span class="st">'3'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span> <span class="op">+</span> <span class="st">'3'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="98">
 <pre><code>'53'</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span><span class="op">*</span><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">"5"</span><span class="op">*</span><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="99">
 <pre><code>'55555555'</code></pre>
 </div>
@@ -587,9 +610,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="user-input" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="user-input"><span class="header-section-number">2.6</span> User input</h2>
-<p>Python’s in-built input() function can be used to accept an input from the user. For example, suppose we wish the user to onput their age:</p>
+<p>Python’s in-built <code>input()</code> function can be used to accept an input from the user. For example, suppose we wish the user to onput their age:</p>
 <div class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your age:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your age:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter your age:34</code></pre>
 </div>
@@ -598,15 +621,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="practice-exercise-4" class="level3" data-number="2.6.1">
 <h3 data-number="2.6.1" class="anchored" data-anchor-id="practice-exercise-4"><span class="header-section-number">2.6.1</span> Practice exercise 4</h3>
 <p>Ask the user to input their year of birth, and print their age.</p>
-<p><strong>Solution:</strong></p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Input year of birth:"</span>))</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Age="</span>,<span class="dv">2022</span><span class="op">-</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Input year of birth:1990
-Age= 32</code></pre>
-</div>
-</div>
 </section>
 </section>
 <section id="commenting-code" class="level2" data-number="2.7">
@@ -619,8 +633,8 @@ Age= 32</code></pre>
 </ul>
 <p>For example, below is code with a comment to describe the purpose of the code:</p>
 <div class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Computing number of hours of lecture in this course</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total lecture hours of STAT201="</span>,<span class="dv">10</span><span class="op">*</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Computing number of hours of lecture in this course</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total lecture hours of STAT201="</span>,<span class="dv">10</span><span class="op">*</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total lecture hours of STAT201= 25.0</code></pre>
 </div>
@@ -633,7 +647,6 @@ Age= 32</code></pre>
 <li><p>##this may be a comment</p></li>
 <li><p>A comment#</p></li>
 </ol>
-<p><strong>Solution:</strong> (1) and (2) are comments as they begin with <code>#</code>.</p>
 </section>
 </section>
 <section id="programming-errors" class="level2" data-number="2.8">
@@ -643,9 +656,9 @@ Age= 32</code></pre>
 <h3 data-number="2.8.1" class="anchored" data-anchor-id="syntax-errors"><span class="header-section-number">2.8.1</span> Syntax errors</h3>
 <p>Syntax errors occur if the code is written in a way that it does not comply with the rules / standards / laws of the language (python in this case). For example, suppose a values is assigned to a variable as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span><span class="er">value</span> <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span><span class="er">value</span> <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The above code when executed will indicate a syntax error as it violates the rule that a varible name must not start with a number.</p>
+<p>The above code when executed will indicate a syntax error as it violates the rule that a variable name must not start with a number.</p>
 </section>
 <section id="run-time-errors" class="level3" data-number="2.8.2">
 <h3 data-number="2.8.2" class="anchored" data-anchor-id="run-time-errors"><span class="header-section-number">2.8.2</span> Run-time errors</h3>
@@ -654,11 +667,11 @@ Age= 32</code></pre>
 <li>Misspelled or incorrectly capitalized variable and function names</li>
 <li>Attempts to perform operations (such as math operations) on data of the wrong type (ex. attempting to subtract two variables that hold string values)</li>
 <li>Dividing by zero</li>
-<li>Attempts to use a type conversion function such as int on a value that can’t be converted to an int</li>
+<li>Attempts to use a type conversion function such as <code>int</code> on a value that can’t be converted to an <code>int</code></li>
 </ul>
 <p>For example, suppose a number is multipled as follws:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>multiplication_result <span class="op">=</span> x <span class="op">*</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>multiplication_result <span class="op">=</span> x <span class="op">*</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The above code is syntactically correct. However, it will generate an error as the variable <code>x</code> has not been defined as a number.</p>
 </section>
@@ -666,8 +679,8 @@ Age= 32</code></pre>
 <h3 data-number="2.8.3" class="anchored" data-anchor-id="semantic-errors"><span class="header-section-number">2.8.3</span> Semantic errors</h3>
 <p>Semantic errors occur when the code executes without an error being indicated by the compiler. However, it does not work as inteded by the user. For example, consider the following code of mutiplying the number 6 by 3:</p>
 <div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'6'</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'6'</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>'666'</code></pre>
 </div>
@@ -678,32 +691,25 @@ Age= 32</code></pre>
 <h3 data-number="2.8.4" class="anchored" data-anchor-id="practice-exercise-6"><span class="header-section-number">2.8.4</span> Practice exercise 6</h3>
 <p>Suppose we wish to compute tax using the income and the tax rate. Identify the type of error from amongst syntax error, semantic error and run-time error in the following pieces of code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">*</span> Income</span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">*</span> Income</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> x income</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> x income</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">**</span> income</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="fl">.08</span> <span class="op">**</span> income</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tax on"</span>, income, <span class="st">"is:"</span>, tax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The errors from top to bottom are:</p>
-<ol type="1">
-<li><p>Run-time error (The variable <code>Income</code> is not defined)</p></li>
-<li><p>Syntax error (Here <code>x</code> is not interpretable for the python compiler. Thus, the code does not comply with the rules of the language)</p></li>
-<li><p>Semantic error (Instead of multiplying the income by tax rate, the tax rate is raised to the power of <code>income</code>. The code works but not as intended).</p></li>
-</ol>
 </section>
 </section>
 <section id="practice-exercise-7" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="practice-exercise-7"><span class="header-section-number">2.9</span> Practice exercise 7</h2>
-<p>The formula for computing final amount if one is earning compund interest is given by:</p>
-<p><span class="math display">\[A = P\bigg(1+\frac{r}{n}\bigg)^{nt},\]</span></p>
+<p>The formula for computing final amount if one is earning compund interest is given by: <span class="math display">\[A = P\bigg(1+\frac{r}{n}\bigg)^{nt},\]</span></p>
 <p>where:<br>
 P = Principal amount (initial investment),<br>
 r = annual nominal interest rate,<br>
@@ -711,16 +717,6 @@ n = number of times the interest is computed per year,<br>
 t = number of years</p>
 <p>Write a Python program that assigns the principal amount of $10000 to variable <em>P</em>, assign to <em>n</em> the value 12, and assign to <em>r</em> the interest rate of 8%. Then have the program prompt the user for the number of years <em>t</em> that the money will be compounded for. Calculate and print the final amount after <em>t</em> years.</p>
 <p>What is the amount if the user enters <em>t</em> as 4 years?</p>
-<p><strong>Solution:</strong></p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Number of years:"</span>)</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.08</span><span class="op">;</span> n <span class="op">=</span><span class="dv">12</span><span class="op">;</span> P <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The amount is: $"</span><span class="op">+</span><span class="bu">str</span>(P<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>r<span class="op">/</span>n)<span class="op">**</span>(n<span class="op">*</span><span class="bu">int</span>(t))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of years:4
-The amount is: $13756.6610043379</code></pre>
-</div>
-</div>
 
 
 </section>
@@ -753,9 +749,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -767,7 +777,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -795,31 +822,136 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
