@@ -28,9 +28,9 @@ number = '3'
 ```{r}
 number_integer = as.integer(number)
 
-if (number_integer>0){
+if (number_integer>0) {
   print("Number is positive")
-} else if (number_integer==0){
+} else if (number_integer==0) {
   print("Number is zero")
 } else {
   print("Number is negative")
@@ -56,7 +56,7 @@ num = '3r'
 tryCatch(
   { 
     num_int = as.integer(num)  ; 
-    if(num_int%%3==0){
+    if (num_int%%3==0) {
       print("Number is a multiple of 3")
     } else {
       print("Number is not a multiple of 3")
@@ -92,7 +92,7 @@ n2 = 1
 #Printing the first two numbers of the sequence
 elements <- c(n1, n2)
 
-for(i in 1:(n - 2)){  
+for (i in 1:(n - 2)) {  
   #Since two numbers of the sequence are already printed,n-2 numbers are required 
   #Computing the next number of the sequence as the summation of the previous two numbers
   n3 = n1 + n2
@@ -130,7 +130,7 @@ n2 = 1
 
 #Printing the first number of the sequence
 elements <- n1
-while (n2 < n){
+while (n2 < n) {
   #Print the next number of the sequence
   elements <- c(elements, n2)
   
@@ -155,10 +155,10 @@ For example, suppose we need to keep asking the user to input year of birth and 
 #| eval: false
 
 #The loop will continue to run indefinitely as the condition 'True' is always true
-while(TRUE){
+while (TRUE) {
   year = (readline("Enter year of birth:"))
   year = as.integer(year)
-  if(year == 1900) break 
+  if (year == 1900) break 
   else print(paste("Age = ",2022 - year))
 }
 ```
@@ -170,8 +170,8 @@ The `next` statement is used to continue with the next iteration of the loop wit
 For example, consider the following code:
 
 ```{r}
-for(i in 1:10){
-  if(i %% 2 == 0) next
+for(i in 1:10) {
+  if (i %% 2 == 0) next
   print(i)
 }
 
@@ -188,14 +188,14 @@ Write a program that asks the user the question, “How many stars are in the Mi
 
 while(TRUE){
   answer = readline("How many stars are there in the Milky Way (in billions)? ")
-  if(answer == '100'){
+  if (answer == '100') {
     print("Correct")
     break
   } else {
     print("Incorrect")
   }
   try_again = readline("Do you want to try again? (Y/N):")
-  if(try_again == 'Y'){
+  if (try_again == 'Y') {
     next
   } else {
     break
@@ -233,8 +233,8 @@ count_t = 0
 
 #Iterating over the entire length of the string. 
 #The length of the string is given by the len() function
-for(i in 1:nchar(char_vec)){
-  if(substr(char_vec,i,i)=='t'){
+for (i in 1:nchar(char_vec)) {
+  if (substr(char_vec,i,i)=='t') {
     count_t<-count_t+1
   }
 }
@@ -250,8 +250,8 @@ Write a program that prints the number of 'the's found in sentence
 ```{r}
 sentence = "She sells the sea shells on the sea shore during the summer"
 count = 0
-for(i in 1:(nchar(sentence) - nchar("the"))){
-  if(substr(sentence, i, i + nchar("the") - 1) == "the"){
+for (i in 1:(nchar(sentence) - nchar("the"))) {
+  if (substr(sentence, i, i + nchar("the") - 1) == "the") {
     count = count + 1
   }
 }

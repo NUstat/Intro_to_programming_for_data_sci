@@ -14,11 +14,10 @@ Functions in R are defined using the keyword `function()`. All the statements wi
 
 
 ```{r}
-odd_even<-function(intgr)
-{
-  if(intgr%%2==0)
-  {
-    print("even")}else{
+odd_even <- function(intgr){
+  if (intgr %% 2 == 0){
+    print("even")
+  } else {
       print("odd")
   }
 }
@@ -33,19 +32,18 @@ Write a function that returns all prime numbers between $a$ and $b$, where $a$ a
 
 
 ```{r}
-prime<-function(a,b)
-{
+prime <- function(a, b) {
   prime_numbers<-c()
-  for(number in a:b)
-  {
+  for (number in a:b){
     prime = 1
-    for(factor in 2:(number-1))
-    {
-      if(number%%factor==0){
+    
+    for (factor in 2:(number - 1)) {
+      if (number %% factor == 0) {
         prime = 0
       }
     }
-    if(prime==1){prime_numbers<-c(prime_numbers,number)}
+    
+    if (prime == 1) prime_numbers <- c(prime_numbers,number)
   }
   return(prime_numbers)
 }
