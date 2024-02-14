@@ -22,15 +22,16 @@ editor_options:
 
 5. There are 5 points for cleanliness and organization. The breakdown is as follows:
 
-- Must be an HTML file rendered using Quarto (1.5 pts). 
+- Must be an HTML file rendered using Quarto (1.5 pts).  
 
-- There aren’t excessively long outputs of extraneous information (e.g. no printouts of unnecessary results without good reason, there aren’t long printouts of which iteration a loop is on, there aren’t long sections of commented-out code, etc.). There is no piece of unnecessary / redundant code, and no unnecessary / redundant text (1 pt)
+- There aren’t excessively long outputs of extraneous information (e.g. no printouts of unnecessary results without good reason, there aren’t long printouts of which iteration a loop is on, there aren’t long sections of commented-out code, etc.) (1 pt)
 
-- The code follows the [tidyverse style guide](https://style.tidyverse.org/index.html) for naming variables, spaces, curly braces, etc. (1 pt)
+- There is no piece of unnecessary / redundant code, and no unnecessary / redundant text (1 pt)
 
-- The code should be commented and clearly written with intuitive variable names. For example, use variable names such as `number_input`, `factor`, `hours`, instead of `a`,`b`, `xyz`, etc. For repetitive code chunks, either copy the comments or just leave a comment mentioning that the comment is the same as in the previous occurrece of the code chunk (1.5 pts)
+- The code should be commented and clearly written with intuitive variable names. For example, use variable names such as number_input, factor, hours, instead of a,b,xyz, etc. (1.5 pts)
 
-6. The assignment is worth 100 points, and is due on **20th Feb 2024 at 11:59 pm**. 
+
+6. The assignment is worth 100 points, and is due on **18th May 2023 at 11:59 pm**. 
 
 ## Streaming platforms
 

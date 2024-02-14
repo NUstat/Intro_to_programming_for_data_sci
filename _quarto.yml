@@ -35,6 +35,7 @@ book:
     - Assignment 2 (functions).ipynb
     - Assignment C (data structures).ipynb
     - Assignment D.ipynb
+    - assignment5.qmd
     - Datasets.ipynb
 
 bibliography: references.bib
