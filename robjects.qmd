@@ -103,7 +103,7 @@ print(years)
 
 ### Element-wise operations on atomic vectors
 
-When we use arithmetic operators like `+`, `-`, `*`, etc., or comparison operators like `>`, `>=`, `==`, etc., between atomic vectors, then these operators are applied element-wise on each pair of elements of the atomic vectors with the same index. Consider the examples below.
+When we use arithmetic operators like `+`, `-`, `*`, etc., or comparison operators like `>`, `>=`, `==`, etc., between atomic vectors, then these operators are applied element-wise on the elements of the respective atomic vectors with the same index. Consider the examples below.
 
 ```{r}
 vec1 <- 1:4
@@ -120,17 +120,17 @@ It is highly recommended that these operators be applied on atomic vectors of th
 If an operator is applied between an atomic vector and a scalar, then the operation is performed on each element of the atomic vector and the scalar. See the examples below.
 
 ```{r}
-vec*4
+vec1*4
 ```
 
 ```{r}
-vec > 2
+vec1 > 2
 ```
 
 Suppose, we wish to slice all elements from the object `vec` that are greater than 2. Here is one approach to do it. We will apply the `>` operator between `vec` and 2 to obtain a logical vector that is `TRUE` on indices where the condition is satisfied, and `FALSE` otherwise. We will then use this logical vector to slice `vec`. Below is the code.
 
 ```{r}
-vec[vec > 2]
+vec1[vec1 > 2]
 ```
 
 Now, solve the previous **example** without using a `for` loop.
