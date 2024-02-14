@@ -13,7 +13,7 @@ editor_options:
 An atomic vector in R is a vector containing objects of the same datatype. If the objects are not of the same datatype, then they are coerced to be of the same datatype. It is defined using the keyword `c()`.
 
 ```{r}
-numbers = c(1,2,67)
+numbers = c(1, 2, 67)
 ```
 
 The in-built R function `length()` is used to find the length of an atomic vector.
@@ -29,7 +29,7 @@ An atomic vector can be sliced using the indices of the elements within  `[]` br
 For example, consider the vector:
 
 ```{r}
-vec<-1:40
+vec <- 1:40
 ```
 
 Suppose, we wish to get the $3^{rd}$ element of the vector. We can get it using the index `3`:
@@ -63,7 +63,7 @@ Elements can be removed from the vector using the negative sign within `[]` brac
 Remove the 2nd element from the vector:
 
 ```{r}
-vec<-1:5
+vec <- 1:5
 vec[-2]
 ```
 
@@ -71,7 +71,7 @@ If multiple elements need to be removed, the indices of the elements to be remov
 
 Remove elements `2` to `6` and element 10 from the vector:
 ```{r}
-vec<-1:20
+vec <- 1:20
 vec[-c(2:6,10)]
 ```
 
@@ -83,11 +83,10 @@ G = c(3007, 3067, 3244, 3375,3574, 3828, 4146, 4336, 4696, 5032,5234,5609,6094,6
 ```
 
 ```{r}
-years<-c()
-for(i in 1:(length(G)-1))
-{
-  diff = (G[i+1]-G[i])/G[i]
-  if(diff>0.1){years<-c(years,1960+i)}
+years <- c()
+for (i in 1:(length(G)-1)){
+  diff = (G[i+1] - G[i]) / G[i]
+  if (diff > 0.1) years <- c(years, 1960+i)
 }
 print(years)
 ```
@@ -97,7 +96,7 @@ print(years)
 The `seq()` function is used to generate an atomic vector consisting of a sequence of integers with a constant gap. For example, the code below generates a sequence of integers starting from 20 upto 60 with gaps of 5.
 
 ```{r}
-seq(20,60,5)
+seq(20, 60, 5)
 ```
 
 ### The `rep()` function
@@ -105,11 +104,11 @@ seq(20,60,5)
 The `rep()` function is used to repeat an object a fixed number of times.
 
 ```{r}
-rep(4,10)
+rep(4, 10)
 ```
 
 ```{r}
-rep(c(2,3),10)
+rep(c(2, 3), 10)
 ```
 
 ### The `which()` function
@@ -117,11 +116,11 @@ rep(c(2,3),10)
 The `which()` function is used to find the index of an object in an atomic vector. 
 
 ```{r}
-vec<-c(8,3,4,7,9,7,5)
+vec<-c(8, 3, 4, 7, 9, 7, 5)
 ```
 
 ```{r}
-which(vec==8)
+which(vec == 8)
 ```
 
 The index of the maximum and minimum values can be found using `which.max()` and `which.min()` respectively.
@@ -147,8 +146,8 @@ exp_marriage_age=c('24','30','28','29','30','27','26','28','30+','26','28','30',
 Remove the elements that are not integers - such as ‘probably never’, ‘30+’, etc. Convert the reamining elements to integer. What is the length of the new vector?
 
 ```{r}
-new_vector<-as.integer(exp_marriage_age)
-numeric_values<-new_vector[!is.na(new_vector)]
+new_vector <- as.integer(exp_marriage_age)
+numeric_values <- new_vector[!is.na(new_vector)]
 length(numeric_values)
 ```
 
@@ -157,14 +156,14 @@ length(numeric_values)
 Cap the values greater than 80 to 80, in the clean vector obtained above. What is the mean age when people expect to marry in the new vector?
 
 ```{r}
-numeric_values[numeric_values>80]<-80
+numeric_values[numeric_values > 80] <- 80
 mean(numeric_values)
 ```
 
 #### People marrying at 30 or more
 Determine the percentage of people who expect to marry at an age of 30 or more.
 ```{r}
-sum(numeric_values>=30)/length(numeric_values)
+sum(numeric_values >= 30) / length(numeric_values)
 ```
 
 ### The `sapply()` function
@@ -174,7 +173,7 @@ The `sapply()` function is used to apply a function on all the elements of a lis
 For example, consider the vector below:
 
 ```{r}
-vec<-1:6
+vec <- 1:6
 vec
 ```
 
@@ -190,22 +189,19 @@ sapply(vec, FUN = function(x) x**2)
 Write a function that identifies if a word is a [palindrome](https://en.wikipedia.org/wiki/Palindrome) *(A palindrome is a word that reads the same both backwards and forwards, for example, peep, rotator, madam, etc.)*. Apply the function to the vector of words below to count the number of palindrome words.
 
 ```{r}
-words_vec<-c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
+words_vec <- c('fat', 'civic', 'radar', 'mountain', 'noon','papa')
 ```
 
 ```{r}
-palindrome<-function(word)
-{
-  for(i in 1:as.integer(nchar(word)/2))
-  {
-    if(substr(word,i,i)!=substr(word,nchar(word)-(i-1),nchar(word)-(i-1)))
-    {
+palindrome <- function(word) {
+  for (i in 1:as.integer(nchar(word)/2)) {
+    if (substr(word, i, i) != substr(word, nchar(word) - (i-1), nchar(word) - (i-1))) {
       return(FALSE)
     }
   }
   return(TRUE)
 }
-sum(sapply(words_vec,palindrome))
+sum(sapply(words_vec, palindrome))
 ```
 
 
@@ -216,14 +212,14 @@ Matrices are two-dimensional arrays. The in-built function `matrix()` is used to
 For example, let us define a 2x3 matrix (2 rows and 3 columns) consisting of consecutive integers fro1 1 to 6.
 
 ```{r}
-mat<-matrix(1:6,2,3)
+mat <- matrix(1:6, 2, 3)
 mat
 ```
 
 Note that the integers fill up column-wise in the matrix. If we wish to fill-up the matrix by row, we can use the `byrow` argument.
 
 ```{r}
-mat<-matrix(1:6,2,3, byrow = TRUE)
+mat<-matrix(1:6, 2, 3, byrow = TRUE)
 mat
 ```
 
@@ -252,30 +248,28 @@ mat[1,]
 Row and columns of the matrix can be sliced using the `:` operator. Suppose we want to select a sub-matrix that has elements in the first two rows and columns 2 and 3 of the matrix `mat`:
 
 ```{r}
-mat[1:2,2:3]
+mat[1:2, 2:3]
 ```
 
 Element-wise arithmetic operations can be performed between 2 matrices of the same shape.
 
 ```{r}
-mat1<-matrix(1:6,2,3)
-mat2<-matrix(c(9,2,6,5,1,0),2,3)
-mat1+mat2
+mat1<-matrix(1:6, 2, 3)
+mat2<-matrix(c(9, 2, 6, 5, 1, 0), 2, 3)
+mat1 + mat2
 ```
 
 ```{r}
-mat1-mat2
+mat1 - mat2
 ```
 
 Suppose we need to sum up all the rows of the matrix. We can do it using a `for` loop as follows:
 
 ```{r}
-row_sum<-c(0,0)
-for(i in 1:nrow(mat))
-{
-  for(j in 1:ncol(mat))
-  {
-    row_sum[i]<-row_sum[i]+mat[i,j]
+row_sum <- c(0,0)
+for (i in 1:nrow(mat)) {
+  for (j in 1:ncol(mat)) {
+    row_sum[i] <- row_sum[i] + mat[i, j]
   }
 }
 row_sum
@@ -284,10 +278,9 @@ row_sum
 Observe that in the above `for` loop, elements of each row are added one at a time. We can add all the elements of a row simultaneously using the `sum()` function. This will reduce a `for` loop from the above code:
 
 ```{r}
-row_sum<-c(0,0)
-for(i in 1:nrow(mat))
-{
-  row_sum[i]<-sum(mat[i,])
+row_sum <- c(0,0)
+for (i in 1:nrow(mat)){
+  row_sum[i] <- sum(mat[i,])
 }
 row_sum
 ```
@@ -301,7 +294,7 @@ The `apply()` function can used to apply a function simultaneously on all rows o
 Let us use the `apply()` function to sum up all the rows of the matrix `mat`.
 
 ```{r}
-apply(mat,1,sum)
+apply(mat, 1, sum)
 ```
 
 Let us compare the time taken to sum up rows of a matrix using a `for` loop with the time taken using the `apply()` function. 
@@ -309,10 +302,9 @@ Let us compare the time taken to sum up rows of a matrix using a `for` loop with
 ```{r}
 options(digits.secs = 6)
 start.time <- Sys.time()
-row_sum<-c(0,0)
-for(i in 1:nrow(mat))
-{
-  row_sum[i]<-sum(mat[i,])
+row_sum<-c(0, 0)
+for (i in 1:nrow(mat)){
+  row_sum[i] <- sum(mat[i,])
 }
 row_sum
 end.time <- Sys.time()
@@ -323,7 +315,7 @@ time.taken
 
 ```{r}
 start.time <- Sys.time()
-apply(mat,1,sum)
+apply(mat, 1, sum)
 end.time <- Sys.time()
 time.taken <- end.time - start.time
 time.taken
@@ -337,12 +329,12 @@ Recall the earlier example where we computed year's in which the increase in GDP
 start.time <- Sys.time()
 
 #Let the first column of the matrix be the GDP of all the years except 1960, and the second column be the GDP of all the years except 2021.
-GDP_mat<-matrix(c(G[-1],G[-length(G)]),length(G)-1,2)
+GDP_mat <- matrix(c(G[-1], G[-length(G)]), length(G) - 1, 2)
 
 #The percent increase in GDP can be computed by performing computations using the 2 columns of the matrix
-inc<-(GDP_mat[,1]-GDP_mat[,2])/GDP_mat[,2]
-years<-1961:2021
-years<-years[inc>0.1]
+inc <- (GDP_mat[,1] - GDP_mat[,2]) / GDP_mat[,2]
+years <- 1961:2021
+years <- years[inc > 0.1]
 years
 end.time <- Sys.time()
 time.taken <- end.time - start.time
@@ -353,11 +345,10 @@ Without matrices, the time taken to perform the same computation is  measured wi
 
 ```{r}
 start.time <- Sys.time()
-years<-c()
-for(i in 1:(length(G)-1))
-{
-  diff = (G[i+1]-G[i])/G[i]
-  if(diff>0.1){years<-c(years,1960+i)}
+years <- c()
+for(i in 1:(length(G) - 1)) {
+  diff = (G[i+1] - G[i]) / G[i]
+  if (diff > 0.1) years <- c(years,1960+i)
 }
 print(years)
 #print(proc.time()[3]-start_time)
@@ -373,8 +364,8 @@ Sometimes, the computations on rows / columns of a matrix are not straighforward
 **Example:** Find the maximum GDP per capita of the US in each of the 5 year periods starting from 1961-1965, and upto 2015-2020.
 
 ```{r}
-GDP_5year<-matrix(G[-c(1,length(G))],12,5,byrow = TRUE)
-GDP_max_5year<-apply(GDP_5year,1,max)
+GDP_5year <- matrix(G[-c(1, length(G))], 12, 5, byrow = TRUE)
+GDP_max_5year <- apply(GDP_5year, 1, max)
 ```
 
 In the above code, we applied the in-built function `max` on all the rows. Sometimes, an in-built function may not be available for the computations to be performed. In such as case, we can write our own user-defined function within the `apply()` function. See the example below.
@@ -382,8 +373,8 @@ In the above code, we applied the in-built function `max` on all the rows. Somet
 **Example:** Find the range (max-min) of GDP per capita of the US in each of the 5 year periods starting from 1961-1965, and upto 2015-2020.
 
 ```{r}
-GDP_5year<-matrix(G[-c(1,length(G))],12,5,byrow = TRUE)
-GDP_range_5year<-apply(GDP_5year,1,function(x) max(x)-min(x))
+GDP_5year <- matrix(G[-c(1, length(G))], 12, 5, byrow = TRUE)
+GDP_range_5year <- apply(GDP_5year, 1, function(x) max(x)-min(x))
 GDP_range_5year
 ```
 
@@ -393,21 +384,19 @@ In the code above we applied a user-defined function on each row of the matrix. 
 
 
 ```{r}
-GDP_inc<-function(GDP_5yr)
-{
-  dec<-0
-  for(i in 1:4)
-  {
-    if(GDP_5yr[i+1]<GDP_5yr[i]){dec<-1}
+GDP_inc<-function(GDP_5yr){
+  dec <- 0
+  for (i in 1:4){
+    if(GDP_5yr[i+1] < GDP_5yr[i]) dec<-1
   }
   return(dec)
 }
 
-GDP_5year_mat<-matrix(G[-c(1,length(G))],12,5,byrow = TRUE)
-years_inc_dec<-apply(GDP_5year_mat,1,GDP_inc)
-five_year_periods<-seq(1960,2015,5)
+GDP_5year_mat <- matrix(G[-c(1,length(G))], 12, 5, byrow = TRUE)
+years_inc_dec <- apply(GDP_5year_mat, 1, GDP_inc)
+five_year_periods<-seq(1960, 2015, 5)
 print("Five year periods in which the GDP per capita decreased are those starting from the years:")
-print(five_year_periods[years_inc_dec==1]+1)
+print(five_year_periods[years_inc_dec == 1] + 1)
 ```
 
 The 5 year periods during which the GDP per capita decreased as compared to the previous year are 2006-2010, and 2016-2020.
@@ -419,7 +408,7 @@ Find the 5 year period in which the difference of the maximum GDP per capita and
 **Solution:**
 
 ```{r}
-five_year_periods[which.max(apply(GDP_5year_mat,1,function(x) (max(x)-min(x))/min(x)))]+1
+five_year_periods[which.max(apply(GDP_5year_mat, 1, function(x) (max(x) - min(x)) / min(x)))] + 1
 ```
 
 ```{r}
@@ -441,9 +430,9 @@ Download the file *capital_cities.csv* from [here](https://nuwildcat-my.sharepoi
 
 ```{r}
 #| eval: false
-capital_cities<-read.csv('capital_cities.csv')
-coordinates_capital_cities<-as.matrix(capital_cities[,c(3,4)])
-country_names<-capital_cities[,1]
+capital_cities <- read.csv('capital_cities.csv')
+coordinates_capital_cities <- as.matrix(capital_cities[,c(3, 4)])
+country_names <- capital_cities[,1]
 ```
 
 #### Country with capital closest to DC
@@ -470,15 +459,15 @@ Note that:
 ```{r}
 #| eval: false
 #| echo: false
-US_index<-which(country_names=='United States')
-DC_coord<-coordinates_capital_cities[US_index,]
-DC_coord_matrix<-matrix(rep(DC_coord,245),245,2,byrow = TRUE)
-DC_minus_capital_cities<-DC_coord_matrix-coordinates_capital_cities
-distance_of_DC_from_other_cities<-apply(DC_minus_capital_cities**2,1,sum)
-distance_of_DC_from_other_cities[distance_of_DC_from_other_cities==0]<-999999
+US_index <- which(country_names == 'United States')
+DC_coord <- coordinates_capital_cities[US_index,]
+DC_coord_matrix <- matrix(rep(DC_coord, 245), 245, 2, byrow = TRUE)
+DC_minus_capital_cities <- DC_coord_matrix - coordinates_capital_cities
+distance_of_DC_from_other_cities <- apply(DC_minus_capital_cities**2, 1, sum)
+distance_of_DC_from_other_cities[distance_of_DC_from_other_cities == 0] <- 999999
 country_names[which.min(distance_of_DC_from_other_cities)]
 coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
-top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
+top_10_coords <- coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
 ```
 
 #### Top 10 countries closest to DC
@@ -492,10 +481,10 @@ top_10_coords<-coordinates_capital_cities[which.min(distance_of_DC_from_other_ci
 #| eval: false
 US_index = which(country_names == 'United States')
 dc_coord <- coordinates_capital_cities[US_index,]
-distances_to_DC <- apply(coordinates_capital_cities, 1, function(x) sqrt(sum((x-dc_coord)**2)))
+distances_to_DC <- apply(coordinates_capital_cities, 1, function(x) sqrt(sum((x - dc_coord)**2)))
 num_of_countries <- length(country_names)
 distances_to_DC_matrix <- cbind(1:num_of_countries, distances_to_DC)
-sorted<-distances_to_DC_matrix[order(distances_to_DC_matrix[,2]),]
+sorted <- distances_to_DC_matrix[order(distances_to_DC_matrix[,2]),]
 ```
 
 Top 10 countries with capitals closest to Washington DC are the following:
@@ -516,12 +505,11 @@ coordinates_capital_cities[sorted[3:12, 1],]
 ```{r}
 #| eval: false
 #| echo: false
-for(i in 1:9)
-{
-  distance_of_DC_from_other_cities[which.min(distance_of_DC_from_other_cities)]<-999999
+for (i in 1:9) {
+  distance_of_DC_from_other_cities[which.min(distance_of_DC_from_other_cities)] <- 999999
   print(country_names[which.min(distance_of_DC_from_other_cities)])
-  coord_closest_to_DC<-coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
-  top_10_coords<-rbind(top_10_coords,coord_closest_to_DC)
+  coord_closest_to_DC <- coordinates_capital_cities[which.min(distance_of_DC_from_other_cities),]
+  top_10_coords <- rbind(top_10_coords,coord_closest_to_DC)
 }
 ```
 
@@ -532,7 +520,7 @@ Atomic vectors and matrices are quite useful in R. However, a constraint with th
 A list can be defined using the `list()` function. For example, consider the list below:
 
 ```{r}
-list_ex<-list(1, "apple", TRUE, list("another list", TRUE))
+list_ex <- list(1, "apple", TRUE, list("another list", TRUE))
 ```
 
 The list `list_ex` consists of objects of mutiple datatypes. The length of the list can be obtained using the `length()`function:
@@ -558,7 +546,7 @@ list_ex[c(1,3)]
 Elements of a list can be named using the `names()` function. Let us name the elements of `list_ex`:
 
 ```{r}
-names(list_ex)<-c("Name1", "second_name", "3rd_element", "Number 4")
+names(list_ex) <- c("Name1", "second_name", "3rd_element", "Number 4")
 ```
 
 A single element can be sliced from the list using the name of the element with the `$` operator. Let us slice the element named as `second_name` from the list `list_ex`:
@@ -576,7 +564,7 @@ list_ex$`3rd_element`
 Names of elements of a list can also be specified while defining the list, as in the example below:
 
 ```{r}
-list_ex_with_names<-list(movie = 'The Dark Knight', IMDB_rating = 9)
+list_ex_with_names <- list(movie = 'The Dark Knight', IMDB_rating = 9)
 ```
 
 A list can be converted to an atomic vector using the `unlist()` function. For example, let us convert the list `list_ex` to a vector:
@@ -618,22 +606,18 @@ Ignore the movies that:
  
 ```{r}
 #| eval: false
-negative_profit<-c()
-count<-0
-for(i in 1:length(movies))
-{
-  pb<-movies[[i]]$`Production Budget`
-  wg<-movies[[i]]$`Worldwide Gross`
-  if(!(is.null(pb) | is.null(wg)))
-  {
-    if(pb>wg & wg>0)
-    {
-      count<-count+1
+negative_profit <- c()
+count <- 0
+for (i in 1:length(movies)) {
+  pb <- movies[[i]]$`Production Budget`
+  wg <- movies[[i]]$`Worldwide Gross`
+  if (!(is.null(pb) | is.null(wg))) {
+    if (pb > wg & wg > 0) {
+      count <- count + 1
     }
   }
-  
 }
-print(paste("Number of movies with negative profit =",count))
+print(paste("Number of movies with negative profit =", count))
 ```
 
 ### The `lapply()` function
@@ -643,7 +627,7 @@ The `lapply()` function is used to apply a function on each element of a list, a
 For example, consider the list below:
 
 ```{r}
-list_ex<-list(1, "apple", TRUE, list("another list", TRUE))
+list_ex <- list(1, "apple", TRUE, list("another list", TRUE))
 ```
 
 Let us use the `lapply()` function to find the class of each element of the list `list_ex`:
@@ -658,7 +642,7 @@ Solve [practice exercise 5](https://nustat.github.io/Intro_to_programming_for_da
 
 ```{r}
 #| eval: false
-profit<-lapply(movies, function(x) x$`Worldwide Gross`-x$`Production Budget`)
-positive_wg<-lapply(movies, function(x) x$`Worldwide Gross`>0)
-sum(profit<0 & positive_wg>0,na.rm = TRUE)
+profit <- lapply(movies, function(x) x$`Worldwide Gross`-x$`Production Budget`)
+positive_wg <- lapply(movies, function(x) x$`Worldwide Gross` > 0)
+sum(profit < 0 & positive_wg > 0, na.rm = TRUE)
 ```

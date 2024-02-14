@@ -33,8 +33,8 @@ Write a function that returns all prime numbers between $a$ and $b$, where $a$ a
 
 ```{r}
 prime <- function(a, b) {
-  prime_numbers<-c()
-  for (number in a:b){
+  prime_numbers <- c()
+  for (number in a:b) {
     prime = 1
     
     for (factor in 2:(number - 1)) {
@@ -43,9 +43,9 @@ prime <- function(a, b) {
       }
     }
     
-    if (prime == 1) prime_numbers <- c(prime_numbers,number)
+    if (prime == 1) prime_numbers <- c(prime_numbers, number)
   }
   return(prime_numbers)
 }
-prime(40,60)
+prime(40, 60)
 ```
