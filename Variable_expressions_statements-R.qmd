@@ -8,10 +8,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Style guide
+
+We will use the [tidyverse style guide](https://style.tidyverse.org/index.html) for styling R code. 
+
 ## Data Types
 
 Some of the commonly used objects in R are numbers - integer and double (or numeric), character and logical (TRUE/FALSE). The data type of the object can be identified using the in-built R function `class()` or `typeof()`. For example, see the following objects and their types:
-
 
 ```{r}
 class(4)
@@ -37,7 +40,6 @@ class(4L)
 typeof(4L)
 ```
 
-
 ```{r}
 class('4')
 ```
@@ -54,15 +56,14 @@ class(TRUE)
 typeof(FALSE)
 ```
 
-
 ## Variable names
 
 We have the following rules for a R variable name:
 
-- A variable name must start with a letter and can be a combination of letters, digits, period(.) and underscore(_). If it starts with period(.), it cannot be followed by a digit.
-- A variable name cannot start with a number or underscore (_)
-- Variable names are case-sensitive (age, Age and AGE are three different variables)
-- Reserved words cannot be used as variables (TRUE, FALSE, NULL, if...)
+-   A variable name must start with a letter and can be a combination of letters, digits, period(.) and underscore(\_). If it starts with period(.), it cannot be followed by a digit.
+-   A variable name cannot start with a number or underscore (\_)
+-   Variable names are case-sensitive (age, Age and AGE are three different variables)
+-   Reserved words cannot be used as variables (TRUE, FALSE, NULL, if...)
 
 ## Converting datatypes
 
