@@ -72,7 +72,7 @@ If multiple elements need to be removed, the indices of the elements to be remov
 Remove elements `2` to `6` and element 10 from the vector:
 ```{r}
 vec <- 1:20
-vec[-c(2:6,10)]
+vec[-c(2:6, 10)]
 ```
 
 
@@ -84,9 +84,9 @@ G = c(3007, 3067, 3244, 3375,3574, 3828, 4146, 4336, 4696, 5032,5234,5609,6094,6
 
 ```{r}
 years <- c()
-for (i in 1:(length(G)-1)){
+for (i in 1:(length(G) - 1)) {
   diff = (G[i+1] - G[i]) / G[i]
-  if (diff > 0.1) years <- c(years, 1960+i)
+  if (diff > 0.1) years <- c(years, 1960 + i)
 }
 print(years)
 ```
@@ -219,7 +219,7 @@ mat
 Note that the integers fill up column-wise in the matrix. If we wish to fill-up the matrix by row, we can use the `byrow` argument.
 
 ```{r}
-mat<-matrix(1:6, 2, 3, byrow = TRUE)
+mat <- matrix(1:6, 2, 3, byrow = TRUE)
 mat
 ```
 
@@ -254,8 +254,8 @@ mat[1:2, 2:3]
 Element-wise arithmetic operations can be performed between 2 matrices of the same shape.
 
 ```{r}
-mat1<-matrix(1:6, 2, 3)
-mat2<-matrix(c(9, 2, 6, 5, 1, 0), 2, 3)
+mat1 <- matrix(1:6, 2, 3)
+mat2 <- matrix(c(9, 2, 6, 5, 1, 0), 2, 3)
 mat1 + mat2
 ```
 
@@ -346,9 +346,9 @@ Without matrices, the time taken to perform the same computation is  measured wi
 ```{r}
 start.time <- Sys.time()
 years <- c()
-for(i in 1:(length(G) - 1)) {
+for (i in 1:(length(G) - 1)) {
   diff = (G[i+1] - G[i]) / G[i]
-  if (diff > 0.1) years <- c(years,1960+i)
+  if (diff > 0.1) years <- c(years, 1960 + i)
 }
 print(years)
 #print(proc.time()[3]-start_time)
@@ -384,10 +384,10 @@ In the code above we applied a user-defined function on each row of the matrix. 
 
 
 ```{r}
-GDP_inc<-function(GDP_5yr){
+GDP_inc <- function (GDP_5yr) {
   dec <- 0
-  for (i in 1:4){
-    if(GDP_5yr[i+1] < GDP_5yr[i]) dec<-1
+  for (i in 1:4) {
+    if(GDP_5yr[i+1] < GDP_5yr[i]) dec <- 1
   }
   return(dec)
 }
