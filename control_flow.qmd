@@ -27,14 +27,12 @@ number = '3'
 
 ```{r}
 number_integer = as.integer(number)
-if(number_integer>0)
-{
+
+if (number_integer>0){
   print("Number is positive")
-}else if(number_integer==0)
-{
+} else if (number_integer==0){
   print("Number is zero")
-}else  
-{
+} else {
   print("Number is negative")
 }
 ```
@@ -56,14 +54,16 @@ num = '3r'
 
 ```{r}
 tryCatch(
-  { num_int = as.integer(num)  ; 
-  if(num_int%%3==0)
-  {
-    print("Number is a multiple of 3")
-  }else{
-    print("Number is not a multiple of 3")
-  }}
-  ,warning = function(w) {print("Input must be an integer")})
+  { 
+    num_int = as.integer(num)  ; 
+    if(num_int%%3==0){
+      print("Number is a multiple of 3")
+    } else {
+      print("Number is not a multiple of 3")
+    }
+  },
+  warning = function(w)  print("Input must be an integer") 
+)
 ```
 
 ## Loops
@@ -86,16 +86,17 @@ n = 6
 
 ```{r}
 #Initializing the sequence to start from 0, 1
-n1=0;n2=1
+n1 = 0 
+n2 = 1
 
 #Printing the first two numbers of the sequence
-elements<-c(n1,n2)
+elements <- c(n1, n2)
 
-for(i in 1:(n-2))  #Since two numbers of the sequence are already printed,n-2 numbers are required 
-{
+for(i in 1:(n - 2)){  
+  #Since two numbers of the sequence are already printed,n-2 numbers are required 
   #Computing the next number of the sequence as the summation of the previous two numbers
-  n3 = n1+n2
-  elements<-c(elements,n3)
+  n3 = n1 + n2
+  elements <-c (elements, n3)
   
   #As 'n3' is already printed, it is no longer the next number of the sequence. 
   #Thus, we move the values of the variables n1 and n2 one place to the right to compute the next number of the sequence.
@@ -124,17 +125,17 @@ n = 50
 
 ```{r}
 #Initializing the sequence to start from 0, 1
-n1=0;n2=1
+n1 = 0 
+n2 = 1
 
 #Printing the first number of the sequence
-elements<-n1
-while(n2<n)
-{
+elements <- n1
+while (n2 < n){
   #Print the next number of the sequence
-  elements<-c(elements,n2)
+  elements <- c(elements, n2)
   
   #Comptuing the next number of the sequence as the summation of the previous two numbers
-  n3 = n1+n2
+  n3 = n1 + n2
   
   #As n2 is already printed, assigning n2 to n3, so that the next number of the sequence (i.e., currently n3) is printed if the program enters the loop again
   #Assigning n1 to n2 as n1 has already been used to compute the next number of the seqeunce (i.e., currently n3). 
@@ -154,11 +155,11 @@ For example, suppose we need to keep asking the user to input year of birth and 
 #| eval: false
 
 #The loop will continue to run indefinitely as the condition 'True' is always true
-while(TRUE)
-{
+while(TRUE){
   year = (readline("Enter year of birth:"))
   year = as.integer(year)
-  if(year==1900){break}else{print(paste("Age = ",2022-year))}
+  if(year == 1900) break 
+  else print(paste("Age = ",2022 - year))
 }
 ```
 
@@ -169,9 +170,8 @@ The `next` statement is used to continue with the next iteration of the loop wit
 For example, consider the following code:
 
 ```{r}
-for(i in 1:10)
-{
-  if(i%%2==0){next}
+for(i in 1:10){
+  if(i %% 2 == 0) next
   print(i)
 }
 
@@ -186,20 +186,18 @@ Write a program that asks the user the question, “How many stars are in the Mi
 ```{r}
 #| eval: false
 
-while(TRUE)
-{
+while(TRUE){
   answer = readline("How many stars are there in the Milky Way (in billions)? ")
-  if(answer=='100')
-  {
+  if(answer == '100'){
     print("Correct")
     break
-  }else{
+  } else {
     print("Incorrect")
   }
   try_again = readline("Do you want to try again? (Y/N):")
-  if(try_again=='Y'){
+  if(try_again == 'Y'){
     next
-  }else{
+  } else {
     break
   }
 }
@@ -223,7 +221,7 @@ nchar(sentence)
 **Slicing a character data**: The function `substr()` is used to slice a character vector from the `start` index to the `stop` index. Note that the indices in R start from `1`, instead of `0`. For example, let us slice the object `sentence` from the $5^{th}$ index to the $9^{the}$ index:
 
 ```{r}
-substr(sentence,5,9)
+substr(sentence, 5, 9)
 ```
 
 **Example:** Define a `character` vector and count the number of *t*s.
@@ -235,10 +233,8 @@ count_t = 0
 
 #Iterating over the entire length of the string. 
 #The length of the string is given by the len() function
-for(i in 1:nchar(char_vec))
-{
-  if(substr(char_vec,i,i)=='t')
-  {
+for(i in 1:nchar(char_vec)){
+  if(substr(char_vec,i,i)=='t'){
     count_t<-count_t+1
   }
 }
@@ -254,14 +250,12 @@ Write a program that prints the number of 'the's found in sentence
 ```{r}
 sentence = "She sells the sea shells on the sea shore during the summer"
 count = 0
-for(i in 1:(nchar(sentence)-nchar("the")))
-{
-  if(substr(sentence,i,i+nchar("the")-1)=="the")
-  {
+for(i in 1:(nchar(sentence) - nchar("the"))){
+  if(substr(sentence, i, i + nchar("the") - 1) == "the"){
     count = count + 1
   }
 }
-print(paste("Number of thes in the sentence = ",count))
+print(paste("Number of thes in the sentence = ", count))
 ```
 
 
