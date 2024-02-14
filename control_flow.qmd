@@ -55,8 +55,8 @@ num = '3r'
 ```{r}
 tryCatch(
   { 
-    num_int = as.integer(num)  ; 
-    if (num_int%%3==0) {
+    num_int = as.integer(num)   
+    if (num_int %% 3 == 0) {
       print("Number is a multiple of 3")
     } else {
       print("Number is not a multiple of 3")
@@ -170,7 +170,7 @@ The `next` statement is used to continue with the next iteration of the loop wit
 For example, consider the following code:
 
 ```{r}
-for(i in 1:10) {
+for (i in 1:10) {
   if (i %% 2 == 0) next
   print(i)
 }
@@ -186,7 +186,7 @@ Write a program that asks the user the question, “How many stars are in the Mi
 ```{r}
 #| eval: false
 
-while(TRUE){
+while (TRUE) {
   answer = readline("How many stars are there in the Milky Way (in billions)? ")
   if (answer == '100') {
     print("Correct")
@@ -234,11 +234,11 @@ count_t = 0
 #Iterating over the entire length of the string. 
 #The length of the string is given by the len() function
 for (i in 1:nchar(char_vec)) {
-  if (substr(char_vec,i,i)=='t') {
-    count_t<-count_t+1
+  if (substr(char_vec, i, i) == 't') {
+    count_t <- count_t + 1
   }
 }
-print(paste("Number of 't's in the string = ",count_t))
+print(paste("Number of 't's in the string = ", count_t))
 
 ```
 

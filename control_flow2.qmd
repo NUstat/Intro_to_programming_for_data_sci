@@ -14,8 +14,8 @@ Functions in R are defined using the keyword `function()`. All the statements wi
 
 
 ```{r}
-odd_even <- function(intgr){
-  if (intgr %% 2 == 0){
+odd_even <- function(intgr) {
+  if (intgr %% 2 == 0) {
     print("even")
   } else {
       print("odd")
