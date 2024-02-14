@@ -100,6 +100,23 @@ as.numeric('9.4')
 as.numeric(FALSE)
 ```
 
+Note that any non-zero numeric value, if converted to the 'logical' datatype, will return `TRUE`, while converting 0 to the 'logical' datatype will return `FALSE`. Only numeric values can be converted to the 'logical' datatype.
+
+```{r}
+# Converting integer to logical
+as.logical(40)
+```
+
+```{r}
+# Converting integer to logical
+as.logical(0)
+```
+
+```{r}
+# Converting integer to logical
+as.logical(-30.1)
+```
+
 Sometimes, conversion of a value may not be possible. For example, it is not possible to convert the variable greeting defined below to a number:
 
 ```{r}
