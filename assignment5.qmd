@@ -15,15 +15,17 @@
 
 - Must be an HTML file rendered using Quarto (2 pts). 
 
-- The table of contents appears in the file (1)
-
-- The final answer on code execution is clearly printed out. The graders don't need to execute your code to check the answer  (1.5 points).
+- The table of contents appears in the file (2)
 
 - There aren’t excessively long outputs of extraneous information (e.g. no printouts of unnecessary results without good reason, there aren’t long printouts of which iteration a loop is on, there aren’t long sections of commented-out code, etc.). There is no piece of unnecessary / redundant code, and no unnecessary / redundant text (2 pt)
 
-- The code follows the [tidyverse style guide](https://style.tidyverse.org/index.html) for naming variables, spaces, curly braces, etc. (1.5 pt)
+- The code follows the [tidyverse style guide](https://style.tidyverse.org/index.html) for naming variables, spaces, curly braces, etc. (2 pt)
 
-- The code should be commented and clearly written with intuitive variable names. For example, use variable names such as `number_input`, `factor`, `hours`, instead of `a`,`b`, `xyz`, etc. For repetitive code chunks, either copy the comments or just leave a comment mentioning that the comment is the same as in the previous occurrece of the code chunk (2 pts)
+- The code should be commented and clearly written with intuitive variable names. For example, use variable names such as `number_input`, `factor`, `hours`, instead of `a`,`b`, `xyz`, etc. For repetitive code chunks, either copy the comments or just leave a comment mentioning that the comment is the same as in the previous occurrace of the code chunk (2 pts)
+
+- 2 points will be deducted for every question, where you have not printed out the final answer, and the **grader needs to execute your code to check the answer**. 
+
+- 2 points will be deducted for every question, where you have hard-coded the final answer. For example, if the final answer is 10, then you can't say, print(10). Your code must execute correctly to print out the final answer.
 
 6. The assignment is worth 100 points, and is due on **20th Feb 2024 at 11:59 pm**. 
 
