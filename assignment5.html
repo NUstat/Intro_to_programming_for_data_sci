@@ -507,17 +507,20 @@ window.Quarto = {
 <h3 data-number="E.3.2" class="anchored" data-anchor-id="first-sensor"><span class="header-section-number">E.3.2</span> First sensor</h3>
 <p>The first sensor is to be installed closest to Denver <em>(closest in terms of Euclidean distance)</em>. Find the coordinate-pair of the location where the first sensor will be installed. The coordinate-pair of Denver is: [39.7392<span class="math inline">\(^{\circ}\)</span> N, 104.9903<span class="math inline">\(^{\circ}\)</span> W]</p>
 <p>Note that the suffixes <span class="math inline">\(^{\circ}\)</span> N and <span class="math inline">\(^{\circ}\)</span> W are omitted in the object <code>candidate_set</code>.</p>
+<p><strong>You are not allowed to use a <code>for()</code> loop in this question.</strong></p>
 <p><em>(6 points)</em></p>
 </section>
 <section id="second-sensor" class="level3" data-number="E.3.3">
 <h3 data-number="E.3.3" class="anchored" data-anchor-id="second-sensor"><span class="header-section-number">E.3.3</span> Second sensor</h3>
 <p>Find the coordinate-pair of the installation of the next sensor, such that it is as far as possible from the first sensor installed near Denver.</p>
+<p><strong>You are not allowed to use a <code>for()</code> loop in this question.</strong></p>
 <p><em>(6 points)</em></p>
 </section>
 <section id="air-sensor-coordinates" class="level3" data-number="E.3.4">
 <h3 data-number="E.3.4" class="anchored" data-anchor-id="air-sensor-coordinates"><span class="header-section-number">E.3.4</span> Air sensor coordinates</h3>
 <p>Use the <code>rbind()</code> function to stack the coordinate-pairs of the first and second sensors vertically to obtain a 2 x 2 matrix. Name the matrix as <code>air_sensor_coordinates</code>.</p>
 <p>Run the code below to check if your results seem correct. The coordinate-pairs of the two air quality sensors will be marked as black dots over the map of Colorado. Make sure the file <em>colorado.png</em> is in the same directory as the *qmd file.</p>
+<p><strong>You are not allowed to use a <code>for()</code> loop in this question.</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(png)){</span>
@@ -541,6 +544,7 @@ window.Quarto = {
 <li><p>Stack the coordinate-pair of the third air quality sensor vertically on the array <code>air_sensor_coordinates</code>.</p></li>
 </ol>
 <p>Execute the code provided in the previous question to check if your results seem correct. The coordinate-pairs of the three air quality sensors will be marked as black dots over the map of Colorado.</p>
+<p><strong>You are not allowed to use a <code>for()</code> loop in this question.</strong></p>
 <p><strong>Hint:</strong></p>
 <p>For step (1) above:</p>
 <ol type="1">
@@ -557,6 +561,7 @@ window.Quarto = {
 <li><p>Find the minimum distance of each coordinate in <code>candidate_set</code> from the <em>i</em> already installed sensors. For example, if a coordinate-pair is at a distance of <span class="math inline">\(d_1\)</span> from the first sensor, <span class="math inline">\(d_2\)</span> from the second sensor,…, and <span class="math inline">\(d_i\)</span> from the <span class="math inline">\(i^{th}\)</span> sensor, then its minimum distance from the sensors will be <span class="math inline">\(min(d_1, d_2, ..., d_i\)</span>).</p></li>
 <li><p>Select the <span class="math inline">\(i+1^{th}\)</span> coordinate-pair (from <code>candidate_set</code>) as the one whose minimum distance from the <span class="math inline">\(i\)</span> already installed sensors is the maximum. Execute the code provided in the previous question to check if your results seem correct. You should see 50 black dots well spread across Colorado.</p></li>
 </ol>
+<p><strong>You are allowed to use only a single <code>for()</code> loop in this question.</strong></p>
 <p><em>(6 points)</em></p>
 
 
