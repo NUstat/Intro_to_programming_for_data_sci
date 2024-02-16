@@ -115,7 +115,7 @@ vec1 + vec2
 vec1 > vec2
 ```
 
-It is highly recommended that these operators be applied on atomic vectors of the same length. Otherwise, the vector of the smaller length will broadcast (or repeat itself) to match the length of the larger vector, and a warning will be returned. Typically, broadcasting can be difficult to interpret, especially when arithmetic operators are being applied on more than 2 atomic vectors of different lengths.
+It is highly recommended that these operators be applied on atomic vectors of the same length. Otherwise, the vector of the smaller length will broadcast (or repeat itself) to match the length of the larger vector. A warning will be returned if the length of the longer vector is not a multiple of the length of the shorter vector. Broadcasting may be difficult to interpret, especially when arithmetic operators are being applied on more than 2 atomic vectors of different lengths.
 
 If an operator is applied between an atomic vector and a scalar, then the operation is performed on each element of the atomic vector and the scalar. See the examples below.
 
