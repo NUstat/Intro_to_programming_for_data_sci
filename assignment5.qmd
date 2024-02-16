@@ -11,15 +11,19 @@
 
 4. Render the file as HTML to submit.
 
-5. There are 5 points for cleanliness and organization. The breakdown is as follows:
+5. There are 10 points for cleanliness and organization. The breakdown is as follows:
 
-- Must be an HTML file rendered using Quarto (1.5 pts). 
+- Must be an HTML file rendered using Quarto (2 pts). 
 
-- There aren’t excessively long outputs of extraneous information (e.g. no printouts of unnecessary results without good reason, there aren’t long printouts of which iteration a loop is on, there aren’t long sections of commented-out code, etc.). There is no piece of unnecessary / redundant code, and no unnecessary / redundant text (1 pt)
+- The table of contents appears in the file (1)
 
-- The code follows the [tidyverse style guide](https://style.tidyverse.org/index.html) for naming variables, spaces, curly braces, etc. (1 pt)
+- The final answer on code execution is clearly printed out. The graders don't need to execute your code to check the answer  (1.5 points).
 
-- The code should be commented and clearly written with intuitive variable names. For example, use variable names such as `number_input`, `factor`, `hours`, instead of `a`,`b`, `xyz`, etc. For repetitive code chunks, either copy the comments or just leave a comment mentioning that the comment is the same as in the previous occurrece of the code chunk (1.5 pts)
+- There aren’t excessively long outputs of extraneous information (e.g. no printouts of unnecessary results without good reason, there aren’t long printouts of which iteration a loop is on, there aren’t long sections of commented-out code, etc.). There is no piece of unnecessary / redundant code, and no unnecessary / redundant text (2 pt)
+
+- The code follows the [tidyverse style guide](https://style.tidyverse.org/index.html) for naming variables, spaces, curly braces, etc. (1.5 pt)
+
+- The code should be commented and clearly written with intuitive variable names. For example, use variable names such as `number_input`, `factor`, `hours`, instead of `a`,`b`, `xyz`, etc. For repetitive code chunks, either copy the comments or just leave a comment mentioning that the comment is the same as in the previous occurrece of the code chunk (2 pts)
 
 6. The assignment is worth 100 points, and is due on **20th Feb 2024 at 11:59 pm**. 
 
@@ -55,7 +59,7 @@ What is the most popular combination of streaming platforms used by students? Ho
 
 **Hint:** Use the function `table()`
 
-*(4 points)*
+*(3 points)*
 
 ### Frequency of a streaming platform
 Write a function that takes a streaming platform *(for example, 'Netflix')* as an argument, and returns the number of students using that platform.
@@ -65,7 +69,7 @@ Call the function to find the number of students using:
 #### Netflix
 #### Hulu
 
-*(8 points)*
+*(6 points)*
 
 Note that a student using a particular platform may be using other platforms as well. 
 
@@ -108,7 +112,7 @@ Record and print the time taken to execute the function `prime_factors` for the 
 ### Prime number: Without `for` loop
 Update the function `prime` so that it works without a `for` loop. Name the updated function as `prime_nofor`. Call the function `prime_nofor` with the argument as 197.
 
-*(6 points)*
+*(5 points)*
 
 ### Prime factors: Without `for` loop
 Update the function `prime_factors` so that it works without a `for` loop. Name the updated function as `prime_factors_nofor`. The function must use the functions `prime_nofor` and `factor`. Call the function `prime_factors_nofor` with the argument as `1234567`, and print the returned object, which should be the prime factors of the number.
@@ -198,7 +202,7 @@ For step (1) above:
 
 2. Apply the function on all the coordinate-pairs in `candidate_set` using the `apply()` function.
 
-*(16 points)*
+*(15 points)*
 
 ### 47 more sensors
 
