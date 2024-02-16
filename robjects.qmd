@@ -283,13 +283,13 @@ ncol(mat)
 Matrices can be sliced using the indices of row and column separated by a `,` in box brackets. Suppose we wish to get the element in the $2^{nd}$ row and $3^{rd}$ column of the matrix:
 
 ```{r}
-mat[2,3]
+mat[2, 3]
 ```
 
 For selecting all rows or columns of a matrix, the index for the row/column can be left blank. Suppose we wish to get all the elements of the $1^{st}$ of the matrix:
 
 ```{r}
-mat[1,]
+mat[1, ]
 ```
 
 Row and columns of the matrix can be sliced using the `:` operator. Suppose we want to select a sub-matrix that has elements in the first two rows and columns 2 and 3 of the matrix `mat`:
