@@ -155,10 +155,14 @@ The first sensor is to be installed closest to Denver *(closest in terms of Eucl
 
 Note that the suffixes $^{\circ}$ N and $^{\circ}$ W are omitted in the object `candidate_set`.
 
+**You are not allowed to use a `for()` loop in this question.**
+
 *(6 points)*
 
 ### Second sensor
 Find the coordinate-pair of the installation of the next sensor, such that it is as far as possible from the first sensor installed near Denver.
+
+**You are not allowed to use a `for()` loop in this question.**
 
 *(6 points)*
 
@@ -166,6 +170,8 @@ Find the coordinate-pair of the installation of the next sensor, such that it is
 Use the `rbind()` function to stack the coordinate-pairs of the first and second sensors vertically to obtain a 2 x 2 matrix. Name the matrix as `air_sensor_coordinates`. 
 
 Run the code below to check if your results seem correct. The coordinate-pairs of the two air quality sensors will be marked as black dots over the map of Colorado. Make sure the file *colorado.png* is in the same directory as the *qmd file.
+
+**You are not allowed to use a `for()` loop in this question.**
 
 ```{r}
 #| eval: false
@@ -196,6 +202,8 @@ Now you need to find the coordinate-pair for installing the third sensor such th
 
 Execute the code provided in the previous question to check if your results seem correct. The coordinate-pairs of the three air quality sensors will be marked as black dots over the map of Colorado.
 
+**You are not allowed to use a `for()` loop in this question.**
+
 **Hint:**
 
 For step (1) above:
@@ -212,11 +220,11 @@ You need to find 47 more coordinate-pairs to install air quality sensors well-sp
 
 1. Suppose you have already found the coordinate-pairs for the installation of *i* sensors.
 
-
 2. Find the minimum distance of each coordinate in `candidate_set` from the *i* already installed sensors. For example, if a coordinate-pair is at a distance of $d_1$ from the first sensor, $d_2$ from the second sensor,..., and $d_i$ from the $i^{th}$ sensor, then its minimum distance from the sensors will be $min(d_1, d_2, ..., d_i$). 
-
 
 3. Select the $i+1^{th}$ coordinate-pair (from `candidate_set`) as the one whose minimum distance from the $i$ already installed sensors is the maximum. 
 Execute the code provided in the previous question to check if your results seem correct. You should see 50 black dots well spread across Colorado.
+
+**You are allowed to use only a single `for()` loop in this question.**
 
 *(6 points)*
