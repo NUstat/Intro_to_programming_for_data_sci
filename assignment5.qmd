@@ -27,7 +27,7 @@
 
 - 2 points will be deducted for every question, where you have hard-coded the final answer. For example, if the final answer is 10, then you can't say, print(10). Your code must execute correctly to print out the final answer.
 
-6. The assignment is worth 100 points, and is due on **20th Feb 2024 at 11:59 pm**. 
+6. The assignment is worth 100 points, and is due on **26th Feb 2024 at 11:59 pm**. 
 
 
 ## Streaming platforms
