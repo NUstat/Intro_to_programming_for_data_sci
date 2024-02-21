@@ -528,7 +528,8 @@ top_10_coords <- coordinates_capital_cities[which.min(distance_of_DC_from_other_
 #| eval: false
 US_index = which(country_names == 'United States')
 dc_coord <- coordinates_capital_cities[US_index,]
-distances_to_DC <- apply(coordinates_capital_cities, 1, function(x) sqrt(sum((x - dc_coord)**2)))
+distances_to_DC <- apply(coordinates_capital_cities, 1, 
+                  function(city_coord) sqrt(sum((city_coord - dc_coord)**2)))
 num_of_countries <- length(country_names)
 distances_to_DC_matrix <- cbind(1:num_of_countries, distances_to_DC)
 sorted <- distances_to_DC_matrix[order(distances_to_DC_matrix[,2]),]
