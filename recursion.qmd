@@ -167,25 +167,35 @@ One downside of recursion is that it may take more space than an iterative solut
 In the factorial examples below, we compare the stack memory occupied in case of recursion and iteration. Note that the space occupied continues to increase in case of recursion while remains a constant in case of iteration. The units of the `size` and `current` attributes are bytes.
 
 ```{r}
+#| echo: false
+rm(list = ls())
+```
+
+
+```{r}
 # Finding factorial of an integer with recursion
 
 factorial_recursion <- function(n) {
-  # Base case
+  
   if (n == 1) return(1)    
-  print(n)
   print(Cstack_info())
-  # Recursive case
   return(n * factorial(n - 1)) 
 }
 factorial_recursion(5)
 ```
 
 ```{r}
+#| echo: false
+rm(list = ls())
+```
+
+
+```{r}
 # Finding factorial of an integer with iteration
 
 factorial_iteration <- function(n) {
   fac <- 1
-  for(i in 1:n) {
+  for (i in 1:n) {
     fac <- fac*i
     print(Cstack_info())
   } 
