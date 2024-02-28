@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to programming for data science - Appendix F — Assignment F</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Datasets.html" rel="next">
+<link href="./assignment5.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Assignment 1 (control flow).html">Appendices</a></li><li class="breadcrumb-item"><a href="./assignment6.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Assignment F</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./NU_Stat_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to programming for data science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introduction to Jupyter Notebooks and programming in python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Jupyter Notebooks and programming in python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Variable_expressions_statements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, expressions and statements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Control flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Control flow statements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_structures-complete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Object-Oriented Programming</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Variable_expressions_statements-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R: Variables, expression and statements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./control_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R: Control flow statements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./control_flow2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R: Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./robjects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">R: Objects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">R: Recursion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Assignment 1 (control flow).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Assignment A</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Assignment 2 (functions).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Assignment B</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Assignment C (data structures).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Assignment C</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Assignment D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Assignment D</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Assignment E</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Assignment F</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Assignment templates and Datasets</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#ted-talks" id="toc-ted-talks" class="nav-link" data-scroll-target="#ted-talks"><span class="header-section-number">F.1</span> TED Talks</a>
+  <ul class="collapse">
+  <li><a href="#number-of-talks" id="toc-number-of-talks" class="nav-link" data-scroll-target="#number-of-talks"><span class="header-section-number">F.1.1</span> Number of talks</a></li>
+  <li><a href="#average-number-of-views" id="toc-average-number-of-views" class="nav-link" data-scroll-target="#average-number-of-views"><span class="header-section-number">F.1.2</span> Average number of views</a></li>
+  <li><a href="#highest-number-of-views" id="toc-highest-number-of-views" class="nav-link" data-scroll-target="#highest-number-of-views"><span class="header-section-number">F.1.3</span> Highest number of views</a></li>
+  <li><a href="#most-funny-votes" id="toc-most-funny-votes" class="nav-link" data-scroll-target="#most-funny-votes"><span class="header-section-number">F.1.4</span> Most <em>Funny</em> votes</a></li>
+  <li><a href="#highest-proportion-of-inspiring-votes" id="toc-highest-proportion-of-inspiring-votes" class="nav-link" data-scroll-target="#highest-proportion-of-inspiring-votes"><span class="header-section-number">F.1.5</span> Highest proportion of <em>Inspiring</em> votes</a></li>
+  <li><a href="#most-popular-voting-category" id="toc-most-popular-voting-category" class="nav-link" data-scroll-target="#most-popular-voting-category"><span class="header-section-number">F.1.6</span> Most popular voting category</a></li>
+  </ul></li>
+  <li><a href="#binary-search" id="toc-binary-search" class="nav-link" data-scroll-target="#binary-search"><span class="header-section-number">F.2</span> Binary search</a>
+  <ul class="collapse">
+  <li><a href="#word-search-check" id="toc-word-search-check" class="nav-link" data-scroll-target="#word-search-check"><span class="header-section-number">F.2.1</span> Word search check</a></li>
+  <li><a href="#number-of-iterations" id="toc-number-of-iterations" class="nav-link" data-scroll-target="#number-of-iterations"><span class="header-section-number">F.2.2</span> Number of iterations</a></li>
+  <li><a href="#index-of-word_to_search" id="toc-index-of-word_to_search" class="nav-link" data-scroll-target="#index-of-word_to_search"><span class="header-section-number">F.2.3</span> Index of <code>word_to_search</code></a></li>
+  </ul></li>
+  <li><a href="#sudoku" id="toc-sudoku" class="nav-link" data-scroll-target="#sudoku"><span class="header-section-number">F.3</span> Sudoku</a>
+  <ul class="collapse">
+  <li><a href="#base-case-recursive-case" id="toc-base-case-recursive-case" class="nav-link" data-scroll-target="#base-case-recursive-case"><span class="header-section-number">F.3.1</span> Base case &amp; recursive case</a></li>
+  <li><a href="#solving-sudoku" id="toc-solving-sudoku" class="nav-link" data-scroll-target="#solving-sudoku"><span class="header-section-number">F.3.2</span> Solving sudoku</a></li>
+  <li><a href="#number-of-recursive-calls" id="toc-number-of-recursive-calls" class="nav-link" data-scroll-target="#number-of-recursive-calls"><span class="header-section-number">F.3.3</span> Number of recursive calls</a></li>
+  <li><a href="#number-of-calls-for-each-cell" id="toc-number-of-calls-for-each-cell" class="nav-link" data-scroll-target="#number-of-calls-for-each-cell"><span class="header-section-number">F.3.4</span> Number of calls for each cell</a></li>
+  <li><a href="#reducing-recursive-calls" id="toc-reducing-recursive-calls" class="nav-link" data-scroll-target="#reducing-recursive-calls"><span class="header-section-number">F.3.5</span> Reducing recursive calls</a></li>
+  <li><a href="#benefit-of-recursion" id="toc-benefit-of-recursion" class="nav-link" data-scroll-target="#benefit-of-recursion"><span class="header-section-number">F.3.6</span> Benefit of recursion</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Assignment 1 (control flow).html">Appendices</a></li><li class="breadcrumb-item"><a href="./assignment6.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Assignment F</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix F — Assignment F</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="instructions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructions">Instructions</h2>
+<ol type="1">
+<li><p>You may talk to a friend, discuss the questions and potential directions for solving them. However, you need to write your own solutions and code separately, and not as a group activity.</p></li>
+<li><p>Do not write your name on the assignment.</p></li>
+<li><p>Make R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.</p></li>
+<li><p>Render the file as HTML to submit.</p></li>
+<li><p>The assignment is worth 100 points, and is due on <strong>5th March 2024 at 11:59 pm</strong>.</p></li>
+<li><p>You are <strong>not allowed to use a <code>for</code> loop</strong> in this assignment, except in the last question on Sudoku.</p></li>
+</ol>
+</section>
+<section id="ted-talks" class="level2" data-number="F.1">
+<h2 data-number="F.1" class="anchored" data-anchor-id="ted-talks"><span class="header-section-number">F.1</span> TED Talks</h2>
+<p>Execute the following code to get the object <code>ted_talks</code>, which contains information about TED talks.</p>
+<p>Note that you are <strong>not allowed to use a <code>for</code> loop</strong> or any other kind of loop in all the questions below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ted_talks <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="at">file =</span> <span class="st">'TED_Talks.json'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="number-of-talks" class="level3" data-number="F.1.1">
+<h3 data-number="F.1.1" class="anchored" data-anchor-id="number-of-talks"><span class="header-section-number">F.1.1</span> Number of talks</h3>
+<p>How many TED talks are there in the data?</p>
+<p><em>(2 points)</em></p>
+</section>
+<section id="average-number-of-views" class="level3" data-number="F.1.2">
+<h3 data-number="F.1.2" class="anchored" data-anchor-id="average-number-of-views"><span class="header-section-number">F.1.2</span> Average number of views</h3>
+<p>What is the mean number of views of the TED talks?</p>
+<p><em>(4 points)</em></p>
+</section>
+<section id="highest-number-of-views" class="level3" data-number="F.1.3">
+<h3 data-number="F.1.3" class="anchored" data-anchor-id="highest-number-of-views"><span class="header-section-number">F.1.3</span> Highest number of views</h3>
+<p>Find the <code>headline</code>, <code>year_filmed</code>, and number of <code>views</code> of the top five talks with the highest number of views.</p>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(9 points)</em></p>
+</section>
+<section id="most-funny-votes" class="level3" data-number="F.1.4">
+<h3 data-number="F.1.4" class="anchored" data-anchor-id="most-funny-votes"><span class="header-section-number">F.1.4</span> Most <em>Funny</em> votes</h3>
+<p>Find the <code>headline</code>, <code>year_filmed</code> and <code>count</code> of <em>Funny</em> votes of the top five talks with the highest number of <em>Funny</em> votes</p>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(12 points)</em></p>
+</section>
+<section id="highest-proportion-of-inspiring-votes" class="level3" data-number="F.1.5">
+<h3 data-number="F.1.5" class="anchored" data-anchor-id="highest-proportion-of-inspiring-votes"><span class="header-section-number">F.1.5</span> Highest proportion of <em>Inspiring</em> votes</h3>
+<p>Find the <code>headline</code>, <code>year_filmed</code>, and proportion of <em>Inspiring</em> votes from among all the votes for the talk, of the top five talks with the highest proportion of <em>Inspiring</em> votes.</p>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(15 points)</em></p>
+</section>
+<section id="most-popular-voting-category" class="level3" data-number="F.1.6">
+<h3 data-number="F.1.6" class="anchored" data-anchor-id="most-popular-voting-category"><span class="header-section-number">F.1.6</span> Most popular voting category</h3>
+<p>Add the votes of all TED talks for each category. Which category has received the most votes? What proportion of the total votes have been received by this category?</p>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(10 points)</em></p>
+</section>
+</section>
+<section id="binary-search" class="level2" data-number="F.2">
+<h2 data-number="F.2" class="anchored" data-anchor-id="binary-search"><span class="header-section-number">F.2</span> Binary search</h2>
+<p>Execute the code below to get the object <code>wordlist_global</code>, which contains a vector of words. Write a <strong>recursive</strong> function that accepts a word, say <code>word_to_search</code> and a vector of words, say <code>wordlist</code> as arguments, and finds if the <code>word_to_search</code> occurs in <code>wordlist_global</code> or not. This is very simple to do with the code <code>word_to_search %in% tuple_of_words</code>. However, this code is unfortunately very slow.</p>
+<p>As the words in <code>wordlist_global</code> are already sorted in alphabetical order, we can search using a faster way, called binary search. To implement binary search in a function, start by comparing <code>word_to_search</code> with the middle entry in the <code>wordlist_global</code>. If they are equal, then you are done and the function should return <code>TRUE</code>. On the other hand, if the <code>word_to_search</code> comes before the middle entry, then the function must call itself to search the first half of <code>wordlist_global</code>. If it comes after the middle entry, then the function must call itself to search the second half of <code>wordlist_global</code>. In every recursive call, the function must repeat the process on the appropriate half of the <code>wordlist</code> and continue until the word is found or there is nothing left to search, in which case the function should return <code>FALSE</code>. The <code>&lt;</code> and <code>&gt;</code> operators can be used to alphabetically compare two <code>character</code> objects.</p>
+<p>Note that your function must use <strong>recursion</strong>.</p>
+<section id="word-search-check" class="level3" data-number="F.2.1">
+<h3 data-number="F.2.1" class="anchored" data-anchor-id="word-search-check"><span class="header-section-number">F.2.1</span> Word search check</h3>
+<p>Check your function if the <code>word_to_search</code> is:</p>
+<ol type="1">
+<li><p><code>'agreement'</code></p></li>
+<li><p><code>'aghast'</code></p></li>
+<li><p><code>'qualifier'</code></p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wordlist_global<span class="ot">&lt;-</span><span class="fu">unlist</span>(<span class="fu">read.table</span>(<span class="st">'wordlist.txt'</span>, <span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">""</span>, <span class="at">dec =</span> <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(15 points)</em></p>
+</section>
+<section id="number-of-iterations" class="level3" data-number="F.2.2">
+<h3 data-number="F.2.2" class="anchored" data-anchor-id="number-of-iterations"><span class="header-section-number">F.2.2</span> Number of iterations</h3>
+<p>Update the function to also print the number of iterations it took to find the <code>word_to_search</code> or fail in finding the <code>word_to_search</code>.</p>
+<p>Check your function if the <code>word_to_search</code> is:</p>
+<ol type="1">
+<li><p><code>'agreement'</code></p></li>
+<li><p><code>'tiring'</code></p></li>
+<li><p><code>'qualifier'</code></p></li>
+</ol>
+<p><strong>Hint:</strong> You can update a global variable inside the function using the <code>&lt;&lt;-</code> operator.</p>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(3 points)</em></p>
+</section>
+<section id="index-of-word_to_search" class="level3" data-number="F.2.3">
+<h3 data-number="F.2.3" class="anchored" data-anchor-id="index-of-word_to_search"><span class="header-section-number">F.2.3</span> Index of <code>word_to_search</code></h3>
+<p>Update the function in the previous question to also print the index of <code>word_to_search</code> in <code>wordlist_global</code> if the word is found. For example, the index of ‘abacus’ is 1, the index of ‘abdomen’ is 2, and so on.</p>
+<p>Check your function if the <code>word_to_search</code> is:</p>
+<ol type="1">
+<li><p><code>'agreement'</code></p></li>
+<li><p><code>'tiring'</code></p></li>
+<li><p><code>'qualifier'</code></p></li>
+</ol>
+<p>Reminder: Do not use a <code>for</code> loop or any other kind of loop.</p>
+<p><em>(6 points)</em></p>
+</section>
+</section>
+<section id="sudoku" class="level2" data-number="F.3">
+<h2 data-number="F.3" class="anchored" data-anchor-id="sudoku"><span class="header-section-number">F.3</span> Sudoku</h2>
+<p>This question is about solving the Sudoku puzzle with recursion. Read about Sudoku <a href="https://sudoku.com/how-to-play/sudoku-rules-for-complete-beginners/#:~:text=Sudoku%20is%20played%20on%20a,the%20row%2C%20column%20or%20square.">here</a>. Think about how to solve the Sudoku puzzle with recursion.</p>
+<p>This <a href="https://www.r-bloggers.com/2020/11/how-to-solve-sudoku-with-r/">blog</a> provides a recursive function <code>solve_sudoku()</code> to solve the Sudoku puzzle. Read the blog and understand the recursive function. You will need to add some lines in the function to answer some of the questions below.</p>
+<section id="base-case-recursive-case" class="level3" data-number="F.3.1">
+<h3 data-number="F.3.1" class="anchored" data-anchor-id="base-case-recursive-case"><span class="header-section-number">F.3.1</span> Base case &amp; recursive case</h3>
+<p>What are the base and recursive cases of the function <code>solve_sudoku()</code>? Cite the relevant lines of code, and explain.</p>
+<p><em>(2 points)</em></p>
+</section>
+<section id="solving-sudoku" class="level3" data-number="F.3.2">
+<h3 data-number="F.3.2" class="anchored" data-anchor-id="solving-sudoku"><span class="header-section-number">F.3.2</span> Solving sudoku</h3>
+<p>Use the function to solve the following Sudoku puzzle. Execute the following lines of code to see the puzzle.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>board<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>),<span class="dv">3</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">3</span>),<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>),<span class="dv">6</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="dv">8</span>,<span class="dv">0</span>,<span class="dv">7</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">7</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">4</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>),<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">7</span>,<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">3</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="dv">4</span>,<span class="dv">8</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">6</span>),<span class="dv">1</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="dv">7</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>),<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">3</span>),<span class="dv">7</span>,<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>)),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>              <span class="dv">9</span>,<span class="dv">9</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">9</span>),<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">9</span>),<span class="at">type=</span><span class="st">"n"</span>,<span class="at">xlab =</span> <span class="st">""</span>,<span class="at">ylab =</span> <span class="st">""</span>,<span class="at">main =</span> <span class="st">"Sudoku puzzle"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">yaxt=</span><span class="st">"n"</span>,<span class="at">bty=</span><span class="st">"n"</span>,<span class="at">asp =</span> <span class="dv">1</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rect</span>(i<span class="dv">-1</span>,j<span class="dv">-1</span>,i,j)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(board[<span class="dv">10</span><span class="sc">-</span>j,i]<span class="sc">!=</span><span class="dv">0</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    {<span class="fu">text</span>((i<span class="dv">-1</span>)<span class="sc">+</span><span class="fl">0.5</span>,(j<span class="dv">-1</span>)<span class="sc">+</span><span class="fl">0.5</span>,(((board[<span class="dv">10</span><span class="sc">-</span>j,i]))))}</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rect</span>((i<span class="dv">-1</span>)<span class="sc">*</span><span class="dv">3</span>,(j<span class="dv">-1</span>)<span class="sc">*</span><span class="dv">3</span>,<span class="dv">3</span><span class="sc">*</span>i,<span class="dv">3</span><span class="sc">*</span>j,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After using the function to solve the puzzle, execute the following lines of code to print the solution:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">9</span>),<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">9</span>),<span class="at">type=</span><span class="st">"n"</span>,<span class="at">xlab =</span> <span class="st">""</span>,<span class="at">ylab =</span> <span class="st">""</span>,<span class="at">main =</span> <span class="st">"Sudoku solved"</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">yaxt=</span><span class="st">"n"</span>,<span class="at">bty=</span><span class="st">"n"</span>,<span class="at">asp =</span> <span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rect</span>(i<span class="dv">-1</span>,j<span class="dv">-1</span>,i,j)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(board[<span class="dv">10</span><span class="sc">-</span>j,i]<span class="sc">!=</span><span class="dv">0</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    {<span class="fu">text</span>((i<span class="dv">-1</span>)<span class="sc">+</span><span class="fl">0.5</span>,(j<span class="dv">-1</span>)<span class="sc">+</span><span class="fl">0.5</span>,(((board[<span class="dv">10</span><span class="sc">-</span>j,i]))))}<span class="cf">else</span>{</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">text</span>((i<span class="dv">-1</span>)<span class="sc">+</span><span class="fl">0.5</span>,(j<span class="dv">-1</span>)<span class="sc">+</span><span class="fl">0.5</span>,(((result[<span class="dv">10</span><span class="sc">-</span>j,i]))),<span class="at">col =</span> <span class="dv">2</span>,<span class="at">cex=</span><span class="fl">1.25</span>)}</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rect</span>((i<span class="dv">-1</span>)<span class="sc">*</span><span class="dv">3</span>,(j<span class="dv">-1</span>)<span class="sc">*</span><span class="dv">3</span>,<span class="dv">3</span><span class="sc">*</span>i,<span class="dv">3</span><span class="sc">*</span>j,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>(4 points)</em></p>
+</section>
+<section id="number-of-recursive-calls" class="level3" data-number="F.3.3">
+<h3 data-number="F.3.3" class="anchored" data-anchor-id="number-of-recursive-calls"><span class="header-section-number">F.3.3</span> Number of recursive calls</h3>
+<p>How many times does the function <code>solve_sudoku</code> call itself to solve the puzzle?</p>
+<p><em>(3 points)</em></p>
+</section>
+<section id="number-of-calls-for-each-cell" class="level3" data-number="F.3.4">
+<h3 data-number="F.3.4" class="anchored" data-anchor-id="number-of-calls-for-each-cell"><span class="header-section-number">F.3.4</span> Number of calls for each cell</h3>
+<p>Create and print a <span class="math inline">\(9 \times 9\)</span> matrix that contains the number of times the function calls itself to try a digit for the respective cell in the puzzle.</p>
+<p><em>(5 points)</em></p>
+</section>
+<section id="reducing-recursive-calls" class="level3" data-number="F.3.5">
+<h3 data-number="F.3.5" class="anchored" data-anchor-id="reducing-recursive-calls"><span class="header-section-number">F.3.5</span> Reducing recursive calls</h3>
+<p>Analyze the matrix created in the previous question. Edit the function to reduce the number of recursive calls it takes to solve the puzzle. Your approach must be general and not specific to this particular puzzle. However, you will demonstrate your approach on this puzzle.</p>
+<p>Find the number of times the functions calls itself with the improved sudoku solver to solve the given puzzle.</p>
+<p><em>(8 points)</em></p>
+</section>
+<section id="benefit-of-recursion" class="level3" data-number="F.3.6">
+<h3 data-number="F.3.6" class="anchored" data-anchor-id="benefit-of-recursion"><span class="header-section-number">F.3.6</span> Benefit of recursion</h3>
+<p>What challenges will you face if you try to solve this problem without recursion?</p>
+<p><em>(2 points)</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./assignment5.html" class="pagination-link" aria-label="Assignment E">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Assignment E</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Datasets.html" class="pagination-link" aria-label="Assignment templates and Datasets">
+        <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Assignment templates and Datasets</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
