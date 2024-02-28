@@ -114,12 +114,6 @@ palindrome <- function(word) {
 palindrome(word)
 ```
 
-## Recursion vs iteration
-
-Recursion is typically used when the problem is naturally recursive (for e.g., generating a Fibonacci sequence), or the data is naturally recursive ( for e.g., filesystem). Recursive solutions can be easy to read and understand as compared to the corresponding iterative solution.
-
-One downside of recursion is that it may take more space than an iterative solution. Building up a stack of recursive calls consumes memory temporarily, and the stack is limited in size, which may become a limit on the size of the problem that the recursive implementation can solve.
-
 ## Space occupied by recursive calls
 
 Stack memory is a memory usage mechanism that allows the system memory to be used as temporary data storage that behaves as a first-in-last-out buffer. 
@@ -162,5 +156,41 @@ The recursion continues until the base case is reached. The base case is a condi
 
 * This process continues until the initial function call is reached.
 
-The function `CStack_info()` can be used to retrieve the stack memory occupied by the recursive calls. If the function is recursively called so many times such that the stack usage limit is reached, the program stops indicating a run-time error.
+The function `CStack_info()` can be used to retrieve the stack memory occupied by the recursive calls. If the function is recursively called so many times such that the stack usage limit is reached, the program stops indicating a stack overflow error.
+
+## Recursion vs iteration
+
+Recursion is typically used when the problem is naturally recursive (for e.g., generating a Fibonacci sequence), or the data is naturally recursive ( for e.g., filesystem). Recursive solutions can be easy to read and understand as compared to the corresponding iterative solution.
+
+One downside of recursion is that it may take more space than an iterative solution. Building up a stack of recursive calls consumes memory temporarily, and the stack is limited in size, which may become a limit on the size of the problem that the recursive implementation can solve.
+
+In the factorial examples below, we compare the stack memory occupied in case of recursion and iteration. Note that the space occupied continues to increase in case of recursion while remains a constant in case of iteration. The units of the `size` and `current` attributes are bytes.
+
+```{r}
+# Finding factorial of an integer with recursion
+
+factorial_recursion <- function(n) {
+  # Base case
+  if (n == 1) return(1)    
+  print(n)
+  print(Cstack_info())
+  # Recursive case
+  return(n * factorial(n - 1)) 
+}
+factorial_recursion(5)
+```
+
+```{r}
+# Finding factorial of an integer with iteration
+
+factorial_iteration <- function(n) {
+  fac <- 1
+  for(i in 1:n) {
+    fac <- fac*i
+    print(Cstack_info())
+  } 
+  return(fac)
+}
+factorial_iteration(5)
+```
 
