@@ -334,5 +334,19 @@
     "title": "Appendix E — Assignment E",
     "section": "Instructions",
     "text": "Instructions\n\nYou may talk to a friend, discuss the questions and potential directions for solving them. However, you need to write your own solutions and code separately, and not as a group activity.\nDo not write your name on the assignment.\nMake R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.\nRender the file as HTML to submit.\nThere are 5 points for cleanliness and organization. The breakdown is as follows:\n\n\nMust be an HTML file rendered using Quarto (1.5 pts).\nThere aren’t excessively long outputs of extraneous information (e.g. no printouts of unnecessary results without good reason, there aren’t long printouts of which iteration a loop is on, there aren’t long sections of commented-out code, etc.). There is no piece of unnecessary / redundant code, and no unnecessary / redundant text (1 pt)\nThe code follows the tidyverse style guide for naming variables, spaces, curly braces, etc. (1 pt)\nThe code should be commented and clearly written with intuitive variable names. For example, use variable names such as number_input, factor, hours, instead of a,b, xyz, etc. For repetitive code chunks, either copy the comments or just leave a comment mentioning that the comment is the same as in the previous occurrece of the code chunk (1.5 pts)\n\n\nThe assignment is worth 100 points, and is due on 20th Feb 2024 at 11:59 pm."
+  },
+  {
+    "objectID": "assignment6.html#instructions",
+    "href": "assignment6.html#instructions",
+    "title": "Appendix F — Assignment F",
+    "section": "Instructions",
+    "text": "Instructions\n\nYou may talk to a friend, discuss the questions and potential directions for solving them. However, you need to write your own solutions and code separately, and not as a group activity.\nDo not write your name on the assignment.\nMake R code chunks to insert code and type your answer outside the code chunks. Ensure that the solution is written neatly enough to understand and grade.\nRender the file as HTML to submit.\nThe assignment is worth 100 points, and is due on 5th March 2024 at 11:59 pm.\nYou are not allowed to use a for loop in this assignment, except in the last question on Sudoku."
+  },
+  {
+    "objectID": "assignment6.html#ted-talks",
+    "href": "assignment6.html#ted-talks",
+    "title": "Appendix F — Assignment F",
+    "section": "F.1 TED Talks",
+    "text": "F.1 TED Talks\nExecute the following code to get the object ted_talks, which contains information about TED talks.\nNote that you are not allowed to use a for loop or any other kind of loop in all the questions below."
   }
 ]

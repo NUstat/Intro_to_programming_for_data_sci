@@ -1,14 +1,4 @@
----
-title: "Assignment 6 (R: Lists and Recursion)"
-subtitle: "R: Lists and recursion"
-format:
-  html:
-    toc: true
-self-contained: true
-link-external-newwindow: true
-editor_options: 
-  chunk_output_type: console
----
+# Assignment F
 
 ## Instructions {-}
 
@@ -20,13 +10,9 @@ editor_options:
 
 4. Render the file as HTML to submit.
 
-5. The assignment is worth 100 points, and is due on **22nd November 2022 at 11:59 pm**. 
+5. The assignment is worth 100 points, and is due on **5th March 2024 at 11:59 pm**. 
 
 6. You are **not allowed to use a `for` loop** in this assignment, except in the last question on Sudoku.
-
-7. In addition to uploading the HTML file on Canvas, you will submit this assignment on Github as well. Github link for the assignment is: <https://classroom.github.com/a/mzLbthmW> . 
-
-Put the link to your Github repository containing your rendered HTML file here: \<link to Github repository>
 
 ## TED Talks
 
@@ -37,7 +23,7 @@ Note that you are **not allowed to use a `for` loop** or any other kind of loop 
 ```{r}
 #| eval: false
 library(rjson)
-ted_talks<-fromJSON(file='TED_Talks.json')
+ted_talks <- fromJSON(file = 'TED_Talks.json')
 ```
 
 ### Number of talks
@@ -94,6 +80,8 @@ Check your function if the `word_to_search` is:
 
 2. `'aghast'`
 
+3. `'qualifier'`
+
 ```{r}
 #| eval: false
 wordlist_global<-unlist(read.table('wordlist.txt', header = FALSE, sep = "", dec = "."))
@@ -111,7 +99,9 @@ Check your function if the `word_to_search` is:
 
 1. `'agreement'`
 
-2. `'aghast'`
+2. `'tiring'`
+
+3. `'qualifier'`
 
 **Hint:** You can update a global variable inside the function using the `<<-` operator.
 
@@ -126,7 +116,9 @@ Check your function if the `word_to_search` is:
 
 1. `'agreement'`
 
-2. `'aghast'`
+2. `'tiring'`
+
+3. `'qualifier'`
 
 Reminder: Do not use a `for` loop or any other kind of loop.
 
@@ -146,6 +138,7 @@ What are the base and recursive cases of the function `solve_sudoku()`? Cite the
 ### Solving sudoku
 Use the function to solve the following Sudoku puzzle. Execute the following lines of code to see the puzzle.  
 ```{r}
+#| eval: false
 board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
                 rep(0,5),6,2,0,4,0,7,0,0,4,rep(0,4),9,6,0,0,7,0,5,0,3,
                 4,8,rep(0,6),1,rep(0,5),7,rep(0,4),5,9,5,rep(0,3),7,rep(0,4)),
@@ -221,3 +214,6 @@ Find the number of times the functions calls itself with the improved sudoku sol
 What challenges will you face if you try to solve this problem without recursion?
 
 *(2 points)*
+
+
+
