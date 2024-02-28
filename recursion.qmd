@@ -194,3 +194,58 @@ factorial_iteration <- function(n) {
 factorial_iteration(5)
 ```
 
+
+### Time Complexity
+
+* There are $O(N)$ recursive calls in our recursive approach, and each call uses $O(1)$ operations. Thus, the time complexity of factorial using recursion is $O(N)$.
+
+* There are $O(N)$ iterations of the loop in our iterative approach, so its time complexity is also $O(N)$.
+
+Though both the programs’ theoretical time complexity is the same, a recursive program will take more time to execute due to the overhead of function calls, which is much higher than that of iteration.
+
+### Space Complexity
+
+* In the recursive program, due to each recursive call, some memory gets allocated in the stack to store parameters and local variables. As there are $O(N)$ recursive calls, the space complexity using recursion is $O(N)$.
+
+* No extra memory gets allocated in the iterative program, so its space complexity is $O(1)$.
+
+
+### Strengths and Weaknesses of Recursion and Iteration
+
+#### Iteration
+
+**Strengths:**
+
+* Iteration can be used to repeatedly execute a set of statements without the overhead of function calls and without using stack memory.
+
+* Iteration is faster and more efficient than recursion.
+
+* It's easier to optimize iterative codes.
+
+**Weaknesses:**
+
+* In loops, we can go only in one direction, i.e., we can’t go or transfer data from the current state to the previous state that has already been executed.
+
+* It’s difficult to traverse trees/graphs using loops.
+
+#### Recursion
+
+**Strengths:**
+
+* It’s easier to code the solution using recursion when the solution of the current problem is dependent on the solution of smaller similar problems. 
+    
+* Recursive codes are smaller and easier to understand.
+
+* We can pass information to the next state in the form of parameters and return information to the previous state in the form of the return value.
+
+* It’s a lot easier to perform operations on trees and graphs using recursion.
+
+**Weaknesses:**
+
+* The simplicity of recursion comes at the cost of time and space efficiency.
+
+* It is much slower than iteration due to the overhead of function calls and control shift from one function to another.
+
+* It requires extra memory on the stack for each recursive call. This memory gets de-allocated when function execution is over.
+
+* It is difficult to optimize a recursive code, and they generally have higher time complexity than iterative codes due to overlapping sub-problems.
