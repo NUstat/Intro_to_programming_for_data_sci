@@ -72,7 +72,7 @@ Reminder: Do not use a `for` loop or any other kind of loop.
 *(15 points)*
 
 ### Most popular voting category
-Add the votes of all TED talks for each category. Which category has received the most votes? What is the proportion of total votes for this category?
+Add the votes of all TED talks for each category. Which category has received the most votes? What proportion of the total votes have been received by this category?
 
 Reminder: Do not use a `for` loop or any other kind of loop.
 
