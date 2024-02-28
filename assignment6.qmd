@@ -155,28 +155,23 @@ What are the base and recursive cases of the function `solve_sudoku()`? Cite the
 Use the function to solve the following Sudoku puzzle. Execute the following lines of code to see the puzzle.  
 ```{r}
 #| eval: false
-board<-matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
+board <- matrix(c(rep(0,4),3,rep(0,3),1,9,8,rep(0,4),6,rep(0,5),8,0,7,
                 rep(0,5),6,2,0,4,0,7,0,0,4,rep(0,4),9,6,0,0,7,0,5,0,3,
                 4,8,rep(0,6),1,rep(0,5),7,rep(0,4),5,9,5,rep(0,3),7,rep(0,4)),
               9,9)
 
-plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku puzzle",
-     xaxt="n",yaxt="n",bty="n",asp = 1)
-for(i in 1:9)
-{
-  for(j in 1:9)
-  {
-    rect(i-1,j-1,i,j)
-    if(board[10-j,i]!=0)
-    {text((i-1)+0.5,(j-1)+0.5,(((board[10-j,i]))))}
+plot(c(0,9), c(0,9), type = "n", xlab = "", ylab = "", main = "Sudoku puzzle",
+     xaxt = "n", yaxt = "n", bty = "n", asp = 1)
+for (i in 1:9) {
+  for (j in 1:9) {
+    rect(i - 1, j - 1, i, j)
+    if (board[10 - j, i] != 0) {
+      text((i - 1) + 0.5, (j - 1) + 0.5, (((board[10 - j, i]))))
+      }
   }
 }
-for(i in 1:3)
-{
-  for(j in 1:3)
-  {
-    rect((i-1)*3,(j-1)*3,3*i,3*j,lwd=2)
-  }
+for(i in 1:3) {
+  for(j in 1:3) rect((i - 1) * 3,(j - 1) * 3,3 * i,3 * j, lwd = 2)
 }
 ```
 
@@ -184,24 +179,21 @@ After using the function to solve the puzzle, execute the following lines of cod
 
 ```{r}
 #| eval: false
-plot(c(0,9),c(0,9),type="n",xlab = "",ylab = "",main = "Sudoku solved",
-     xaxt="n",yaxt="n",bty="n",asp = 1)
-for(i in 1:9)
-{
-  for(j in 1:9)
-  {
-    rect(i-1,j-1,i,j)
-    if(board[10-j,i]!=0)
-    {text((i-1)+0.5,(j-1)+0.5,(((board[10-j,i]))))}else{
-    text((i-1)+0.5,(j-1)+0.5,(((result[10-j,i]))),col = 2,cex=1.25)}
+plot(c(0,9), c(0,9), type = "n", xlab = "", ylab = "", main = "Sudoku solved",
+     xaxt = "n", yaxt = "n", bty = "n", asp = 1)
+for(i in 1:9) {
+  for(j in 1:9) {
+    rect(i - 1, j - 1, i, j)
+    if (board[10 - j, i] != 0) {
+      text((i - 1) + 0.5, (j - 1) + 0.5, (((board[10 - j, i]))))
+      } else {
+    text((i - 1) + 0.5, (j - 1) + 0.5, (((result[10 - j, i]))), col = 2, cex = 1.25)
+      }
   }
 }
-for(i in 1:3)
-{
-  for(j in 1:3)
-  {
-    rect((i-1)*3,(j-1)*3,3*i,3*j,lwd=2)
-  }
+
+for(i in 1:3) {
+  for(j in 1:3) rect((i-1)*3,(j-1)*3,3*i,3*j,lwd=2)
 }
 ```
 
@@ -230,6 +222,3 @@ Find the number of times the functions calls itself with the improved sudoku sol
 What challenges will you face if you try to solve this problem without recursion?
 
 *(2 points)*
-
-
-
