@@ -120,4 +120,47 @@ Recursion is typically used when the problem is naturally recursive (for e.g., g
 
 One downside of recursion is that it may take more space than an iterative solution. Building up a stack of recursive calls consumes memory temporarily, and the stack is limited in size, which may become a limit on the size of the problem that the recursive implementation can solve.
 
+## Space occupied by recursive calls
+
+Stack memory is a memory usage mechanism that allows the system memory to be used as temporary data storage that behaves as a first-in-last-out buffer. 
+
+When a recursive function is called in a programming language, the stack memory is used to keep track of each invocation of the function. Let's break down how stack memory is occupied during the execution of a recursive function:
+
+### Function Call
+
+When a recursive function is called, a new stack frame is created on the call stack. The parameters, local variables, and return address are stored in this stack frame.
+
+### Nested Calls
+
+If the recursive function makes another call to itself, a new stack frame is created for the new invocation. This process continues as long as the base case is not reached.
+
+### Stack Frames in Memory
+
+Each stack frame is pushed onto the top of the call stack, forming a chain of frames. The stack grows deeper with each recursive call.
+
+### Local Variables and Parameters
+
+Each invocation has its own set of local variables and parameters stored in its respective stack frame. These values are separate and independent for each level of recursion.
+
+### Return Addresses
+
+The return address of each invocation is stored in its stack frame. When a function call completes, the program knows where to return by using this address.
+
+### Base Case
+
+The recursion continues until the base case is reached. The base case is a condition that, when met, stops the recursive calls and starts unwinding the call stack.
+
+### Unwinding the Stack
+
+* As the base case is reached, the recursive calls start to complete, and the stack frames are popped off the call stack.
+
+* The return values are used to compute the final result as the stack unwinds.
+
+### Memory Deallocation
+
+* As each stack frame is popped off, the memory occupied by that frame is deallocated.
+
+* This process continues until the initial function call is reached.
+
+The function `CStack_info()` can be used to retrieve the stack memory occupied by the recursive calls. If the function is recursively called so many times such that the stack usage limit is reached, the program stops indicating a run-time error.
 
