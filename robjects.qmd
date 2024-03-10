@@ -336,7 +336,9 @@ In the above code, we sum up all the elements of the row simultaneously. However
 
 ### The `apply()` function
 
-The `apply()` function can used to apply a function simultaneously on all rows or columns of a matrix. Thus, this function helps avoid a `for` loop to iterate over all the rows and columns of the matrix. This reduces the execution time of the code since operations are performed in-parallel, instead of one-at-a-time in a `for` loop.
+The `apply()` function can be used to apply a function on each row or column of a matrix. Thus, this function helps avoid the user to write a `for()` loop in R to iterate over all the rows and columns of the matrix. Note that each row / column of a matrix is an atomic vector. Thus, vectorized computations can be performed within the function, resulting in efficient computations.
+
+Note that the apply functions use a `for()` loop under-the-hood, and thus the function will be applied sequentially on each row / column of the matrix. However, as the implementation of the `for()` loop is in C, it is likely to be faster than a `for()` loop in R.
 
 Let us use the `apply()` function to sum up all the rows of the matrix `mat`.
 
